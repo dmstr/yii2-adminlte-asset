@@ -16,7 +16,8 @@
             </div>
         </div>
         <?= yii\helpers\Html::a('Manage Users', ['/user/admin'], ['class' => 'btn btn-default btn-block btn-flat']); ?>
-        <?= yii\helpers\Html::a(
+        <?=
+        yii\helpers\Html::a(
             'Create User',
             ['/user/admin/create'],
             ['class' => 'btn btn-default btn-block btn-flat']
@@ -59,7 +60,8 @@
             </div>
         </div>
         <?php
-        foreach (\Yii::$app->modules AS $module) {
+        foreach (\Yii::$app->getModules() AS $name => $m) {
+            $module = \Yii::$app->getModule($name);
             echo yii\helpers\Html::a(
                 $module->id,
                 ['/' . $module->id],
