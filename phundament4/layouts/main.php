@@ -184,8 +184,8 @@ dmstr\web\AdminLteAsset::register($this);
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                <?= $this->title ?>
-                <small><?= $this->context->module->id ?></small>
+                <?= \yii\helpers\Inflector::camel2words(\yii\helpers\Inflector::id2camel($this->context->module->id)) ?>
+                <small><?= ($this->context->module->id !== \Yii::$app->id)?'Module':'' ?></small>
             </h1>
             <?=
             Breadcrumbs::widget(

@@ -29,18 +29,18 @@
         <div class="small-box bg-blue">
             <div class="inner">
                 <h3>
-                    4
+                    1
                 </h3>
 
                 <p>
-                    Controllers
+                    Frontend Controllers
                 </p>
             </div>
             <div class="icon">
                 <i class="ion ion-person-add"></i>
             </div>
         </div>
-        <?= yii\helpers\Html::a('Site', ['/site'], ['class' => 'btn btn-default btn-block btn-flat']); ?>
+        <?= yii\helpers\Html::a('Site', '../../frontend/web/index.php?r=site', ['class' => 'btn btn-default btn-block btn-flat']); ?>
     </div>
     <!-- ./col -->
     <div class="col-lg-3 col-xs-6">
@@ -48,7 +48,7 @@
         <div class="small-box bg-green">
             <div class="inner">
                 <h3>
-                    3
+                    <?= count(\Yii::$app->getModules()) ?>
                 </h3>
 
                 <p>
@@ -77,17 +77,20 @@
         <div class="small-box bg-red">
             <div class="inner">
                 <h3>
-                    0
+                    3
                 </h3>
 
                 <p>
-                    Notifications
+                    Documents
                 </p>
             </div>
             <div class="icon">
                 <i class="ion ion-pie-graph"></i>
             </div>
         </div>
+        <?= yii\helpers\Html::a('Class Reference', '../../docs-html/index.html', ['target' => '_blank', 'class' => 'btn btn-default btn-block btn-flat']); ?>
+        <?= yii\helpers\Html::a('Developer Guide', '../../docs-html/guide-README.html', ['target' => '_blank', 'class' => 'btn btn-default btn-block btn-flat']); ?>
+        <?= yii\helpers\Html::a('User Guide', 'https://docs.google.com', ['target' => '_blank', 'class' => 'btn btn-default btn-block btn-flat']); ?>
     </div>
     <!-- ./col -->
 </div>
