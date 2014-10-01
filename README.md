@@ -3,7 +3,7 @@ AdminLTE Asset Bundle
 
 Backend theme for Yii2 Framework, based on [AdminLTE](https://github.com/almasaeed2010/AdminLTE).
 
-** WORK IN PROGRESS(!) **
+**WORK IN PROGRESS(!)**
 
 Installation
 ------------
