@@ -1,0 +1,21 @@
+{
+    "name": "dmstr/yii2-adminlte-asset",
+    "description": "Backend theme for Yii2 Framework",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension"],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Tobias Munk",
+            "email": "tobias@diemeisterei.de"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "dmstr\\web\\": ""
+        }
+    }
+}
