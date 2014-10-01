@@ -1,5 +1,6 @@
 <?php
 use yii\bootstrap\Nav;
+use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
 
 /* @var $this \yii\web\View */
@@ -13,9 +14,10 @@ dmstr\web\AdminLteAsset::register($this);
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>AdminLTE | Dashboard</title>
+    <?= Html::csrfMetaTags() ?>
+    <title><?= Html::encode($this->title) ?></title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>-->
     <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"
           type="text/css"/>
     <!-- Ionicons -->
@@ -50,85 +52,67 @@ dmstr\web\AdminLteAsset::register($this);
 
         <div class="navbar-right">
             <ul class="nav navbar-nav">
-                <!-- Notifications: style can be found in dropdown.less -->
-                <li class="dropdown notifications-menu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-warning"></i>
-                        <span class="label label-warning">10</span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li class="header">You have 10 notifications</li>
-                        <li>
-                            <!-- inner menu: contains the actual data -->
-                            <ul class="menu">
-                                <li>
-                                    <a href="#">
-                                        <i class="ion ion-ios7-people info"></i> 5 new members joined today
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-warning danger"></i> Very long description here that may not fit
-                                        into the page and may cause design problems
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-users warning"></i> 5 new members joined
-                                    </a>
-                                </li>
+                <?php if (!\Yii::$app->user->isGuest): ?>
 
-                                <li>
-                                    <a href="#">
-                                        <i class="ion ion-ios7-cart success"></i> 25 sales made
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="ion ion-ios7-person danger"></i> You changed your username
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="footer"><a href="#">View all</a></li>
-                    </ul>
-                </li>
+                    <!-- Notifications: style can be found in dropdown.less -->
+                    <li class="dropdown notifications-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-warning"></i>
+                            <span class="label label-warning">1</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">You have 1 notification(s)</li>
+                            <li>
+                                <!-- inner menu: contains the actual data -->
+                                <ul class="menu">
+                                    <li>
+                                        <a href="#">
+                                            <i class="ion ion-ios7-people info"></i> Welcome to Phundament 4!
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--<li class="footer"><a href="#">View all</a></li>-->
+                        </ul>
+                    </li>
 
-                <!-- User Account: style can be found in dropdown.less -->
-                <li class="dropdown user user-menu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="glyphicon glyphicon-user"></i>
-                        <span><?= \Yii::$app->user->identity->username ?> <i class="caret"></i></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <!-- User image -->
-                        <li class="user-header bg-light-blue">
-                            <?php echo \cebe\gravatar\Gravatar::widget(
-                                [
-                                    'email'   => \Yii::$app->user->identity->email,
-                                    'options' => [
-                                        'alt' => \Yii::$app->user->identity->username
-                                    ],
-                                    'size'    => 128
-                                ]
-                            ); ?>
-                            <p>
-                                <?= \Yii::$app->user->identity->username ?>
-                                <small>-</small>
-                            </p>
-                        </li>
-                        <!-- Menu Footer-->
-                        <li class="user-footer">
-                            <div class="pull-left">
-                                <a href="<?= \yii\helpers\Url::to(['/user/settings/profile']) ?>"
-                                   class="btn btn-default btn-flat">Profile</a>
-                            </div>
-                            <div class="pull-right">
-                                <a href="<?= \yii\helpers\Url::to(['/user/security/logout']) ?>" class="btn btn-default btn-flat" data-method="post">Sign out</a>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
+                    <!-- User Account: style can be found in dropdown.less -->
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="glyphicon glyphicon-user"></i>
+                            <span><?= \Yii::$app->user->identity->username ?> <i class="caret"></i></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- User image -->
+                            <li class="user-header bg-light-blue">
+                                <?php echo \cebe\gravatar\Gravatar::widget(
+                                    [
+                                        'email'   => \Yii::$app->user->identity->email,
+                                        'options' => [
+                                            'alt' => \Yii::$app->user->identity->username
+                                        ],
+                                        'size'    => 128
+                                    ]
+                                ); ?>
+                                <p>
+                                    <?= \Yii::$app->user->identity->username ?>
+                                    <small><?= \Yii::$app->user->identity->email ?></small>
+                                </p>
+                            </li>
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+                                <div class="pull-left">
+                                    <a href="<?= \yii\helpers\Url::to(['/user/settings/profile']) ?>"
+                                       class="btn btn-default btn-flat">Profile</a>
+                                </div>
+                                <div class="pull-right">
+                                    <a href="<?= \yii\helpers\Url::to(['/user/security/logout']) ?>"
+                                       class="btn btn-default btn-flat" data-method="post">Sign out</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                <?php endif; ?>
             </ul>
         </div>
     </nav>
@@ -139,24 +123,26 @@ dmstr\web\AdminLteAsset::register($this);
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
             <!-- Sidebar user panel -->
-            <div class="user-panel">
-                <div class="pull-left image">
-                    <?php echo \cebe\gravatar\Gravatar::widget(
-                        [
-                            'email'   => \Yii::$app->user->identity->email,
-                            'options' => [
-                                'alt' => \Yii::$app->user->identity->username
-                            ],
-                            'size'    => 64
-                        ]
-                    ); ?>
-                </div>
-                <div class="pull-left info">
-                    <p>Hello, <?= \Yii::$app->user->identity->username ?></p>
+            <?php if (!\Yii::$app->user->isGuest): ?>
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <?php echo \cebe\gravatar\Gravatar::widget(
+                            [
+                                'email'   => \Yii::$app->user->identity->email,
+                                'options' => [
+                                    'alt' => \Yii::$app->user->identity->username
+                                ],
+                                'size'    => 64
+                            ]
+                        ); ?>
+                    </div>
+                    <div class="pull-left info">
+                        <p><?= \Yii::$app->user->identity->username ?></p>
 
-                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                    </div>
                 </div>
-            </div>
+            <?php endif; ?>
             <!-- search form -->
             <!--<form action="#" method="get" class="sidebar-form">
                 <div class="input-group">
@@ -172,16 +158,6 @@ dmstr\web\AdminLteAsset::register($this);
             $menuItems = [
                 ['label' => '<i class="fa fa-dashboard"></i> <span>Dashboard</span>', 'url' => ['/site/index']],
             ];
-            if (Yii::$app->user->isGuest) {
-                $menuItems[] = ['label' => 'Login', 'url' => ['/user/security/login']];
-            } else {
-                $modules = [];
-                $menuItems[] = [
-                    'label'       => 'Logout (' . Yii::$app->user->identity->username . ')',
-                    'url'         => ['/user/security/logout'],
-                    'linkOptions' => ['data-method' => 'post']
-                ];
-            }
 
             // sidebar menu: : style can be found in sidebar.less
             echo Nav::widget(
