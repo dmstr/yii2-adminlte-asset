@@ -5,7 +5,7 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace backend\assets\adminlte;
+namespace dmstr\web;
 
 use yii\web\AssetBundle;
 
@@ -15,7 +15,7 @@ use yii\web\AssetBundle;
  */
 class AdminLteAsset extends AssetBundle
 {
-    public $sourcePath = '@backend/assets/adminlte/AdminLTE-master';
+    public $sourcePath = '@dmstr/web/AdminLTE-master';
     //public $basePath = 'AdminLTE-master';
     public $baseUrl = '@web';
     public $css = [

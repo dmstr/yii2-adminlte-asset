@@ -35,9 +35,11 @@ Once the extension is installed, simply use it in your application by configurin
         'view' => [
             'theme' => [
                 'pathMap' => [
-                    '@app/views/layouts' => '@vendor/dmstr/yii2-adminlte-asset/layouts'
+                    '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/phundament4'
                 ],
             ],
         ],
     ]
 ```
+
+> Note: This asset bundle provides sample files for layout and view, make sure to adjust them to your needs.

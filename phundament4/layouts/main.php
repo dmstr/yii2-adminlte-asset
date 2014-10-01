@@ -5,7 +5,7 @@ use yii\widgets\Breadcrumbs;
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-backend\assets\adminlte\AdminLteAsset::register($this);
+dmstr\web\AdminLteAsset::register($this);
 
 ?>
 <?php $this->beginPage() ?>
@@ -34,9 +34,9 @@ backend\assets\adminlte\AdminLteAsset::register($this);
 <body class="skin-black">
 <!-- header logo: style can be found in header.less -->
 <header class="header">
-    <a href="index.html" class="logo">
+    <a href="<?= \Yii::$app->homeUrl ?>" class="logo">
         <!-- Add the class icon to your logo image or logo icon to add the margining -->
-        Phundament
+        Phundament 4
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">
@@ -124,7 +124,7 @@ backend\assets\adminlte\AdminLteAsset::register($this);
                                    class="btn btn-default btn-flat">Profile</a>
                             </div>
                             <div class="pull-right">
-                                <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                <a href="<?= \yii\helpers\Url::to(['/user/security/logout']) ?>" class="btn btn-default btn-flat" data-method="post">Sign out</a>
                             </div>
                         </li>
                     </ul>
@@ -176,15 +176,6 @@ backend\assets\adminlte\AdminLteAsset::register($this);
                 $menuItems[] = ['label' => 'Login', 'url' => ['/user/security/login']];
             } else {
                 $modules = [];
-                foreach (\Yii::$app->modules AS $module) {
-                    $modules[] = ['label' => $module->id, 'url' => ['/' . $module->id]];
-                }
-                $menuItems[] = [
-                    // TODO: add class treeview-menu to child ULs, see adminLTE examples for details
-                    'label'   => 'Modules <small class="badge pull-right bg-green">' . count($modules) . '</small>',
-                    'options' => ['class' => 'treeview'],
-                    'items'   => $modules
-                ];
                 $menuItems[] = [
                     'label'       => 'Logout (' . Yii::$app->user->identity->username . ')',
                     'url'         => ['/user/security/logout'],
