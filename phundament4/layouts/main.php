@@ -155,11 +155,15 @@ dmstr\web\AdminLteAsset::register($this);
             <!-- /.search form -->
 
             <?php
-            $menuItems = [
-                ['label' => '<i class="fa fa-dashboard"></i> <span>Dashboard</span>', 'url' => ['/site/index']],
-                ['label' => '<i class="fa fa-users"></i> <span>Users</span>', 'url' => ['/user/admin']],
-                ['label' => '<i class="fa fa-square"></i> <span>Packages</span>', 'url' => ['/packaii']],
-            ];
+            if (!\Yii::$app->user->isGuest) {
+                $menuItems = [
+                    ['label' => '<i class="fa fa-dashboard"></i> <span>Dashboard</span>', 'url' => ['/site/index']],
+                    ['label' => '<i class="fa fa-users"></i> <span>Users</span>', 'url' => ['/user/admin']],
+                    ['label' => '<i class="fa fa-square"></i> <span>Packages</span>', 'url' => ['/packaii']],
+                ];
+            } else {
+                $menuItems = [];
+            }
 
             // sidebar menu: : style can be found in sidebar.less
             echo Nav::widget(
