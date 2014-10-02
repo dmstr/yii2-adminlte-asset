@@ -159,7 +159,8 @@ dmstr\web\AdminLteAsset::register($this);
                 $menuItems = [
                     ['label' => '<i class="fa fa-dashboard"></i> <span>Dashboard</span>', 'url' => ['/site/index']],
                     ['label' => '<i class="fa fa-users"></i> <span>Users</span>', 'url' => ['/user/admin']],
-                    ['label' => '<i class="fa fa-square"></i> <span>Packages</span>', 'url' => ['/packaii']],
+                    ['label' => '<i class="fa fa-cubes"></i> <span>Packages</span>', 'url' => ['/packaii']],
+                    ['label' => '<i class="fa fa-code"></i> <span>Code Generation</span>', 'url' => ['/gii']],
                 ];
             } else {
                 $menuItems = [];
