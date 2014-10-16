@@ -5,10 +5,10 @@ use yii\widgets\Breadcrumbs;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
-
+$this->title = $this->title.' [Backend] '.Yii::$app->params['appName'];
 dmstr\web\AdminLteAsset::register($this);
-
 ?>
+
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html>
