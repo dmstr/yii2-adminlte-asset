@@ -25,21 +25,43 @@ or add
 to the require section of your `composer.json` file.
 
 
-Usage
+Quick Start
 -----
 
 Once the extension is installed, simply use it in your application by configuring the path mappings of the view component:
 
+For [Yii 2 Advanced Application Template](https://github.com/yiisoft/yii2-app-advanced)
 ```php
     'components' =>
         'view' => [
             'theme' => [
                 'pathMap' => [
-                    '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/phundament4'
+                    '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/themes/advanced-backend'
                 ],
             ],
         ],
     ]
 ```
 
-> Note: This asset bundle provides sample files for layout and view, make sure to adjust them to your needs.
+For [phundament4](https://github.com/phundament/app)
+```php
+    'components' =>
+        'view' => [
+            'theme' => [
+                'pathMap' => [
+                    '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/themes/phundament4'
+                ],
+            ],
+        ],
+    ]
+```
+
+Customization.
+-----
+
+This asset bundle (folder themes/) provides sample files for layout and view, make sure to adjust them to your needs. 
+Therefore you have to copy the views into your application and change or remove the parts you don't need.
+
+- Copy files from `vendor/dmstr/yii2-adminlte-asset/themes/advanced-backend` (or other theme) to `@app/views`
+- Delete block `view` from your application by configuring the path mappings of the view component. If you have made them before.
+- Edit your views adhering to html markup `vendor/bower/admin-lte/pages`
