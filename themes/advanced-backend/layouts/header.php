@@ -40,7 +40,7 @@ AppAsset::register($this);
                 <li><!-- start message -->
                     <a href="#">
                         <div class="pull-left">
-                            <img src="img/avatar3.png" class="img-circle" alt="User Image"/>
+                            <img src="<?= $directoryAsset ?>/img/avatar3.png" class="img-circle" alt="User Image"/>
                         </div>
                         <h4>
                             Support Team
@@ -53,7 +53,7 @@ AppAsset::register($this);
                 <li>
                     <a href="#">
                         <div class="pull-left">
-                            <img src="img/avatar2.png" class="img-circle" alt="user image"/>
+                            <img src="<?= $directoryAsset ?>/img/avatar2.png" class="img-circle" alt="user image"/>
                         </div>
                         <h4>
                             AdminLTE Design Team
@@ -65,7 +65,7 @@ AppAsset::register($this);
                 <li>
                     <a href="#">
                         <div class="pull-left">
-                            <img src="img/avatar.png" class="img-circle" alt="user image"/>
+                            <img src="<?= $directoryAsset ?>/img/avatar.png" class="img-circle" alt="user image"/>
                         </div>
                         <h4>
                             Developers
@@ -77,7 +77,7 @@ AppAsset::register($this);
                 <li>
                     <a href="#">
                         <div class="pull-left">
-                            <img src="img/avatar2.png" class="img-circle" alt="user image"/>
+                            <img src="<?= $directoryAsset ?>/img/avatar2.png" class="img-circle" alt="user image"/>
                         </div>
                         <h4>
                             Sales Department
@@ -89,7 +89,7 @@ AppAsset::register($this);
                 <li>
                     <a href="#">
                         <div class="pull-left">
-                            <img src="img/avatar.png" class="img-circle" alt="user image"/>
+                            <img src="<?= $directoryAsset ?>/img/avatar.png" class="img-circle" alt="user image"/>
                         </div>
                         <h4>
                             Reviewers
@@ -236,15 +236,15 @@ if (Yii::$app->user->isGuest) {
     <li class="dropdown user user-menu">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <i class="glyphicon glyphicon-user"></i>
-            <span>Jane Doe <i class="caret"></i></span>
+            <span><?= @Yii::$app->user->identity->username ?> <i class="caret"></i></span>
         </a>
         <ul class="dropdown-menu">
             <!-- User image -->
             <li class="user-header bg-light-blue">
-                <img src="img/avatar3.png" class="img-circle" alt="User Image"/>
+                <img src="<?= $directoryAsset ?>/img/avatar5.png" class="img-circle" alt="User Image"/>
 
                 <p>
-                    Jane Doe - Web Developer
+                    <?= @Yii::$app->user->identity->username ?> - Web Developer
                     <small>Member since Nov. 2012</small>
                 </p>
             </li>
@@ -266,7 +266,11 @@ if (Yii::$app->user->isGuest) {
                     <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                    <?= Html::a(
+                            'Sign out',
+                            ['/site/logout'],
+                            ['data-method' => 'post','class'=>'btn btn-default btn-flat']
+                        ) ?>
                 </div>
             </li>
         </ul>

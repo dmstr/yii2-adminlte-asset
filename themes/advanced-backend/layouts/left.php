@@ -43,11 +43,6 @@ use yii\bootstrap\Nav;
                         ],
                         ['label' => '<span class="fa fa-file-code-o"></span> Gii', 'url' => ['/gii']],
                         ['label' => '<span class="fa fa-dashboard"></span> Debug', 'url' => ['/debug']],
-                        [
-                            'label' => '<span class="fa fa-sign-out"></span> Logout (' . @Yii::$app->user->identity->username . ')',
-                            'url' => ['/site/logout'],
-                            'linkOptions' => ['data-method' => 'post'],
-                        ]
                     ],
                 ]
             );
