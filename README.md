@@ -69,3 +69,7 @@ Customization
 
 By default the extension uses black skin for AdminLTE. You can change this. Just replace class of body `skin-black` to `skin-blue`.
 To fix all menu, add `fixed` class to `body` element.
+
+
+> Namespacing rules follow the Yii 2.0 framework structure, eg. `dmstr\web` for the Asset Bundle.
+ 

@@ -2,7 +2,7 @@
 use yii\bootstrap\Nav;
 use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
-use dmstr\web\Alert;
+use dmstr\widgets\Alert;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
