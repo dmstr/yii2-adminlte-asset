@@ -2,6 +2,7 @@
 use yii\bootstrap\Nav;
 use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
+use dmstr\web\Alert;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -195,6 +196,7 @@ dmstr\web\AdminLteAsset::register($this);
 
         <!-- Main content -->
         <section class="content">
+            <?= Alert::widget() ?>
             <?= $content ?>
         </section>
         <!-- /.content -->
