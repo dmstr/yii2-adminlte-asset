@@ -65,3 +65,6 @@ Therefore you have to copy the views into your application and change or remove 
 - Copy files from `vendor/dmstr/yii2-adminlte-asset/themes/advanced-backend` (or other theme) to `@app/views`
 - Delete block `view` from your application by configuring the path mappings of the view component. If you have made them before.
 - Edit your views adhering to html markup `vendor/bower/admin-lte/pages`
+
+By default the extension uses black skin for AdminLTE. You can change this. Just replace class of body `skin-black` to `skin-blue`.
+To fix all menu, add `fixed` class to `body` element.
