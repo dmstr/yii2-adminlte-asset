@@ -74,15 +74,9 @@ use yii\bootstrap\Nav;
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="<?= Yii::$app->assetManager->getPublishedUrl(
-                                '@bower/admin-lte'
-                            ) ?>/pages/charts/morris.html"><i class="fa fa-angle-double-right"></i> Morris</a></li>
-                        <li><a href="<?= Yii::$app->assetManager->getPublishedUrl(
-                                '@bower/admin-lte'
-                            ) ?>/pages/charts/flot.html"><i class="fa fa-angle-double-right"></i> Flot</a></li>
-                        <li><a href="<?= Yii::$app->assetManager->getPublishedUrl(
-                                '@bower/admin-lte'
-                            ) ?>/pages/charts/inline.html"><i class="fa fa-angle-double-right"></i> Inline charts</a>
+                        <li><a href="<?= $directoryAsset ?>/pages/charts/morris.html"><i class="fa fa-angle-double-right"></i> Morris</a></li>
+                        <li><a href="<?= $directoryAsset ?>/pages/charts/flot.html"><i class="fa fa-angle-double-right"></i> Flot</a></li>
+                        <li><a href="<?= $directoryAsset ?>/pages/charts/inline.html"><i class="fa fa-angle-double-right"></i> Inline charts</a>
                         </li>
                     </ul>
                 </li>
@@ -93,21 +87,11 @@ use yii\bootstrap\Nav;
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="<?= Yii::$app->assetManager->getPublishedUrl(
-                                '@bower/admin-lte'
-                            ) ?>/pages/UI/general.html"><i class="fa fa-angle-double-right"></i> General</a></li>
-                        <li><a href="<?= Yii::$app->assetManager->getPublishedUrl(
-                                '@bower/admin-lte'
-                            ) ?>/pages/UI/icons.html"><i class="fa fa-angle-double-right"></i> Icons</a></li>
-                        <li><a href="<?= Yii::$app->assetManager->getPublishedUrl(
-                                '@bower/admin-lte'
-                            ) ?>/pages/UI/buttons.html"><i class="fa fa-angle-double-right"></i> Buttons</a></li>
-                        <li><a href="<?= Yii::$app->assetManager->getPublishedUrl(
-                                '@bower/admin-lte'
-                            ) ?>/pages/UI/sliders.html"><i class="fa fa-angle-double-right"></i> Sliders</a></li>
-                        <li><a href="<?= Yii::$app->assetManager->getPublishedUrl(
-                                '@bower/admin-lte'
-                            ) ?>/pages/UI/timeline.html"><i class="fa fa-angle-double-right"></i> Timeline</a></li>
+                        <li><a href="<?= $directoryAsset ?>/pages/UI/general.html"><i class="fa fa-angle-double-right"></i> General</a></li>
+                        <li><a href="<?= $directoryAsset ?>/pages/UI/icons.html"><i class="fa fa-angle-double-right"></i> Icons</a></li>
+                        <li><a href="<?= $directoryAsset ?>/pages/UI/buttons.html"><i class="fa fa-angle-double-right"></i> Buttons</a></li>
+                        <li><a href="<?= $directoryAsset ?>/pages/UI/sliders.html"><i class="fa fa-angle-double-right"></i> Sliders</a></li>
+                        <li><a href="<?= $directoryAsset ?>/pages/UI/timeline.html"><i class="fa fa-angle-double-right"></i> Timeline</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -116,17 +100,11 @@ use yii\bootstrap\Nav;
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="<?= Yii::$app->assetManager->getPublishedUrl(
-                                '@bower/admin-lte'
-                            ) ?>/pages/forms/general.html"><i class="fa fa-angle-double-right"></i> General Elements</a>
+                        <li><a href="<?= $directoryAsset ?>/pages/forms/general.html"><i class="fa fa-angle-double-right"></i> General Elements</a>
                         </li>
-                        <li><a href="<?= Yii::$app->assetManager->getPublishedUrl(
-                                '@bower/admin-lte'
-                            ) ?>/pages/forms/advanced.html"><i class="fa fa-angle-double-right"></i> Advanced
+                        <li><a href="<?= $directoryAsset ?>/pages/forms/advanced.html"><i class="fa fa-angle-double-right"></i> Advanced
                                 Elements</a></li>
-                        <li><a href="<?= Yii::$app->assetManager->getPublishedUrl(
-                                '@bower/admin-lte'
-                            ) ?>/pages/forms/editors.html"><i class="fa fa-angle-double-right"></i> Editors</a></li>
+                        <li><a href="<?= $directoryAsset ?>/pages/forms/editors.html"><i class="fa fa-angle-double-right"></i> Editors</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -135,13 +113,9 @@ use yii\bootstrap\Nav;
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="<?= Yii::$app->assetManager->getPublishedUrl(
-                                '@bower/admin-lte'
-                            ) ?>/pages/tables/simple.html"><i class="fa fa-angle-double-right"></i> Simple tables</a>
+                        <li><a href="<?= $directoryAsset ?>/pages/tables/simple.html"><i class="fa fa-angle-double-right"></i> Simple tables</a>
                         </li>
-                        <li><a href="<?= Yii::$app->assetManager->getPublishedUrl(
-                                '@bower/admin-lte'
-                            ) ?>/pages/tables/data.html"><i class="fa fa-angle-double-right"></i> Data tables</a></li>
+                        <li><a href="<?= $directoryAsset ?>/pages/tables/data.html"><i class="fa fa-angle-double-right"></i> Data tables</a></li>
                     </ul>
                 </li>
                 <li>
