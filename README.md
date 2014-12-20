@@ -41,6 +41,22 @@ For [Yii 2 Advanced Application Template](https://github.com/yiisoft/yii2-app-ad
      ]
 ```
 
+For [Yii 2 Basic Application Template](https://github.com/yiisoft/yii2-app-basic)
+
+```php
+'components' => [
+    'view' => [
+         'theme' => [
+             'pathMap' => [
+                '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-basic-app'
+             ],
+         ],
+    ],
+],
+     ]
+```
+
+
 For [Phundament 4](https://github.com/phundament/app)
 
 ```php
