@@ -20,7 +20,9 @@ To install AdminLTE v1 run:
 php composer.phar require dmstr/yii2-adminlte-asset "1.*"
 ```
 
-To install AdminLTE v2 run: ** NOTE: NOT READY YET, BUT UNDER DEVELOPMENT! **
+To install AdminLTE v2 run: **NOTE: NOT READY YET, BUT UNDER DEVELOPMENT!**
+
+> Preview for v2 available in `example-views/phundament/app` 
 
 ```
 php composer.phar require dmstr/yii2-adminlte-asset "2.*@dev"
