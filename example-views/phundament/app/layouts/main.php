@@ -31,32 +31,26 @@ dmstr\web\AdminLteAsset::register($this);
     <![endif]-->
 </head>
 <?php $this->beginBody() ?>
-<body class="skin-black">
-<!-- header logo: style can be found in header.less -->
-<header class="header">
-    <a href="<?= \Yii::$app->homeUrl ?>" class="logo">
-        <!-- Add the class icon to your logo image or logo icon to add the margining -->
-        Phundament 4
-    </a>
-    <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top" role="navigation">
-        <!-- Sidebar toggle button-->
-        <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </a>
+<body class="skin-blue">
+<div class="wrapper">
 
-        <div class="navbar-right">
-            <ul class="nav navbar-nav">
-                <?php if (!\Yii::$app->user->isGuest): ?>
+    <header class="main-header">
+        <!-- Logo -->
+        <a href="<?= \Yii::$app->homeUrl ?>" class="logo">Phundament</a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
 
-                    <!-- Notifications: style can be found in dropdown.less -->
-                    <li class="dropdown notifications-menu">
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <!-- Messages: style can be found in dropdown.less-->
+                    <li class="dropdown messages-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-warning"></i>
-                            <span class="label label-warning">1</span>
+                            <i class="fa fa-envelope-o"></i>
+                            <span class="label label-success">1</span>
                         </a>
                         <ul class="dropdown-menu">
                             <li class="header">You have 1 notification(s)</li>
@@ -70,10 +64,8 @@ dmstr\web\AdminLteAsset::register($this);
                                     </li>
                                 </ul>
                             </li>
-                            <!--<li class="footer"><a href="#">View all</a></li>-->
                         </ul>
                     </li>
-
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -85,7 +77,8 @@ dmstr\web\AdminLteAsset::register($this);
                             <li class="user-header bg-light-blue">
                                 <?php echo \cebe\gravatar\Gravatar::widget(
                                     [
-                                        'email'   => \Yii::$app->user->identity->profile->gravatar_email,
+                                        'email'   => 'xxx@example.com',
+                                        #\Yii::$app->user->identity->profile->gravatar_email,
                                         'options' => [
                                             'alt' => \Yii::$app->user->identity->username
                                         ],
@@ -110,14 +103,12 @@ dmstr\web\AdminLteAsset::register($this);
                             </li>
                         </ul>
                     </li>
-                <?php endif; ?>
-            </ul>
-        </div>
-    </nav>
-</header>
-<div class="wrapper row-offcanvas row-offcanvas-left">
+                </ul>
+            </div>
+        </nav>
+    </header>
     <!-- Left side column. contains the logo and sidebar -->
-    <aside class="left-side sidebar-offcanvas">
+    <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
             <!-- Sidebar user panel -->
@@ -151,11 +142,10 @@ dmstr\web\AdminLteAsset::register($this);
                 </div>
             </form>-->
             <!-- /.search form -->
-
             <?php
             if (!\Yii::$app->user->isGuest) {
                 $menuItems = [
-                    ['label' => '<i class="fa fa-dashboard"></i> <span>Dashboard</span>', 'url' => ['/site/index']],
+                    ['label' => '<i class="fa fa-dashboard"></i> <span>Dashboard</span>', 'url' => ['/admin']],
                     ['label' => '<i class="fa fa-users"></i> <span>Users</span>', 'url' => ['/user/admin']],
                     ['label' => '<i class="fa fa-cubes"></i> <span>Packages</span>', 'url' => ['/packaii']],
                     ['label' => '<i class="fa fa-code"></i> <span>Code Generation</span>', 'url' => ['/gii']],
@@ -168,7 +158,7 @@ dmstr\web\AdminLteAsset::register($this);
             echo Nav::widget(
                 [
                     'options'      => ['class' => 'sidebar-menu'],
-                    'items'        => $menuItems,
+                    'items'        => \Yii::$app->getModule('admin')->getMenuItems(),
                     'encodeLabels' => false,
                 ]
             );
@@ -179,33 +169,35 @@ dmstr\web\AdminLteAsset::register($this);
     </aside>
 
     <!-- Right side column. Contains the navbar and content of the page -->
-    <aside class="right-side">
+    <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                <?= \yii\helpers\Inflector::camel2words(\yii\helpers\Inflector::id2camel($this->context->module->id)) ?>
-                <small><?= ($this->context->module->id !== \Yii::$app->id)?'Module':'' ?></small>
+                <small><?= $this->title ?></small>
             </h1>
-            <?=
-            Breadcrumbs::widget(
-                [
-                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-                ]
-            ) ?>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">Dashboard</li>
+            </ol>
         </section>
 
         <!-- Main content -->
+
         <section class="content">
             <?= Alert::widget() ?>
             <?= $content ?>
         </section>
         <!-- /.content -->
-    </aside>
-    <!-- /.right-side -->
+    </div>
+    <!-- /.content-wrapper -->
+    <footer class="main-footer">
+        Powered by <strong><a href="http://phundament.com">Phundament 4</a>
+    </footer>
 </div>
 <!-- ./wrapper -->
 
-<?php $this->endBody() ?>
 </body>
+<?php $this->endBody() ?>
 </html>
+
 <?php $this->endPage() ?>
