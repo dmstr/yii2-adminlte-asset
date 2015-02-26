@@ -20,7 +20,7 @@ To install AdminLTE v1 run:
 php composer.phar require dmstr/yii2-adminlte-asset "1.*"
 ```
 
-To install AdminLTE v2 run:
+To install AdminLTE v2 run: ** NOTE: NOT READY YET, BUT UNDER DEVELOPMENT! **
 
 ```
 php composer.phar require dmstr/yii2-adminlte-asset "2.*@dev"
