@@ -13,7 +13,6 @@ class AdminLteAsset extends AssetBundle
     public $css = [
         'css/AdminLTE.css',
         'css/skins/_all-skins.css'
-        #'font-awesome/css/font-awesome.min.css'
     ];
     public $js = [
         'js/app.js'
@@ -21,7 +20,6 @@ class AdminLteAsset extends AssetBundle
     public $depends = [
         'rmrevin\yii\fontawesome\AssetBundle',
         'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
         'yii\bootstrap\BootstrapPluginAsset',
     ];
 }
