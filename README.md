@@ -8,6 +8,12 @@ which registers the CSS files for the AdminLTE user-interface.
 
 The CSS files are installed via Yii's recommended usage of the `fxp/composer-asset-plugin`.
 
+---
+
+Note: `1.1.1` fixes broken depenedencies.
+
+---
+
 
 Installation
 ------------
