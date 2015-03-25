@@ -35,7 +35,7 @@
             <div class="icon">
                 <i class="ion ion-home"></i>
             </div>
-            <a href="<?= \yii\helpers\Url::to('../../frontend/web/index.php?r=site') ?>" class="small-box-footer">
+            <a href="<?= \yii\helpers\Url::to('site/index') ?>" class="small-box-footer">
                 Homepage <i class="fa fa-arrow-circle-right"></i>
             </a>
         </div>
