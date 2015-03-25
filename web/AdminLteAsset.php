@@ -11,11 +11,11 @@ class AdminLteAsset extends AssetBundle
 {
     public $sourcePath = '@bower/admin-lte/dist';
     public $css = [
-        'css/AdminLTE.css',
-        'css/skins/_all-skins.css'
+        'css/AdminLTE.min.css',
+        'css/skins/_all-skins.min.css'
     ];
     public $js = [
-        'js/app.js'
+        'js/app.min.js'
     ];
     public $depends = [
         'rmrevin\yii\fontawesome\AssetBundle',
