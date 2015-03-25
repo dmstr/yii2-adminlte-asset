@@ -46,6 +46,7 @@ dmstr\web\AdminLteAsset::register($this);
 
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
+                <?php if (!\Yii::$app->user->isGuest): ?>
                     <!-- Messages: style can be found in dropdown.less-->
                     <li class="dropdown messages-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -103,6 +104,7 @@ dmstr\web\AdminLteAsset::register($this);
                             </li>
                         </ul>
                     </li>
+                <?php endif; ?>
                 </ul>
             </div>
         </nav>
