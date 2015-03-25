@@ -14,12 +14,6 @@
             "email": "et.coder@gmail.com"
         }
     ],
-    "repositories": [
-      {
-        "type": "git",
-        "url": "git@github.com:dmstr/yii2-fontawesome.git"
-      }
-    ],
     "require": {
         "yiisoft/yii2": "2.*",
         "yiisoft/yii2-bootstrap": "2.*",
