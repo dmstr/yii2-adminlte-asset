@@ -6,7 +6,7 @@ use dmstr\widgets\Alert;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
-$this->title = $this->title.' [Backend] '.Yii::$app->params['appName'];
+$this->title = $this->title . ' [Backend] ' . Yii::$app->params['appName'];
 dmstr\web\AdminLteAsset::register($this);
 ?>
 
@@ -30,8 +30,10 @@ dmstr\web\AdminLteAsset::register($this);
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 </head>
-<?php $this->beginBody() ?>
+
 <body class="skin-blue">
+<?php $this->beginBody() ?>
+
 <div class="wrapper">
 
     <header class="main-header">
@@ -46,64 +48,64 @@ dmstr\web\AdminLteAsset::register($this);
 
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
-                <?php if (!\Yii::$app->user->isGuest): ?>
-                    <!-- Messages: style can be found in dropdown.less-->
-                    <li class="dropdown messages-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-envelope-o"></i>
-                            <span class="label label-success">1</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">You have 1 notification(s)</li>
-                            <li>
-                                <!-- inner menu: contains the actual data -->
-                                <ul class="menu">
-                                    <li>
-                                        <a href="#">
-                                            <i class="ion ion-ios7-people info"></i> Welcome to Phundament 4!
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- User Account: style can be found in dropdown.less -->
-                    <li class="dropdown user user-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="glyphicon glyphicon-user"></i>
-                            <span><?= \Yii::$app->user->identity->username ?> <i class="caret"></i></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <!-- User image -->
-                            <li class="user-header bg-light-blue">
-                                <?php echo \cebe\gravatar\Gravatar::widget(
-                                    [
-                                        'email'   => \Yii::$app->user->identity->profile->gravatar_email,
-                                        'options' => [
-                                            'alt' => \Yii::$app->user->identity->username
-                                        ],
-                                        'size'    => 128
-                                    ]
-                                ); ?>
-                                <p>
-                                    <?= \Yii::$app->user->identity->username ?>
-                                    <small><?= \Yii::$app->user->identity->email ?></small>
-                                </p>
-                            </li>
-                            <!-- Menu Footer-->
-                            <li class="user-footer">
-                                <div class="pull-left">
-                                    <a href="<?= \yii\helpers\Url::to(['/user/settings/profile']) ?>"
-                                       class="btn btn-default btn-flat">Profile</a>
-                                </div>
-                                <div class="pull-right">
-                                    <a href="<?= \yii\helpers\Url::to(['/user/security/logout']) ?>"
-                                       class="btn btn-default btn-flat" data-method="post">Sign out</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                <?php endif; ?>
+                    <?php if (!\Yii::$app->user->isGuest): ?>
+                        <!-- Messages: style can be found in dropdown.less-->
+                        <li class="dropdown messages-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-envelope-o"></i>
+                                <span class="label label-success">1</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header">You have 1 notification(s)</li>
+                                <li>
+                                    <!-- inner menu: contains the actual data -->
+                                    <ul class="menu">
+                                        <li>
+                                            <a href="#">
+                                                <i class="ion ion-ios7-people info"></i> Welcome to Phundament 4!
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- User Account: style can be found in dropdown.less -->
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="glyphicon glyphicon-user"></i>
+                                <span><?= \Yii::$app->user->identity->username ?> <i class="caret"></i></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- User image -->
+                                <li class="user-header bg-light-blue">
+                                    <?php echo \cebe\gravatar\Gravatar::widget(
+                                        [
+                                            'email'   => \Yii::$app->user->identity->profile->gravatar_email,
+                                            'options' => [
+                                                'alt' => \Yii::$app->user->identity->username
+                                            ],
+                                            'size'    => 128
+                                        ]
+                                    ); ?>
+                                    <p>
+                                        <?= \Yii::$app->user->identity->username ?>
+                                        <small><?= \Yii::$app->user->identity->email ?></small>
+                                    </p>
+                                </li>
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="<?= \yii\helpers\Url::to(['/user/settings/profile']) ?>"
+                                           class="btn btn-default btn-flat">Profile</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="<?= \yii\helpers\Url::to(['/user/security/logout']) ?>"
+                                           class="btn btn-default btn-flat" data-method="post">Sign out</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    <?php endif; ?>
                 </ul>
             </div>
         </nav>
@@ -137,9 +139,9 @@ dmstr\web\AdminLteAsset::register($this);
             <!--<form action="#" method="get" class="sidebar-form">
                 <div class="input-group">
                     <input type="text" name="q" class="form-control" placeholder="Search..."/>
-                            <span class="input-group-btn">
-                                <button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
-                            </span>
+                    <span class="input-group-btn">
+                        <button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+                    </span>
                 </div>
             </form>-->
             <!-- /.search form -->
@@ -197,8 +199,7 @@ dmstr\web\AdminLteAsset::register($this);
 </div>
 <!-- ./wrapper -->
 
-</body>
 <?php $this->endBody() ?>
+</body>
 </html>
-
 <?php $this->endPage() ?>
