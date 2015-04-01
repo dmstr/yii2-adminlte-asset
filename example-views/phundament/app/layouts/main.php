@@ -194,7 +194,7 @@ dmstr\web\AdminLteAsset::register($this);
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
-        Powered by <strong><a href="http://phundament.com">Phundament 4</a>
+        Powered by <strong><a href="http://phundament.com">Phundament 4</a></strong>
     </footer>
 </div>
 <!-- ./wrapper -->
