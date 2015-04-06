@@ -8,14 +8,6 @@ which registers the CSS files for the AdminLTE user-interface.
 
 The CSS files are installed via Yii's recommended usage of the `fxp/composer-asset-plugin`.
 
----
-
-> ### Note!
-> 
-> Updated tags to fix dependency problems.
-
----
-
 
 Installation
 ------------
@@ -28,12 +20,13 @@ To install AdminLTE v1 run:
 php composer.phar require dmstr/yii2-adminlte-asset "1.*"
 ```
 
-To install AdminLTE v2 run: **NOTE: NOT READY YET, BUT UNDER DEVELOPMENT!**
+> #### Note! 
+> AdminLTE v2 is currently in beta.
 
-> Preview for v2 available in `example-views/phundament/app` 
+To install AdminLTE v2 run:
 
 ```
-php composer.phar require dmstr/yii2-adminlte-asset "2.*@dev"
+php composer.phar require dmstr/yii2-adminlte-asset "2.*@beta"
 ```
 
 
