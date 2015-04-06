@@ -5,13 +5,13 @@ use yii\helpers\Html;
 /* @var $content string */
 if (Yii::$app->controller->action->id === 'login') {
     echo $this->render(
-        'wrapper-black',
+        'main-login',
         ['content' => $content]
     );
 } else {
     dmstr\web\AdminLteAsset::register($this);
     backend\assets\AppAsset::register($this);
-    $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower') . '/admin-lte';
+    $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower') . '/admin-lte/dist';
     ?>
     <?php $this->beginPage() ?>
     <!DOCTYPE html>
@@ -23,27 +23,30 @@ if (Yii::$app->controller->action->id === 'login') {
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
     </head>
-    <body class="skin-black">
+    <body class="skin-blue">
     <?php $this->beginBody() ?>
+    <div class="wrapper">
 
-    <?= $this->render(
-        'header.php',
-        ['directoryAsset' => $directoryAsset]
-    ) ?>
-
-    <div class="wrapper row-offcanvas row-offcanvas-left">
 
         <?= $this->render(
-            'left.php',
+            'header.php',
             ['directoryAsset' => $directoryAsset]
-        )
-        ?>
-
-        <?= $this->render(
-            'content.php',
-            ['content' => $content, 'directoryAsset' => $directoryAsset]
         ) ?>
 
+        <div class="wrapper row-offcanvas row-offcanvas-left">
+
+            <?= $this->render(
+                'left.php',
+                ['directoryAsset' => $directoryAsset]
+            )
+            ?>
+
+            <?= $this->render(
+                'content.php',
+                ['content' => $content, 'directoryAsset' => $directoryAsset]
+            ) ?>
+
+        </div>
     </div>
 
     <?php $this->endBody() ?>

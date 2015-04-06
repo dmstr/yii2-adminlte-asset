@@ -2,7 +2,7 @@
 use yii\widgets\Breadcrumbs;
 use dmstr\widgets\Alert;
 ?>
-<aside class="right-side">
+<div class="content-wrapper">
     <section class="content-header">
         <h1>
             <?php
@@ -26,12 +26,11 @@ use dmstr\widgets\Alert;
         <?= $content ?>
     </section>
 
-    <footer class="footer">
-        <div class="container">
-            <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-            <p class="pull-right"><?= Yii::powered() ?></p>
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 2.0
         </div>
+        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
     </footer>
 
-</aside>
+</div>
