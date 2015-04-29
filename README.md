@@ -3,6 +3,8 @@ AdminLTE Asset Bundle
 
 *Backend UI for Yii2 Framework, based on [AdminLTE](https://github.com/almasaeed2010/AdminLTE)*
 
+!["Yii2 AdminLTE Presentation"](/screenshot.jpg "Yii2 AdminLTE Presentation")
+
 This package contains an [Asset Bundle for Yii 2.0 Framework](http://www.yiiframework.com/doc-2.0/guide-structure-assets.html) 
 which registers the CSS files for the AdminLTE user-interface.
 
