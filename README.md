@@ -35,29 +35,14 @@ Quick Start
 
 Once the extension is installed, you can have a *preview* by reconfiguring the path mappings of the view component:
 
-For [Yii 2 Advanced Application Template](https://github.com/yiisoft/yii2-app-advanced)
+For Yii 2 [Application Template](https://github.com/yiisoft/yii2-app-advanced) or [Basic Application Template](https://github.com/yiisoft/yii2-app-basic)
 
 ```php
 'components' => [
     'view' => [
          'theme' => [
              'pathMap' => [
-                '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-advanced-app'
-             ],
-         ],
-    ],
-],    
-     ]
-```
-
-For [Yii 2 Basic Application Template](https://github.com/yiisoft/yii2-app-basic)
-
-```php
-'components' => [
-    'view' => [
-         'theme' => [
-             'pathMap' => [
-                '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-basic-app'
+                '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-app'
              ],
          ],
     ],
@@ -88,7 +73,7 @@ Therefore it is recommended to **copy the views into your application** and adju
 Customization
 -------------
 
-- Copy files from `vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-advanced-app` (or other theme) to `@app/views`.
+- Copy files from `vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-app` (or other theme) to `@app/views`.
 - Remove the custom `view` configuration from your application by deleting the path mappings, if you have made them before.
 - Edit your views adhering to html markup `vendor/bower/admin-lte/pages`
 
