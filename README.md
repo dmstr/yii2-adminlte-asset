@@ -16,20 +16,18 @@ Installation
 
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
+To install AdminLTE v2 run:
+
+```
+php composer.phar require dmstr/yii2-adminlte-asset "2.*"
+```
+
 To install AdminLTE v1 run:
 
 ```
 php composer.phar require dmstr/yii2-adminlte-asset "1.*"
 ```
 
-> #### Note! 
-> AdminLTE v2 is currently in beta.
-
-To install AdminLTE v2 run:
-
-```
-php composer.phar require dmstr/yii2-adminlte-asset "2.*@beta"
-```
 
 
 Quick Start
@@ -49,7 +47,6 @@ For Yii 2 [Application Template](https://github.com/yiisoft/yii2-app-advanced) o
          ],
     ],
 ],
-     ]
 ```
 
 
