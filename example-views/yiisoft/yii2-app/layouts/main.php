@@ -40,6 +40,8 @@ if (Yii::$app->controller->action->id === 'login') {
             ['directoryAsset' => $directoryAsset]
         ) ?>
 
+        <div class="wrapper row-offcanvas row-offcanvas-left">
+
             <?= $this->render(
                 'left.php',
                 ['directoryAsset' => $directoryAsset]

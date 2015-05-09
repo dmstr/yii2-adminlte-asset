@@ -5,7 +5,7 @@ use yii\web\AssetBundle;
 
 /**
  * AdminLte AssetBundle
- * @since 0.1
+ * @since 1.0
  */
 class AdminLteAsset extends AssetBundle
 {
