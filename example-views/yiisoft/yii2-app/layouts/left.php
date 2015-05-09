@@ -37,10 +37,10 @@ use yii\bootstrap\Nav;
                 'options' => ['class' => 'sidebar-menu'],
                 'items' => [
                     '<li class="header">Menu Yii2</li>',
-                    ['label' => '<span class="fa fa-file-code-o"></span> Gii', 'url' => ['/gii']],
-                    ['label' => '<span class="fa fa-dashboard"></span> Debug', 'url' => ['/debug']],
+                    ['label' => '<i class="fa fa-file-code-o"></i><span>Gii</span>', 'url' => ['/gii']],
+                    ['label' => '<i class="fa fa-dashboard"></i><span>Debug</span>', 'url' => ['/debug']],
                     [
-                        'label' => '<span class="glyphicon glyphicon-lock"></span> Sing in', //for basic
+                        'label' => '<i class="glyphicon glyphicon-lock"></i><span>Sing in</span>', //for basic
                         'url' => ['/site/login'],
                         'visible' =>Yii::$app->user->isGuest
                     ],
