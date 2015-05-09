@@ -1,0 +1,34 @@
+{
+    "name": "dmstr/yii2-adminlte-asset",
+    "description": "Backend theme for Yii2 Framework",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","adminlte"],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Tobias Munk",
+            "email": "tobias@diemeisterei.de"
+        },
+        {
+            "name": "Evgeniy Tkachenko",
+            "email": "et.coder@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "2.*",
+        "yiisoft/yii2-bootstrap": "2.*",
+        "cebe/yii2-gravatar": "1.*",
+        "bower-asset/admin-lte": "~2.0",
+        "rmrevin/yii2-fontawesome": "2.9.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "dmstr\\": ""
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.0.x-dev"
+        }
+    }
+}
