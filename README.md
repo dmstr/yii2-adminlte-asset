@@ -76,9 +76,24 @@ Customization
 - Remove the custom `view` configuration from your application by deleting the path mappings, if you have made them before.
 - Edit your views adhering to html markup `vendor/bower/admin-lte/pages`
 
-By default the extension uses black skin for AdminLTE. You can change this. Just replace class of body `skin-black` to `skin-blue`.
-To fix all menu, add `fixed` class to `body` element.
+By default the extension uses blue skin for AdminLTE. You can change this. Just replace class of body `skin-blue`. Here is the list of available skins:
 
+```
+"skin-blue",
+"skin-black",
+"skin-red",
+"skin-yellow",
+"skin-purple",
+"skin-green",
+"skin-blue-light",
+"skin-black-light",
+"skin-red-light",
+"skin-yellow-light",
+"skin-purple-light",
+"skin-green-light"
+```
+
+For more information, please read https://almsaeedstudio.com/themes/AdminLTE/documentation/index.html
 
 > Namespacing rules follow the Yii 2.0 framework structure, eg. `dmstr\web` for the Asset Bundle.
  
