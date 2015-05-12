@@ -30,30 +30,26 @@ if (Yii::$app->controller->action->id === 'login') {
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
     </head>
-    <body class="skin-blue">
+    <body class="skin-blue sidebar-mini">
     <?php $this->beginBody() ?>
     <div class="wrapper">
-
 
         <?= $this->render(
             'header.php',
             ['directoryAsset' => $directoryAsset]
         ) ?>
 
-        <div class="wrapper row-offcanvas row-offcanvas-left">
+        <?= $this->render(
+            'left.php',
+            ['directoryAsset' => $directoryAsset]
+        )
+        ?>
 
-            <?= $this->render(
-                'left.php',
-                ['directoryAsset' => $directoryAsset]
-            )
-            ?>
+        <?= $this->render(
+            'content.php',
+            ['content' => $content, 'directoryAsset' => $directoryAsset]
+        ) ?>
 
-            <?= $this->render(
-                'content.php',
-                ['content' => $content, 'directoryAsset' => $directoryAsset]
-            ) ?>
-
-        </div>
     </div>
 
     <?php $this->endBody() ?>
