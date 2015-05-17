@@ -17,9 +17,14 @@
     "require": {
         "yiisoft/yii2": "2.*",
         "yiisoft/yii2-bootstrap": "2.*",
-        "cebe/yii2-gravatar": "1.*",
-        "almasaeed2010/adminlte": "~2.0",
-        "rmrevin/yii2-fontawesome": "2.9.*"
+        "rmrevin/yii2-fontawesome": "~2.9",
+        "bower-asset/admin-lte": "~2.0"
+    },
+    "require-dev": {
+        "cebe/yii2-gravatar": "~1.1"
+    },
+    "suggest": {
+        "cebe/yii2-gravatar": "Gravatar used in Phundament example views"
     },
     "autoload": {
         "psr-4": {
