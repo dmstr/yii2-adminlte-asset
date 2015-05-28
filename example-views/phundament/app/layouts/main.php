@@ -1,8 +1,8 @@
 <?php
+use dmstr\widgets\Alert;
 use yii\bootstrap\Nav;
 use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
-use dmstr\widgets\Alert;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -31,7 +31,7 @@ dmstr\web\AdminLteAsset::register($this);
     <![endif]-->
 </head>
 
-<body class="skin-blue">
+<body class="skin-black">
 <?php $this->beginBody() ?>
 
 <div class="wrapper">
@@ -150,8 +150,6 @@ dmstr\web\AdminLteAsset::register($this);
                 $menuItems = [
                     ['label' => '<i class="fa fa-dashboard"></i> <span>Dashboard</span>', 'url' => ['/admin']],
                     ['label' => '<i class="fa fa-users"></i> <span>Users</span>', 'url' => ['/user/admin']],
-                    ['label' => '<i class="fa fa-cubes"></i> <span>Packages</span>', 'url' => ['/packaii']],
-                    ['label' => '<i class="fa fa-code"></i> <span>Code Generation</span>', 'url' => ['/gii']],
                 ];
             } else {
                 $menuItems = [];
@@ -161,12 +159,16 @@ dmstr\web\AdminLteAsset::register($this);
             echo Nav::widget(
                 [
                     'options'      => ['class' => 'sidebar-menu'],
-                    'items'        => \Yii::$app->getModule('admin')->getMenuItems(),
+                    'items'        => \Yii::$app->getModule('admin')->getMenuItems(
+                        [
+                            'gii'   => false,
+                            'debug' => false,
+                        ]
+                    ),
                     'encodeLabels' => false,
                 ]
             );
             ?>
-
         </section>
         <!-- /.sidebar -->
     </aside>

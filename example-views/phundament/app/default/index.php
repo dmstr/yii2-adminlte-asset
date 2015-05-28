@@ -112,10 +112,6 @@
             </div>
             <!-- /.box-footer-->
         </div>
-        <div class="callout callout-info">
-            <h4>Prepare the test-suites!</h4>
-            <p>Use <code>./yii app/setup-tests</code> to initialize codeception.</p>
-        </div>
         <!-- /.box -->
     </div>
 
@@ -126,7 +122,7 @@
                 <h3 class="box-title">Documentation</h3>
             </div>
             <div class="box-body">
-                <div class="alert alert-warning">
+                <div class="alert alert-info">
                     <i class="fa fa-warning"></i>
                     <b>Notice!</b> Use <code>./yii app/setup-docs</code> and <code>./yii app/generate-docs</code> to create the HTML documentation for this application.
                 </div>
