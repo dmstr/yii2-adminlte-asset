@@ -31,14 +31,14 @@ dmstr\web\AdminLteAsset::register($this);
     <![endif]-->
 </head>
 
-<body class="skin-black">
+<body class="<?= \dmstr\helpers\AdminLteHelper::skinClass() ?>">
 <?php $this->beginBody() ?>
 
 <div class="wrapper">
 
     <header class="main-header">
         <!-- Logo -->
-        <a href="<?= \Yii::$app->homeUrl ?>" class="logo">Phundament</a>
+        <a href="<?= \Yii::$app->homeUrl ?>" class="logo"><?= getenv('APP_NAME') ?></a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
             <!-- Sidebar toggle button-->
