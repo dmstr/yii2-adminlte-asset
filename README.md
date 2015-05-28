@@ -76,7 +76,28 @@ Customization
 - Remove the custom `view` configuration from your application by deleting the path mappings, if you have made them before.
 - Edit your views adhering to html markup `vendor/almasaeed2010/adminlte/pages`
 
-By default the extension uses blue skin for AdminLTE. You can change this. Just replace class of body `skin-blue`. Here is the list of available skins:
+By default the extension uses blue skin for AdminLTE. You can change it in config file.
+
+```php
+'components' => [
+    'assetManager' => [
+        'bundles' => [
+            'dmstr\web\AdminLteAsset' => [
+                'skin' => 'skin-black',
+            ],
+        ],
+    ],
+],
+```
+
+And then just replace class of body `skin-blue`. 
+You can use `AdminLteHelper::skinClass()` if you don't want to alter every view file when you change skin color.
+
+```html
+<body class="<?= \dmstr\helpers\AdminLteHelper::skinClass() ?>">
+```
+
+Here is the list of available skins:
 
 ```
 "skin-blue",

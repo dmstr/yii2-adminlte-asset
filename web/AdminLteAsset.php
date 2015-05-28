@@ -1,6 +1,7 @@
 <?php
 namespace dmstr\web;
 
+use yii\base\Exception;
 use yii\web\AssetBundle;
 
 /**
@@ -12,7 +13,6 @@ class AdminLteAsset extends AssetBundle
     public $sourcePath = '@vendor/almasaeed2010/adminlte/dist';
     public $css = [
         'css/AdminLTE.min.css',
-        'css/skins/_all-skins.min.css'
     ];
     public $js = [
         'js/app.min.js'
@@ -22,4 +22,27 @@ class AdminLteAsset extends AssetBundle
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapPluginAsset',
     ];
+
+    /**
+     * @var string|bool Choose skin color or set `false` to disable skin loading
+     * @see https://almsaeedstudio.com/themes/AdminLTE/documentation/index.html#layout
+     */
+    public $skin = 'skin-blue';
+
+    /**
+     * @inheritdoc
+     */
+    public function init()
+    {
+        // Append skin color file if specified
+        if ($this->skin) {
+            if (strpos($this->skin, 'skin-') !== 0) {
+                throw new Exception('Invalid skin specified');
+            }
+
+            $this->css[] = sprintf('css/skins/%s.min.css', $this->skin);
+        }
+
+        parent::init();
+    }
 }
