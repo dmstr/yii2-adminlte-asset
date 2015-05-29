@@ -1,56 +1,65 @@
 <?php
+
 use yii\helpers\Inflector;
+
+$favourites = ($favourites) ?: [];
 
 ?>
 
 <div class="row">
 
-    <?php
-    $lastIndexChar = '.';
-    $xfavourites    = ($favourites)?:[
-        'default' => 'black',
-    ];
-
-    foreach (\Yii::$app->getModule('admin')->getControllers($this->context->module->id) as $i => $controller):
-        ?>
+    <?php foreach ($favourites as $i => $controller): ?>
 
         <?php
-
-        $className = 'app\models\\' . Inflector::id2camel($controller);
-        $indexChar = substr($controller, 0, 1);
-        if ($indexChar != $lastIndexChar) {
-            #echo "<div class='clearfix'></div>";
-            $lastIndexChar = $indexChar;
-        }
-        $count = class_exists($className) ? $className::find([])->asArray()->count() : '-';
-        $color = (array_key_exists($controller, $favourites)) ? $favourites[$controller] : 'gray';
+        $className = $modelNamespace . Inflector::id2camel($controller['name']);
+        $count     = class_exists($className) ? $className::find([])->asArray()->count() : '-';
         ?>
 
-        <div class="col-sm-4 col-lg-3">
-            <div class="small-box bg-<?= $color ?>">
-                <div class="inner">
-                    <h3>
-                        <?= $count ?>
-                    </h3>
+        <div class="col-xs-6 col-sm-4 col-lg-3">
+            <?=
+            insolita\wgadminlte\SmallBox::widget(
+                [
+                    'head'        => $count,
+                    'type'        => $controller['color'],
+                    'text'        => $controller['label'],
+                    'footer'      => 'Manage',
+                    'footer_link' => $controller['route'],
+                    'icon'        => 'fa fa-' . $controller['icon']
+                ]
+            );
+            ?>
+        </div>
+    <?php endforeach; ?>
+</div>
 
-                    <p>
-                        <?= Inflector::camel2words(
-                            Inflector::id2camel($controller)
-                        ) ?><?= $updated ?>&nbsp;
-                    </p>
-                </div>
-                <div class="icon">
-                    <i class="ion ion-grid"></i>
-                </div>
-                <?php
-                echo yii\helpers\Html::a(
-                    'List <i class="fa fa-arrow-circle-right"></i>',
-                    ["/{$this->context->module->id}/$controller"],
-                    ['class' => 'small-box-footer']
-                );
-                ?>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <ul class="list-group">
+                    <?php
+                    $dataProvider = new \yii\data\ArrayDataProvider(
+                        [
+                            'allModels'  => $controllers,
+                            'pagination' => [
+                                'pageSize' => 100
+                            ]
+                        ]
+                    );
+                    echo \yii\widgets\ListView::widget(
+                        [
+                            'dataProvider' => $dataProvider,
+                            'itemView'     => function ($data) {
+                                return '<li class="list-group-item">' . \yii\helpers\Html::a(
+                                    $data['label'],
+                                    $data['route']
+                                ) . '</li>';
+                            },
+                        ]
+                    );
+                    ?>
+                </ul>
             </div>
         </div>
-
-    <?php endforeach; ?>
+    </div>
 </div>
