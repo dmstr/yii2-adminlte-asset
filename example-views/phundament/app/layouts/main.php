@@ -31,7 +31,7 @@ dmstr\web\AdminLteAsset::register($this);
     <![endif]-->
 </head>
 
-<body class="<?= \dmstr\helpers\AdminLteHelper::skinClass() ?>">
+<body class="skin-black">
 <?php $this->beginBody() ?>
 
 <div class="wrapper">
