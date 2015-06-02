@@ -1,8 +1,6 @@
 <?php
 use dmstr\widgets\Alert;
-use yii\bootstrap\Nav;
 use yii\helpers\Html;
-use yii\widgets\Breadcrumbs;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -114,61 +112,7 @@ dmstr\web\AdminLteAsset::register($this);
     <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
-            <!-- Sidebar user panel -->
-            <?php if (!\Yii::$app->user->isGuest): ?>
-                <div class="user-panel">
-                    <div class="pull-left image">
-                        <?php echo \cebe\gravatar\Gravatar::widget(
-                            [
-                                'email'   => \Yii::$app->user->identity->profile->gravatar_email,
-                                'options' => [
-                                    'alt' => \Yii::$app->user->identity->username
-                                ],
-                                'size'    => 64
-                            ]
-                        ); ?>
-                    </div>
-                    <div class="pull-left info">
-                        <p><?= \Yii::$app->user->identity->username ?></p>
-
-                        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-                    </div>
-                </div>
-            <?php endif; ?>
-            <!-- search form -->
-            <!--<form action="#" method="get" class="sidebar-form">
-                <div class="input-group">
-                    <input type="text" name="q" class="form-control" placeholder="Search..."/>
-                    <span class="input-group-btn">
-                        <button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
-                    </span>
-                </div>
-            </form>-->
-            <!-- /.search form -->
-            <?php
-            if (!\Yii::$app->user->isGuest) {
-                $menuItems = [
-                    ['label' => '<i class="fa fa-dashboard"></i> <span>Dashboard</span>', 'url' => ['/admin']],
-                    ['label' => '<i class="fa fa-users"></i> <span>Users</span>', 'url' => ['/user/admin']],
-                ];
-            } else {
-                $menuItems = [];
-            }
-
-            // sidebar menu: : style can be found in sidebar.less
-            echo Nav::widget(
-                [
-                    'options'      => ['class' => 'sidebar-menu'],
-                    'items'        => \Yii::$app->getModule('admin')->getMenuItems(
-                        [
-                            'gii'   => false,
-                            'debug' => false,
-                        ]
-                    ),
-                    'encodeLabels' => false,
-                ]
-            );
-            ?>
+            <?= $this->render('_sidebar') ?>
         </section>
         <!-- /.sidebar -->
     </aside>
