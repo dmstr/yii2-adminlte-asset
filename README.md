@@ -114,6 +114,30 @@ Here is the list of available skins:
 "skin-green-light"
 ```
 
+If you want to use native DOM of headers AdminLTE
+
+```html
+<h1>About <small>static page</small></h1>
+```
+
+then you can follow the code:
+
+```php
+/* @var $this yii\web\View */
+
+$this->params['breadcrumbs'][] = 'About';
+
+$this->beginBlock('content-header'); ?>
+About <small>static page</small>
+<?php $this->endBlock(); ?>
+
+<div class="site-about">
+    <p> This is the About page. You may modify the following file to customize its content: </p>
+    <code><?= __FILE__ ?></code>
+</div>
+```
+
+
 For more information, please read https://almsaeedstudio.com/themes/AdminLTE/documentation/index.html
 
 > Namespacing rules follow the Yii 2.0 framework structure, eg. `dmstr\web` for the Asset Bundle.
