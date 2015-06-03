@@ -62,7 +62,7 @@ foreach (\dmstr\helpers\Metadata::getModules() as $name => $module) {
         case (!empty($moduleConfigItem)):
             // TODO: read role from item
             $role                        = 'editor';
-            $moduleConfigItem            = \yii\helpers\ArrayHelper::merge($defaultItem, $moduleConfigItem);
+            $moduleConfigItem            = array_merge($defaultItem, $moduleConfigItem);
             $moduleConfigItem['visible'] = (
                 Yii::$app->user->can($role) || (Yii::$app->user->identity && Yii::$app->user->identity->isAdmin)
             );
