@@ -55,15 +55,16 @@ foreach (\dmstr\helpers\Metadata::getModules() as $name => $module) {
     ];
 
     // check for module configuration and assign to favourites
-    $moduleConfigItem = (is_object($module)) ? $module->params['menuItems'] :
-        $module['params']['menuItems'];
+    $moduleConfigItem = (is_object($module)) ?
+        (isset($module->params['menuItems']) ? $module->params['menuItems'] : []) :
+        (isset($module['params']['menuItems']) ? $module['params']['menuItems'] : []);
     switch (true) {
         case (!empty($moduleConfigItem)):
             // TODO: read role from item
             $role                        = 'editor';
             $moduleConfigItem            = \yii\helpers\ArrayHelper::merge($defaultItem, $moduleConfigItem);
             $moduleConfigItem['visible'] = (
-                Yii::$app->user->identity->isAdmin || Yii::$app->user->can($role)
+                Yii::$app->user->can($role) || (Yii::$app->user->identity && Yii::$app->user->identity->isAdmin)
             );
             $favouriteMenuItems[]        = $moduleConfigItem;
             continue 2;
@@ -75,8 +76,8 @@ foreach (\dmstr\helpers\Metadata::getModules() as $name => $module) {
 }
 
 // create developer menu, when user is admin
-if (Yii::$app->user->identity->isAdmin) {
-    $menuItemsa[] = [
+if (Yii::$app->user->identity && Yii::$app->user->identity->isAdmin) {
+    $menuItems[] = [
         'label'   => 'Developer',
         'items'   => $developerMenuItems,
         'options' => ['class' => 'treeview'],
@@ -118,7 +119,7 @@ if (Yii::$app->user->identity->isAdmin) {
         <?php endif; ?>
     <?php endforeach; ?>
 
-    <?php if (Yii::$app->user->identity->isAdmin): ?>
+    <?php if (Yii::$app->user->identity && Yii::$app->user->identity->isAdmin): ?>
         <li class="treeview">
             <a href="#">
                 <i class="fa fa-cog"></i>
