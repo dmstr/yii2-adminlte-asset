@@ -47,7 +47,7 @@
 
         <div class="col-md-3 col-xs-6">
             <!-- small box -->
-            <div class="small-box bg-green">
+            <div class="small-box bg-orange">
                 <div class="inner">
                     <h3>
                         <?= count(\Yii::$app->getModules()) ?>
@@ -60,8 +60,8 @@
                 <div class="icon">
                     <i class="ion ion-stats-bars"></i>
                 </div>
-                <a href="<?= \yii\helpers\Url::to(['/packaii']) ?>" class="small-box-footer">
-                    Browse Packages <i class="fa fa-arrow-circle-right"></i>
+                <a href="<?= \yii\helpers\Url::to(['/debug']) ?>" class="small-box-footer">
+                    Debug <i class="fa fa-arrow-circle-right"></i>
                 </a>
             </div>
 
@@ -73,8 +73,7 @@
             <div class="small-box bg-red">
                 <div class="inner">
                     <h3>
-                        <?= (is_file(Yii::getAlias('@app/version'))) ?
-                            file_get_contents(Yii::getAlias('@app/version')) : 'n/a' ?>
+                        <?= getenv('APP_VERSION') ?>
                     </h3>
 
                     <p>
@@ -134,23 +133,12 @@
                 <div class="box-body">
                     <div class="alert alert-info">
                         <i class="fa fa-warning"></i>
-                        <b>Notice!</b> Use <code>./yii app/setup-docs</code> and <code>./yii app/generate-docs</code> to
+                        <b>Notice!</b> Use the <i>yii2-apidoc</i> extension to
                         create the HTML documentation for this application.
                     </div>
                     <p>
-
                         <?= yii\helpers\Html::a(
-                            'Class Reference',
-                            '../../docs-html/index.html',
-                            ['target' => '_blank', 'class' => 'btn btn-default btn-block btn-flat']
-                        ); ?>
-                        <?= yii\helpers\Html::a(
-                            'Developer Guide',
-                            '../../docs-html/guide-README.html',
-                            ['target' => '_blank', 'class' => 'btn btn-default btn-block btn-flat']
-                        ); ?>
-                        <?= yii\helpers\Html::a(
-                            'User Guide',
+                            'Google Docs',
                             'https://docs.google.com',
                             ['target' => '_blank', 'class' => 'btn btn-default btn-block btn-flat']
                         ); ?>
