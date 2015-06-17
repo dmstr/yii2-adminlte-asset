@@ -33,7 +33,7 @@ php composer.phar require dmstr/yii2-adminlte-asset "1.*"
 Quick Start
 -----------
 
-Once the extension is installed, you can have a *preview* by reconfiguring the path mappings of the view component:
+Once the extension is installed, you can have a **preview** by reconfiguring the path mappings of the view component:
 
 For Yii 2 [Application Template](https://github.com/yiisoft/yii2-app-advanced) or [Basic Application Template](https://github.com/yiisoft/yii2-app-basic)
 
@@ -76,6 +76,8 @@ Customization
 - Remove the custom `view` configuration from your application by deleting the path mappings, if you have made them before.
 - Edit your views adhering to html markup `vendor/almasaeed2010/adminlte/pages`
 
+### Skins
+
 By default the extension uses blue skin for AdminLTE. You can change it in config file.
 
 ```php
@@ -114,7 +116,35 @@ Here is the list of available skins:
 "skin-green-light"
 ```
 
-For more information, please read https://almsaeedstudio.com/themes/AdminLTE/documentation/index.html
+If you want to use native DOM of headers AdminLTE
+
+```html
+<h1>
+    About <small>static page</small>
+</h1>
+```
+
+then you can follow the code:
+
+```php
+/* @var $this yii\web\View */
+
+$this->params['breadcrumbs'][] = 'About';
+
+$this->beginBlock('content-header'); ?>
+About <small>static page</small>
+<?php $this->endBlock(); ?>
+
+<div class="site-about">
+    <p> This is the About page. You may modify the following file to customize its content: </p>
+    <code><?= __FILE__ ?></code>
+</div>
+```
+
+Further Information
+-------------------
+
+For AdminLTE documentation, please read https://almsaeedstudio.com/themes/AdminLTE/documentation/index.html
 
 > Namespacing rules follow the Yii 2.0 framework structure, eg. `dmstr\web` for the Asset Bundle.
  
