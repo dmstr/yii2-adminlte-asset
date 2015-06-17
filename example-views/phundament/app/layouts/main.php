@@ -2,7 +2,6 @@
 use dmstr\widgets\Alert;
 use yii\bootstrap\Nav;
 use yii\helpers\Html;
-use yii\widgets\Breadcrumbs;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -159,12 +158,14 @@ dmstr\web\AdminLteAsset::register($this);
             echo Nav::widget(
                 [
                     'options'      => ['class' => 'sidebar-menu'],
-                    'items'        => \Yii::$app->getModule('admin')->getMenuItems(
-                        [
-                            'gii'   => false,
-                            'debug' => false,
-                        ]
-                    ),
+                    'items'        => \Yii::$app->getModule('backend') ?
+                        \Yii::$app->getModule('backend')->getMenuItems(
+                            [
+                                'gii'   => false,
+                                'debug' => false,
+                            ]
+                        ) :
+                        [],
                     'encodeLabels' => false,
                 ]
             );
