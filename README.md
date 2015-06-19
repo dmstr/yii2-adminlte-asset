@@ -92,12 +92,12 @@ By default the extension uses blue skin for AdminLTE. You can change it in confi
 ],
 ```
 
-And then just replace class of body `skin-blue`. 
-You can use `AdminLteHelper::skinClass()` if you don't want to alter every view file when you change skin color.
-
+And then just replace class of body `skin-blue`. You can use `AdminLteHelper::skinClass()` if you don't want to alter every view file when you change skin color. 
 ```html
 <body class="<?= \dmstr\helpers\AdminLteHelper::skinClass() ?>">
 ```
+
+**Note:** Use `AdminLteHelper::skinClass()` only if you override the skin through configuration. Otherwise you will not get the correct css class of body.
 
 Here is the list of available skins:
 
