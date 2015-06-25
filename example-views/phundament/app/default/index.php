@@ -4,7 +4,7 @@
         <div class="small-box bg-blue">
             <div class="inner">
                 <h3>
-                    Home
+                     <?= YII_ENV ?>
                 </h3>
 
                 <p>
@@ -73,7 +73,7 @@
             <div class="small-box bg-red">
                 <div class="inner">
                     <h3>
-                        <?= getenv('APP_VERSION') ?>
+                        <?= APP_VERSION ?>
                     </h3>
 
                     <p>
@@ -101,7 +101,7 @@
             <!-- Default box -->
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Modules</h3>
+                    <h3 class="box-title">Modules*</h3>
                 </div>
                 <div class="box-body">
                     <?php
@@ -117,7 +117,7 @@
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
-                    <small>Registered in application from configuration or bootstrapping.</small>
+                    <small>(*) Registered in application from configuration or bootstrapping.</small>
                 </div>
                 <!-- /.box-footer-->
             </div>
@@ -136,14 +136,6 @@
                         <b>Notice!</b> Use the <i>yii2-apidoc</i> extension to
                         create the HTML documentation for this application.
                     </div>
-                    <p>
-                        <?= yii\helpers\Html::a(
-                            'Google Docs',
-                            'https://docs.google.com',
-                            ['target' => '_blank', 'class' => 'btn btn-default btn-block btn-flat']
-                        ); ?>
-
-                    </p>
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
