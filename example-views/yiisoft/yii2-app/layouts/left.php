@@ -1,7 +1,3 @@
-<?php
-use dmstr\widgets\Menu;
-
-?>
 <aside class="main-sidebar">
 
     <section class="sidebar">
@@ -30,7 +26,7 @@ use dmstr\widgets\Menu;
         </form>
         <!-- /.search form -->
 
-        <?= Menu::widget([
+        <?= dmstr\widgets\Menu::widget([
             'encodeLabels' => false,
             'options' => ['class' => 'sidebar-menu'],
             'submenuTemplate' => '<ul class="treeview-menu">{items}</ul>',
