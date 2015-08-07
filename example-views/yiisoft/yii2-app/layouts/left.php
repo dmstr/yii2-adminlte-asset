@@ -1,5 +1,5 @@
 <?php
-use yii\widgets\Menu;
+use dmstr\widgets\Menu;
 
 ?>
 <aside class="main-sidebar">
