@@ -12,6 +12,20 @@ use yii;
 class Menu extends yii\widgets\Menu
 {
     /**
+     * @var boolean whether the labels for menu items should be HTML-encoded.
+     */
+    public $encodeLabels = false;
+
+    /**
+     * @var array the HTML attributes for the menu's container tag. The following special options are recognized:
+     *
+     * - tag: string, defaults to "ul", the tag name of the item container tags. Set to false to disable container tag.
+     *
+     * @see \yii\helpers\Html::renderTagAttributes() for details on how attributes are being rendered.
+     */
+    public $options = ['class' => 'sidebar-menu'];
+
+    /**
      * @var string the template used to render a list of sub-menus.
      * In this template, the token `{items}` will be replaced with the rendered sub-menu items.
      */

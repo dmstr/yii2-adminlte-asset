@@ -27,9 +27,6 @@
         <!-- /.search form -->
 
         <?= dmstr\widgets\Menu::widget([
-            'encodeLabels' => false,
-            'options' => ['class' => 'sidebar-menu'],
-            'submenuTemplate' => '<ul class="treeview-menu">{items}</ul>',
             'items' => [
                 ['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
                 ['label' => '<i class="fa fa-file-code-o"></i><span>Gii</span>', 'url' => ['/gii']],
