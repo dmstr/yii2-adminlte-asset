@@ -1,5 +1,5 @@
 <?php
-use yii\widgets\Menu;
+use dmstr\widgets\Menu;
 
 ?>
 <aside class="main-sidebar">
@@ -40,7 +40,7 @@ use yii\widgets\Menu;
                 ['label' => '<i class="fa fa-dashboard"></i><span>Debug</span>', 'url' => ['/debug']],
                 ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                 [
-                    'label' => '<i class="fa fa-share"></i><span>Same tools</span><i class="fa fa-angle-left pull-right"></i>',
+                    'label' => '<i class="fa fa-share"></i><span>Same tools</span>',
                     'url' => '#',
                     'items' => [
                         [
@@ -52,7 +52,7 @@ use yii\widgets\Menu;
                             'url' => ['/debug'],
                         ],
                         [
-                            'label' => '<i class="fa fa-circle-o"></i> Level One <i class="fa fa-angle-left pull-right"></i>',
+                            'label' => '<i class="fa fa-circle-o"></i> Level One ',
                             'url' => '#',
                             'items' => [
                                 [
@@ -60,7 +60,7 @@ use yii\widgets\Menu;
                                     'url' => '#',
                                 ],
                                 [
-                                    'label' => '<i class="fa fa-circle-o"></i> Level Two <i class="fa fa-angle-left pull-right"></i>',
+                                    'label' => '<i class="fa fa-circle-o"></i> Level Two ',
                                     'url' => '#',
                                     'items' => [
                                         [
