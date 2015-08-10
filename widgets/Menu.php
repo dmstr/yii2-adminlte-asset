@@ -17,6 +17,12 @@ class Menu extends yii\widgets\Menu
     public $encodeLabels = false;
 
     /**
+     * @var boolean whether to activate parent menu items when one of the corresponding child menu items is active.
+     * The activated parent menu items will also have its CSS classes appended with [[activeCssClass]].
+     */
+    public $activateParents = true;
+
+    /**
      * @var array the HTML attributes for the menu's container tag. The following special options are recognized:
      *
      * - tag: string, defaults to "ul", the tag name of the item container tags. Set to false to disable container tag.
