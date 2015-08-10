@@ -73,7 +73,7 @@
             <div class="small-box bg-red">
                 <div class="inner">
                     <h3>
-                        <?= APP_VERSION ?>
+                        <?= getenv('APP_VERSION') ?>
                     </h3>
 
                     <p>
