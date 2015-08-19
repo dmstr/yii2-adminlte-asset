@@ -41,15 +41,17 @@ use yii\helpers\Html;
 <?php
 
 // prepare menu items, get all modules
-$developerMenuItems = $favouriteMenuItems = [];
+$developerMenuItems = [];
+$favouriteMenuItems[] = ['label'=>'MAIN NAVIGATION', 'options'=>['class'=>'header']];
 foreach (\dmstr\helpers\Metadata::getModules() as $name => $module) {
     $role                        = 'editor';
 
     $defaultItem = [
+        'icon' => 'fa fa-cube',
         'label'   => $name,
         'url'     => ['/' . $name],
         'visible' => Yii::$app->user->can($role) || (Yii::$app->user->identity && Yii::$app->user->identity->isAdmin),
-        'options' => ['class' => 'active'],
+        //'options' => ['class' => 'active'],
         'items'   => []
     ];
 
@@ -68,6 +70,7 @@ foreach (\dmstr\helpers\Metadata::getModules() as $name => $module) {
             continue 2;
             break;
         default:
+            $defaultItem['icon'] = 'fa fa-circle-o';
             $developerMenuItems[] = $defaultItem;
             break;
     }
@@ -76,63 +79,19 @@ foreach (\dmstr\helpers\Metadata::getModules() as $name => $module) {
 // create developer menu, when user is admin
 if (Yii::$app->user->identity && Yii::$app->user->identity->isAdmin) {
     $menuItems[] = [
+        'url' => '#',
+        'icon' => 'fa fa-cog',
         'label'   => 'Developer',
         'items'   => $developerMenuItems,
         'options' => ['class' => 'treeview'],
         'visible' => Yii::$app->user->identity->isAdmin
     ];
 }
+
+echo dmstr\widgets\Menu::widget([
+    'showCountSubmenu' => true,
+    'defaultIcon' => 'fa fa-square-o',
+    'showIcon' => true,
+    'items' => \yii\helpers\ArrayHelper::merge($favouriteMenuItems, $menuItems),
+]);
 ?>
-
-<ul class="sidebar-menu">
-    <li class="header">MAIN NAVIGATION</li>
-
-    <?php foreach ($favouriteMenuItems as $item): ?>
-        <?php if ($item['visible']): ?>
-            <?php if (!$item['items']): ?>
-                <li>
-                    <?= Html::a('<i class="fa fa-cube"></i> ' . $item['label'], $item['url']) ?>
-                </li>
-            <?php else: ?>
-                <li class="treeview active">
-                    <a href="#">
-                        <i class="fa fa-list"></i>
-                        <span><?= $item['label'] ?></span>
-                        <span class="label label-primary pull-right"><?= count($item['items']) ?></span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <?php foreach ($item['items'] as $subItem): ?>
-                            <li>
-                                <?=
-                                Html::a(
-                                    '<i class="fa fa-square-o"></i> ' . $subItem['label'],
-                                    $subItem['url']
-                                )
-                                ?>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-                </li>
-            <?php endif; ?>
-        <?php endif; ?>
-    <?php endforeach; ?>
-
-    <?php if (Yii::$app->user->identity && Yii::$app->user->identity->isAdmin): ?>
-        <li class="treeview">
-            <a href="#">
-                <i class="fa fa-cog"></i>
-                <span>Developer</span>
-                <span class="label label-primary pull-right"><?= count($developerMenuItems) ?></span>
-            </a>
-            <ul class="treeview-menu">
-                <?php foreach ($developerMenuItems as $item): ?>
-                    <li><?= Html::a(
-                            '<i class="fa fa-circle-o"></i> ' . $item['label'],
-                            $item['url']
-                        ) ?></li>
-                <?php endforeach; ?>
-            </ul>
-        </li>
-    <?php endif; ?>
-
-</ul>
