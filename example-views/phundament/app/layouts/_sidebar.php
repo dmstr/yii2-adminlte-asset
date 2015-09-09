@@ -89,9 +89,7 @@ if (Yii::$app->user->identity && Yii::$app->user->identity->isAdmin) {
 }
 
 echo dmstr\widgets\Menu::widget([
-    'showCountSubmenu' => true,
-    'defaultIcon' => 'fa fa-square-o',
-    'showIcon' => true,
+    'options' => ['class' => 'sidebar-menu'],
     'items' => \yii\helpers\ArrayHelper::merge($favouriteMenuItems, $menuItems),
 ]);
 ?>
