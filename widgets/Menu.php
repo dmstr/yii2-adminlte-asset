@@ -33,7 +33,8 @@ class Menu extends \yii\widgets\Menu
                 '{icon}' => '<i class="' . $item['icon'] . '"></i> '
             ] : [
                 '{url}' => Url::to($item['url']),
-                '{label}' => '<span>'.$item['label'].'</span>'
+                '{label}' => '<span>'.$item['label'].'</span>',
+                '{icon}' => null,
             ];
             return strtr($template, $replace);
         } else {
