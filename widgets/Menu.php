@@ -30,7 +30,7 @@ class Menu extends \yii\widgets\Menu
             $replace = !empty($item['icon']) ? [
                 '{url}' => Url::to($item['url']),
                 '{label}' => '<span>'.$item['label'].'</span>',
-                '{icon}' => '<i class="fa ' . $item['icon'] . '"></i> '
+                '{icon}' => '<i class="' . $item['icon'] . '"></i> '
             ] : [
                 '{url}' => Url::to($item['url']),
                 '{label}' => '<span>'.$item['label'].'</span>'
@@ -40,7 +40,7 @@ class Menu extends \yii\widgets\Menu
             $template = ArrayHelper::getValue($item, 'template', $this->labelTemplate);
             $replace = !empty($item['icon']) ? [
                 '{label}' => '<span>'.$item['label'].'</span>',
-                '{icon}' => '<i class="fa ' . $item['icon'] . '"></i> '
+                '{icon}' => '<i class="' . $item['icon'] . '"></i> '
             ] : [
                 '{label}' => '<span>'.$item['label'].'</span>',
             ];
