@@ -1,6 +1,10 @@
 CHANGELOG
 ---------
 
+## 2.2.0
+ * updated Menu widget
+ * updated composer dependencies
+
 ## 2.1.0
  * updated black ("white") default skin for phundament
  * updated default skins to be backward-compatible
