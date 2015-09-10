@@ -16,9 +16,8 @@ appcli:
   command: 'sh /app/src/run.sh'
   # should be replaced with: image: <project_name>_appsrc
   image: phundament/app:4.0.0-rc1-dev
-  external_links:
-    - 'example-databases:DB'
   links:
+    - 'mariadb:DB'
     - 'appnginx:WEB'
     - 'seleniumhub:HUB'
   volumes:
@@ -27,7 +26,7 @@ appcli:
   volumes_from:
     - appsrc
   environment:
-    DB_ENV_MYSQL_DATABASE: sakila
+    DB_ENV_MYSQL_DATABASE: test-adminlte-1
     APP_MIGRATION_LOOKUP: '@app/migrations'
 
 appsrc:
@@ -40,17 +39,17 @@ appsrc:
 # The php-fpm server for interpreting php code
 appfpm:
   environment:
-    DB_ENV_MYSQL_DATABASE: sakila
+    DB_ENV_MYSQL_DATABASE: test-adminlte-1
   image: phundament/php:5.6-fpm-4.0.0-rc1-dev
   # host-volume for local development
   volumes:
     - ../:/app/vendor/dmstr/yii2-adminlte-asset
-    - ./_views/:/app/src/modules/backend/views/layouts/
+    - ../example-views/yiisoft/yii2-app/layouts:/app/src/modules/backend/views/layouts
     #- ../tests/_config/local.php:/app/src/config/local.php
   volumes_from:
     - appsrc
-  external_links:
-    - 'example-databases:DB'
+  links:
+    - 'mariadb:DB'
 
 # The nginx server for serving static files directly
 appnginx:
@@ -70,12 +69,12 @@ appnginx:
 # Data Services
 # -------------
 
-#mariadb:
-#  image: schmunk42/mariadb-example-databases
-#  ports:
-#    - '3306'
-#  environment:
-#    MARIADB_PASS: veryveryverysecretadmin
+mariadb:
+  image: tutum/mariadb:10.1
+  ports:
+    - '3306'
+  environment:
+    MARIADB_PASS: secretadmin
 
 # Testing Services
 # ----------------
