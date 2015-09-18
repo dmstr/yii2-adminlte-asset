@@ -41,17 +41,19 @@ use yii\helpers\Html;
 <?php
 
 // prepare menu items, get all modules
-$developerMenuItems = [];
+$menuItems = [];
+
 $favouriteMenuItems[] = ['label'=>'MAIN NAVIGATION', 'options'=>['class'=>'header']];
+$developerMenuItems = [];
+
 foreach (\dmstr\helpers\Metadata::getModules() as $name => $module) {
-    $role                        = 'editor';
+    $role                        = $name;
 
     $defaultItem = [
         'icon' => 'fa fa-cube',
         'label'   => $name,
         'url'     => ['/' . $name],
         'visible' => Yii::$app->user->can($role) || (Yii::$app->user->identity && Yii::$app->user->identity->isAdmin),
-        //'options' => ['class' => 'active'],
         'items'   => []
     ];
 
@@ -61,11 +63,8 @@ foreach (\dmstr\helpers\Metadata::getModules() as $name => $module) {
         (isset($module['params']['menuItems']) ? $module['params']['menuItems'] : []);
     switch (true) {
         case (!empty($moduleConfigItem)):
-            // TODO: read role from item
             $moduleConfigItem            = array_merge($defaultItem, $moduleConfigItem);
-            $moduleConfigItem['visible'] = (
-                Yii::$app->user->can($role) || (Yii::$app->user->identity && Yii::$app->user->identity->isAdmin)
-            );
+            $moduleConfigItem['visible'] = \dmstr\helpers\RouteAccess::can($moduleConfigItem['url']);
             $favouriteMenuItems[]        = $moduleConfigItem;
             continue 2;
             break;
