@@ -36,7 +36,7 @@ dmstr\web\AdminLteAsset::register($this);
 
     <header class="main-header">
         <!-- Logo -->
-        <a href="<?= \Yii::$app->homeUrl ?>" class="logo"><?= getenv('APP_NAME') ?></a>
+        <a href="<?= \Yii::$app->homeUrl ?>" class="logo"><?= getenv('APP_TITLE') ?></a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
             <!-- Sidebar toggle button-->

@@ -130,7 +130,7 @@
             <!-- Default box -->
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Modules*</h3>
+                    <h3 class="box-title">Modules</h3>
                 </div>
                 <div class="box-body">
                     <?php
@@ -139,14 +139,14 @@
                         echo yii\helpers\Html::a(
                             $module->id,
                             ['/' . $module->id],
-                            ['class' => 'btn btn-default btn-block btn-flat']
+                            ['class' => 'btn btn-default btn-flat']
                         );
                     }
                     ?>
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
-                    <small>(*) Registered in application from configuration or bootstrapping.</small>
+                    <small>Registered in application from configuration or bootstrapping.</small>
                 </div>
                 <!-- /.box-footer-->
             </div>
