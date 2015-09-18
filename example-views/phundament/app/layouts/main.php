@@ -67,6 +67,25 @@ dmstr\web\AdminLteAsset::register($this);
                                 </li>
                             </ul>
                         </li>
+                        <li class="dropdown tasks-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-flag"></i>
+                                <span class="label label-default"><?= count(Yii::$app->urlManager->languages) ?></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header">Languages</li>
+                                <li>
+                                    <!-- inner menu: contains the actual data -->
+                                    <ul class="menu">
+                                        <?php foreach(Yii::$app->urlManager->languages as $language): ?>
+                                        <li>
+                                            <?= Html::a($language,['',Yii::$app->urlManager->languageParam=>$language]) ?>
+                                        </li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
