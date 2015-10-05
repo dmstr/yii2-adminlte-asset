@@ -149,6 +149,9 @@ class Menu extends \yii\widgets\Menu
             if ($arrayRoute[0] !== $arrayThisRoute[0]) {
                 return false;
             }
+            if (isset($arrayRoute[1]) && $arrayRoute[1] !== $arrayThisRoute[1]) {
+                return false;
+            }
             unset($item['url']['#']);
             if (count($item['url']) > 1) {
                 foreach (array_splice($item['url'], 1) as $name => $value) {
