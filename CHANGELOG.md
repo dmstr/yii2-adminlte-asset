@@ -1,6 +1,14 @@
 CHANGELOG
 ---------
 
+## 2.2.2
+ * fixed Menu widget selection
+ * updated example views
+
+## 2.2.1
+ * removed the restriction to use only FA
+ * added testing setup
+
 ## 2.2.0
  * updated Menu widget
  * updated composer dependencies
