@@ -4,22 +4,19 @@ use yii\helpers\Inflector;
 
 $favourites = ($favourites) ?: [];
 
+// Note: requires `$controllers` variable during rendering...
+
 ?>
 
 <div class="row">
 
     <?php foreach ($favourites as $i => $controller): ?>
 
-        <?php
-        $className = $modelNamespace . Inflector::id2camel($controller['name']);
-        $count     = class_exists($className) ? $className::find([])->asArray()->count() : '-';
-        ?>
-
         <div class="col-xs-6 col-sm-4 col-lg-3">
             <?=
             insolita\wgadminlte\SmallBox::widget(
                 [
-                    'head'        => $count,
+                    'head'        => $controller['head'],
                     'type'        => $controller['color'],
                     'text'        => $controller['label'],
                     'footer'      => 'Manage',
