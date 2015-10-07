@@ -97,7 +97,9 @@ dmstr\web\AdminLteAsset::register($this);
                                 <li class="user-header bg-light-blue">
                                     <?php echo \cebe\gravatar\Gravatar::widget(
                                         [
-                                            'email'   => \Yii::$app->user->identity->email,
+                                            'email'   => (\Yii::$app->user->identity->profile->gravatar_email === null)
+                                                        ? \Yii::$app->user->identity->email 
+                                                        : \Yii::$app->user->identity->profile->gravatar_email,
                                             'options' => [
                                                 'alt' => \Yii::$app->user->identity->username
                                             ],
