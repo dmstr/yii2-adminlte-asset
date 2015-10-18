@@ -23,7 +23,8 @@
         "yiisoft/yii2-bootstrap": "2.*",
         "cebe/yii2-gravatar": "1.*",
         "bower-asset/admin-lte-rtl": "~2.0",
-        "rmrevin/yii2-fontawesome": "2.9.*"
+        "rmrevin/yii2-fontawesome": "2.9.*",
+        "airani/yii2-bootstrap-rtl": "~1.0"
     },
     "autoload": {
         "psr-4": {
