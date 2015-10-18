@@ -2,7 +2,7 @@
     "name": "airani/yii2-adminlte-asset",
     "description": "Backend theme for Yii2 Framework (RTL)",
     "type": "yii2-extension",
-    "keywords": ["yii2","extension","adminlte"],
+    "keywords": ["yii2","extension","adminlte", "rtl", "adminlte-rtl"],
     "license": "BSD-3-Clause",
     "authors": [
         {
@@ -27,7 +27,7 @@
     },
     "autoload": {
         "psr-4": {
-            "dmstr\\": ""
+            "airani\\": ""
         }
     },
     "extra": {

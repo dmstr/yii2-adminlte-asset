@@ -1,10 +1,10 @@
 AdminLTE Asset Bundle (RTL)
 ===========================
 
-*Backend UI for Yii2 Framework, based on [AdminLTE](https://github.com/airani/AdminLTE)*
+*Backend UI for Yii2 Framework, based on [AdminLTE RTL](https://github.com/airani/AdminLTE)*
 
 This package contains an [Asset Bundle for Yii 2.0 Framework](http://www.yiiframework.com/doc-2.0/guide-structure-assets.html) 
-which registers the CSS files for the AdminLTE user-interface.
+which registers the CSS files for the **AdminLTE (RTL Version)** user-interface.
 
 The CSS files are installed via Yii's recommended usage of the `fxp/composer-asset-plugin`.
 
