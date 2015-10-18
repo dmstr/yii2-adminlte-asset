@@ -1,5 +1,5 @@
 {
-    "name": "airani/yii2-adminlte-rtl-asset",
+    "name": "airani/yii2-adminlte-asset",
     "description": "Backend theme for Yii2 Framework (RTL)",
     "type": "yii2-extension",
     "keywords": ["yii2","extension","adminlte"],
