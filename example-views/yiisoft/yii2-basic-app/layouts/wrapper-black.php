@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-dmstr\web\AdminLteAsset::register($this);
-$directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower') . '/admin-lte';
+airani\web\AdminLteAsset::register($this);
+$directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower') . '/admin-lte-rtl';
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

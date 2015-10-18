@@ -1,6 +1,6 @@
 <?php
 use yii\widgets\Breadcrumbs;
-use dmstr\widgets\Alert;
+use airani\widgets\Alert;
 ?>
 <aside class="right-side">
     <section class="content-header">

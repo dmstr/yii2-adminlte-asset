@@ -90,7 +90,7 @@ Customization
 
 - Copy files from `vendor/airani/yii2-adminlte-asset/example-views/yiisoft/yii2-advanced-app` (or other theme) to `@app/views`.
 - Remove the custom `view` configuration from your application by deleting the path mappings, if you have made them before.
-- Edit your views adhering to html markup `vendor/bower/admin-lte/pages`
+- Edit your views adhering to html markup `vendor/bower/admin-lte-rtl/pages`
 
 By default the extension uses black skin for AdminLTE. You can change this. Just replace class of body `skin-black` to `skin-blue`.
 To fix all menu, add `fixed` class to `body` element.

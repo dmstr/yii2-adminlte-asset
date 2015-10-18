@@ -2,12 +2,12 @@
 use yii\bootstrap\Nav;
 use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
-use dmstr\widgets\Alert;
+use airani\widgets\Alert;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
 $this->title = $this->title . ' [Backend] ' . Yii::$app->params['appName'];
-dmstr\web\AdminLteAsset::register($this);
+airani\web\AdminLteAsset::register($this);
 ?>
 
 <?php $this->beginPage() ?>
