@@ -1,5 +1,5 @@
 <?php
-namespace dmstr\web;
+namespace airani\web;
 
 use yii\web\AssetBundle;
 
@@ -12,7 +12,9 @@ class AdminLteAsset extends AssetBundle
     public $sourcePath = '@bower/admin-lte/dist';
     public $css = [
         'css/AdminLTE.min.css',
-        'css/skins/_all-skins.min.css'
+        'css/skins/_all-skins.min.css',
+        'css/AdminLTE-rtl.min.css',
+        'css/skins/_all-skins-rtl.min.css',
     ];
     public $js = [
         'js/app.min.js'
