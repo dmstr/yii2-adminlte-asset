@@ -1,7 +1,7 @@
-AdminLTE Asset Bundle
-=====================
+AdminLTE Asset Bundle (RTL)
+===========================
 
-*Backend UI for Yii2 Framework, based on [AdminLTE](https://github.com/almasaeed2010/AdminLTE)*
+*Backend UI for Yii2 Framework, based on [AdminLTE](https://github.com/airani/AdminLTE)*
 
 This package contains an [Asset Bundle for Yii 2.0 Framework](http://www.yiiframework.com/doc-2.0/guide-structure-assets.html) 
 which registers the CSS files for the AdminLTE user-interface.
@@ -17,7 +17,7 @@ The preferred way to install this extension is through [composer](http://getcomp
 To install AdminLTE v1 run:
 
 ```
-php composer.phar require dmstr/yii2-adminlte-asset "1.*"
+php composer.phar require airani/yii2-adminlte-asset "1.*"
 ```
 
 > #### Note! 
@@ -26,7 +26,7 @@ php composer.phar require dmstr/yii2-adminlte-asset "1.*"
 To install AdminLTE v2 run:
 
 ```
-php composer.phar require dmstr/yii2-adminlte-asset "2.*@beta"
+php composer.phar require airani/yii2-adminlte-asset "2.*@beta"
 ```
 
 
@@ -42,7 +42,7 @@ For [Yii 2 Advanced Application Template](https://github.com/yiisoft/yii2-app-ad
     'view' => [
          'theme' => [
              'pathMap' => [
-                '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-advanced-app'
+                '@app/views' => '@vendor/airani/yii2-adminlte-asset/example-views/yiisoft/yii2-advanced-app'
              ],
          ],
     ],
@@ -57,7 +57,7 @@ For [Yii 2 Basic Application Template](https://github.com/yiisoft/yii2-app-basic
     'view' => [
          'theme' => [
              'pathMap' => [
-                '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-basic-app'
+                '@app/views' => '@vendor/airani/yii2-adminlte-asset/example-views/yiisoft/yii2-basic-app'
              ],
          ],
     ],
@@ -73,7 +73,7 @@ For [Phundament 4](https://github.com/phundament/app)
     'view' => [
         'theme' => [
             'pathMap' => [
-                '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/example-views/phundament/app'
+                '@app/views' => '@vendor/airani/yii2-adminlte-asset/example-views/phundament/app'
             ],
         ],
     ],
@@ -88,7 +88,7 @@ Therefore it is recommended to **copy the views into your application** and adju
 Customization
 -------------
 
-- Copy files from `vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-advanced-app` (or other theme) to `@app/views`.
+- Copy files from `vendor/airani/yii2-adminlte-asset/example-views/yiisoft/yii2-advanced-app` (or other theme) to `@app/views`.
 - Remove the custom `view` configuration from your application by deleting the path mappings, if you have made them before.
 - Edit your views adhering to html markup `vendor/bower/admin-lte/pages`
 
@@ -96,5 +96,5 @@ By default the extension uses black skin for AdminLTE. You can change this. Just
 To fix all menu, add `fixed` class to `body` element.
 
 
-> Namespacing rules follow the Yii 2.0 framework structure, eg. `dmstr\web` for the Asset Bundle.
+> Namespacing rules follow the Yii 2.0 framework structure, eg. `airani\web` for the Asset Bundle.
  
