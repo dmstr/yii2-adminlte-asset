@@ -39,23 +39,23 @@ class Alert extends Widget
     public $alertTypes = [
         'error' => [
             'class' => 'alert-danger',
-            'icon' => '<i class="fa fa-ban fa-fw pull-right"></i>',
+            'icon' => '<i class="fa fa-ban fa-fw"></i>',
         ],
         'danger' => [
             'class' => 'alert-danger',
-            'icon' => '<i class="fa fa-ban fa-fw pull-right"></i>',
+            'icon' => '<i class="fa fa-ban fa-fw"></i>',
         ],
         'success' => [
             'class' => 'alert-success',
-            'icon' => '<i class="fa fa-check fa-fw pull-right"></i>',
+            'icon' => '<i class="fa fa-check fa-fw"></i>',
         ],
         'info' => [
             'class' => 'alert-info',
-            'icon' => '<i class="fa fa-info fa-fw pull-right"></i>',
+            'icon' => '<i class="fa fa-info fa-fw"></i>',
         ],
         'warning' => [
             'class' => 'alert-warning',
-            'icon' => '<i class="fa fa-warning fa-fw pull-right"></i>',
+            'icon' => '<i class="fa fa-warning fa-fw"></i>',
         ],
     ];
 
@@ -86,10 +86,10 @@ class Alert extends Widget
                     $this->options['id'] = $this->getId() . '-' . $type;
 
                     echo BootstrapAlert::widget([
-                            'body' => $this->alertTypes[$type]['icon'] . $message,
-                            'closeButton' => $this->closeButton,
-                            'options' => $this->options,
-                        ]);
+                        'body' => $this->alertTypes[$type]['icon'] . $message,
+                        'closeButton' => $this->closeButton,
+                        'options' => $this->options,
+                    ]);
                 }
 
                 $session->removeFlash($type);
