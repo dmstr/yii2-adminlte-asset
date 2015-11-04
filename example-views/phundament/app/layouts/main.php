@@ -29,7 +29,7 @@ dmstr\web\AdminLteAsset::register($this);
     <![endif]-->
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-black sidebar-mini">
 <?php $this->beginBody() ?>
 
 <div class="wrapper">
