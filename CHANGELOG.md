@@ -1,6 +1,13 @@
 CHANGELOG
 ---------
 
+## 2.2.4
+ * [FIX]	fixed active menu with modules (Vasiliy Baranov)
+ * [ENH] added .hold-transition
+
+## 2.2.3
+ * [ENH] : updated Gravatar widget E-Mail usage (@Quexer69)
+
 ## 2.2.2
  * fixed Menu widget selection
  * updated example views
