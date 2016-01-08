@@ -2,8 +2,9 @@
 namespace dmstr\widgets;
 use Yii;
 use yii\helpers\ArrayHelper;
-use yii\helpers\Url;
 use yii\helpers\Html;
+use yii\helpers\Url;
+
 /**
  * Class Menu
  * Theme menu widget.
@@ -13,39 +14,40 @@ class Menu extends \yii\widgets\Menu
     /**
      * @inheritdoc
      */
-    public $linkTemplate = '<a href="{url}">{icon} {label}</a>';
+    public $linkLabelTemplate = '{icon} {label}';
     public $submenuTemplate = "\n<ul class='treeview-menu' {show}>\n{items}\n</ul>\n";
     public $activateParents = true;
+
     /**
      * @inheritdoc
      */
     protected function renderItem($item)
     {
-        if(isset($item['items']))
-            $linkTemplate = '<a href="{url}">{icon} {label} <i class="fa fa-angle-left pull-right"></i></a>';
-        else
-            $linkTemplate = $this->linkTemplate;
+        $template = isset($item['url']) ?
+            ArrayHelper::getValue($item, 'template', $this->linkLabelTemplate) :
+            $this->labelTemplate;
+        if (isset($item['items'])) {
+            $template .= '<i class="fa fa-angle-left pull-right"></i>';
+        }
         if (isset($item['url'])) {
-            $template = ArrayHelper::getValue($item, 'template', $linkTemplate);
-            $replace = !empty($item['icon']) ? [
-                '{url}' => Url::to($item['url']),
-                '{label}' => '<span>'.$item['label'].'</span>',
-                '{icon}' => '<i class="' . $item['icon'] . '"></i> '
-            ] : [
-                '{url}' => Url::to($item['url']),
-                '{label}' => '<span>'.$item['label'].'</span>',
-                '{icon}' => null,
+            $linkOptions                = ArrayHelper::getValue($item, 'linkOptions');
+            $linkOptions['encodeLabel'] = false;
+            $replace                    = [
+                '{label}' => '<span>' . $item['label'] . '</span>',
+                '{icon}'  => !empty($item['icon']) ? '<i class="' . $item['icon'] . '"></i> ' : null,
             ];
-            return strtr($template, $replace);
+            return Html::a(strtr($template, $replace), Url::to($item['url'], $linkOptions));
         } else {
-            $template = ArrayHelper::getValue($item, 'template', $this->labelTemplate);
-            $replace = !empty($item['icon']) ? [
-                '{label}' => '<span>'.$item['label'].'</span>',
-                '{icon}' => '<i class="' . $item['icon'] . '"></i> '
-            ] : [
-                '{label}' => '<span>'.$item['label'].'</span>',
+            $replace = [
+                '{label}' => '<span>' . $item['label'] . '</span>',
+                '{icon}'  => !empty($item['icon']) ? '<i class="' . $item['icon'] . '"></i> ' : null,
             ];
-            return strtr($template, $replace);
+
+            if (!isset($item['options']['class'])) {
+                return Html::a(strtr($template, $replace), '#');
+            } else {
+                return strtr($template, $replace);
+            }
         }
     }
     /**
