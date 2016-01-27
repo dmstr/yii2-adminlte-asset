@@ -20,7 +20,7 @@ $favourites = ($favourites) ?: [];
                     'type'        => $controller['color'],
                     'text'        => $controller['label'],
                     'footer'      => 'Manage',
-                    'footer_link' => $controller['route'],
+                    'footer_link' => $controller['url'],
                     'icon'        => 'fa fa-' . $controller['icon']
                 ]
             );
@@ -49,7 +49,7 @@ $favourites = ($favourites) ?: [];
                             'itemView'     => function ($data) {
                                 return '<li class="list-group-item">' . \yii\helpers\Html::a(
                                     $data['label'],
-                                    $data['route']
+                                    $data['url']
                                 ) . '</li>';
                             },
                         ]
