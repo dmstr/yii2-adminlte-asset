@@ -141,6 +141,25 @@ About <small>static page</small>
 </div>
 ```
 
+### Left sidebar menu - Widget Menu
+
+If you need to separate sections of the menu then just add the `li.header` item to `items`
+```php
+    'items' => [
+        ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii']],
+        ['label' => 'Debug', 'icon' => 'fa fa-dashboard', 'url' => ['/debug']],
+        ['label' => 'MAIN NAVIGATION', 'options' => ['class' => 'header']], // here
+        // ... a group items
+        ['label' => '', 'options' => ['class' => 'header']],
+        // ... a group items
+        ['label' => '', 'options' => ['class' => 'header']],
+        // ... a group items
+```
+
+
+
+
+
 Further Information
 -------------------
 
