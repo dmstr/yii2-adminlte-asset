@@ -168,11 +168,7 @@
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
-                    <small>Need help? Get <?= yii\helpers\Html::a(
-                            'support',
-                            'mailto:' . \Yii::$app->params['supportEmail']
-                        ); ?>.
-                    </small>
+                    
                 </div>
                 <!-- /.box-footer-->
             </div>
