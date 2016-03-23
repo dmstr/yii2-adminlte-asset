@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
-$this->title = $this->title . ' [Backend] ' . Yii::$app->params['appName'];
+$this->title = $this->title . ' [Backend]';
 dmstr\web\AdminLteAsset::register($this);
 ?>
 
