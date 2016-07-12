@@ -161,7 +161,7 @@ To add a label for a item:
 ```php
 'items' => [
         [
-            'label' => 'Mailbox <small class="label pull-right bg-yellow">' . $mailCount . '</small>',
+            'label' => '<span>Mailbox</span><span class="pull-right-container"><small class="label pull-right bg-yellow">' . $mailCount . '</small></span>',
             'icon' => 'fa fa fa-envelope-o',
             'url' => ['/mailbox'],
             'encode' => false,
