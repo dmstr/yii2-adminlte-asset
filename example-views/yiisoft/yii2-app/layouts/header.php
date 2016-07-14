@@ -24,7 +24,7 @@ use yii\helpers\Html;
 =======
 
                 <!-- User Account: style can be found in dropdown.less -->
->>>>>>> refs/remotes/origin/fblogin
+
 
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -72,7 +72,7 @@ use yii\helpers\Html;
 
                 <!-- User Account: style can be found in dropdown.less -->
                 <li>
-                  
+                    >>>>>>> refs/remotes/origin/fblogin
                 </li>
             </ul>
         </div>
