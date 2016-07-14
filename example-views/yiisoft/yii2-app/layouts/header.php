@@ -20,6 +20,11 @@ use yii\helpers\Html;
             <ul class="nav navbar-nav">
 
                 <!-- Messages: style can be found in dropdown.less-->
+<<<<<<< HEAD
+=======
+
+                <!-- User Account: style can be found in dropdown.less -->
+>>>>>>> refs/remotes/origin/fblogin
 
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
