@@ -20,8 +20,6 @@ use yii\helpers\Html;
             <ul class="nav navbar-nav">
 
                 <!-- Messages: style can be found in dropdown.less-->
-<<<<<<< HEAD
-=======
 
                 <!-- User Account: style can be found in dropdown.less -->
 
@@ -72,7 +70,7 @@ use yii\helpers\Html;
 
                 <!-- User Account: style can be found in dropdown.less -->
                 <li>
-                    >>>>>>> refs/remotes/origin/fblogin
+
                 </li>
             </ul>
         </div>
