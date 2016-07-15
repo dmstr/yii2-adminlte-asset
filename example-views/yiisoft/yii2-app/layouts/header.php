@@ -21,14 +21,14 @@ use yii\bootstrap\NavBar;
 if (Yii::$app->user->isGuest) {
     $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
     $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-    $menuItems[] = ['label' => ''];
+    echo ' ';
 } else {
     $menuItems[] = [
         'label' => 'Logout ('. ' ' .Html::img('http://graph.facebook.com/'.Yii::$app->user->identity->profilepic.'/picture', ['class'=>'img-circle']) .' '. Yii::$app->user->identity->username . ')',
         'url' => ['/site/logout'],
         'linkOptions' => ['data-method' => 'post']
     ];
-    $menuItems[] = ['label' => ''];
+
 }
 
 echo Nav::widget([
