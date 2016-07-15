@@ -20,26 +20,13 @@ use yii\bootstrap\Nav;
 
             <ul class="nav navbar-nav">
 
-
-
             <?php
-            NavBar::begin([
-
-                'options' => [
-                  //  'class' => 'my-navbar navbar-fixed-top',
-                ],
-            ]);
-
             if (Yii::$app->user->isGuest) {
                 $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
                 $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
             }
-            echo Nav::widget([
-                'options' => ['class' => 'navbar-nav navbar-right'],
-                'items' => $menuItems,
-                'encodeLabels' => false
-            ]);
-            NavBar::end();
+            echo $menuItems;
+
             ?>
 
                 <!-- Messages: style can be found in dropdown.less-->
