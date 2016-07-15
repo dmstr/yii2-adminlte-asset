@@ -19,8 +19,6 @@ use yii\bootstrap\Nav;
         <div class="navbar-custom-menu">
 
             <ul class="nav navbar-nav">
-
-
             <?php
             if (Yii::$app->user->isGuest) {
                 $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
@@ -33,11 +31,10 @@ use yii\bootstrap\Nav;
                 ];
             }
             echo $menuItems;
-
             ?>
-
-
+            </ul>
                 <!-- Messages: style can be found in dropdown.less-->
 
+            </div>
     </nav>
 </header>
