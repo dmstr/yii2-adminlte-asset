@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Html;
-
+use yii\bootstrap\NavBar;
+use yii\bootstrap\Nav;
 /* @var $this \yii\web\View */
 /* @var $content string */
 ?>
@@ -18,6 +19,28 @@ use yii\helpers\Html;
         <div class="navbar-custom-menu">
 
             <ul class="nav navbar-nav">
+
+
+
+            <?php
+            NavBar::begin([
+
+                'options' => [
+                  //  'class' => 'my-navbar navbar-fixed-top',
+                ],
+            ]);
+
+            if (Yii::$app->user->isGuest) {
+                $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
+                $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+            }
+            echo Nav::widget([
+                'options' => ['class' => 'navbar-nav navbar-right'],
+                'items' => $menuItems,
+                'encodeLabels' => false
+            ]);
+            NavBar::end();
+            ?>
 
                 <!-- Messages: style can be found in dropdown.less-->
                 <li class="dropdown messages-menu">
@@ -275,6 +298,11 @@ use yii\helpers\Html;
                 <li>
                     <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
                 </li>
+
+
+
+
+
             </ul>
         </div>
     </nav>
