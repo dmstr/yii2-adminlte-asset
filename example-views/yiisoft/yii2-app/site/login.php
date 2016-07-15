@@ -51,7 +51,7 @@ $fieldOptions2 = [
         </div>
 
 
-        <?php ActiveForm::end(); ?>
+
 
         <div class="social-auth-links text-center">
             <p>- OR -</p>
@@ -67,7 +67,7 @@ $fieldOptions2 = [
                 in using Google+</a>
         </div>
         <!-- /.social-auth-links -->
-
+        <?php ActiveForm::end(); ?>
         <a href="#">I forgot my password</a><br>
         <a href="register.html" class="text-center">Register a new membership</a>
 
