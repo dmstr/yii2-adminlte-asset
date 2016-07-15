@@ -7,7 +7,7 @@ use yii\bootstrap\Nav;
 ?>
 
 <header class="main-header">
-    
+
 <nav class="navbar navbar-static-top" role="navigation">
 
 <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
