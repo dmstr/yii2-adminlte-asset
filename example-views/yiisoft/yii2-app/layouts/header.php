@@ -36,7 +36,7 @@ if (Yii::$app->user->isGuest) {
         'linkOptions' => ['data-method' => 'post']
     ];
 }
-echo $menuItems;
+
 echo Nav::widget([
     'options' => ['class' => 'navbar-nav navbar-right'],
     'items' => $menuItems,
