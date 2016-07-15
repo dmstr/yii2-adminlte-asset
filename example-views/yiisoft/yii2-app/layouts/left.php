@@ -7,12 +7,12 @@
             <div class="pull-left image">
                 <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
             </div>
+
             <div class="pull-left info">
                 <p>Jeneline Rodriguez</p>
-
-
+                <a href="#"><i class="fa fa-circle text-success"></i>Owner</a>
             </div>
-            <a href="#"><i class="fa fa-circle text-success"></i>Owner</a>
+
         </div>
 
         <!-- search form
@@ -40,10 +40,10 @@
                         'icon' => 'fa fa-share',
                         'url' => '#',
                         'items' => [
-                            ['label' => '63xxxxx', 'icon' => 'fa fa-file-code-o',],
-                            ['label' => '63xxxxx', 'icon' => 'fa fa-dashboard',],
-                            [
-                              /*  'label' => 'Level One',
+                            ['label' => '63xxxxx', 'icon' => 'fa fa-file-code-o', 'url' => ['#'],],
+                            ['label' => '63xxxx', 'icon' => 'fa fa-dashboard', 'url' => ['#'],],
+                          /*  [
+                                'label' => 'Level One',
                                 'icon' => 'fa fa-circle-o',
                                 'url' => '#',
                                 'items' => [
@@ -57,8 +57,8 @@
                                             ['label' => 'Level Three', 'icon' => 'fa fa-circle-o', 'url' => '#',],
                                         ],
                                     ],
-                                ],*/
-                            ],
+                                ],
+                            ],*/
                         ],
                     ],
                 ],
