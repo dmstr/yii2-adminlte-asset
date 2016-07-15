@@ -7,15 +7,14 @@
             <div class="pull-left image">
                 <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
             </div>
-
             <div class="pull-left info">
-                <p>Jeneline Rodriguez</p>
+                <p>Jeneline Rodriguez/p>
+
                 <a href="#"><i class="fa fa-circle text-success"></i>Owner</a>
             </div>
-
         </div>
 
-        <!-- search form
+        <!-- search form -->
         <form action="#" method="get" class="sidebar-form">
             <div class="input-group">
                 <input type="text" name="q" class="form-control" placeholder="Search..."/>
@@ -31,18 +30,18 @@
             [
                 'options' => ['class' => 'sidebar-menu'],
                 'items' => [
-                    ['label' => 'About Me', 'options' => ['class' => 'header']],
-                //    ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii']],
-              //      ['label' => 'Debug', 'icon' => 'fa fa-dashboard', 'url' => ['/debug']],
-               //     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
+                    ['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
+                    ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii']],
+                    ['label' => 'Debug', 'icon' => 'fa fa-dashboard', 'url' => ['/debug']],
+                    ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
-                        'label' => 'Contact Detail',
+                        'label' => 'Same tools',
                         'icon' => 'fa fa-share',
                         'url' => '#',
                         'items' => [
-                            ['label' => '63xxxxx', 'icon' => 'fa fa-file-code-o', 'url' => ['#'],],
-                            ['label' => '63xxxx', 'icon' => 'fa fa-dashboard', 'url' => ['#'],],
-                          /*  [
+                            ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii'],],
+                            ['label' => 'Debug', 'icon' => 'fa fa-dashboard', 'url' => ['/debug'],],
+                            [
                                 'label' => 'Level One',
                                 'icon' => 'fa fa-circle-o',
                                 'url' => '#',
@@ -58,7 +57,7 @@
                                         ],
                                     ],
                                 ],
-                            ],*/
+                            ],
                         ],
                     ],
                 ],
