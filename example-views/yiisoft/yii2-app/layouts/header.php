@@ -8,7 +8,7 @@ use yii\bootstrap\NavBar;
 
 <header class="main-header">
 
-<?= Html::a('<span class="logo-mini">APP</span><span class="logo-lg">' . Yii::$app->name . '</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
+<?php // Html::a('<span class="logo-mini">APP</span><span class="logo-lg">' . Yii::$app->name . '</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
 
 <nav class="navbar navbar-static-top" role="navigation">
 
@@ -24,14 +24,14 @@ use yii\bootstrap\NavBar;
 
 
 <?php
-NavBar::begin([
-]);
+
+
 if (Yii::$app->user->isGuest) {
     $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
     $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
 } else {
     $menuItems[] = [
-       // 'label' => 'Logout ('. ' ' .Html::img('http://graph.facebook.com/'.Yii::$app->user->identity->profilepic.'/picture', ['class'=>'img-circle']) .' '. Yii::$app->user->identity->username . ')',
+        'label' => 'Logout ('. ' ' .Html::img('http://graph.facebook.com/'.Yii::$app->user->identity->profilepic.'/picture', ['class'=>'img-circle']) .' '. Yii::$app->user->identity->username . ')',
         'url' => ['/site/logout'],
         'linkOptions' => ['data-method' => 'post']
     ];
@@ -42,7 +42,7 @@ echo Nav::widget([
     'items' => $menuItems,
     'encodeLabels' => false
 ]);
-NavBar::end();
+
 ?>
 
 <!-- User Account: style can be found in dropdown.less -->
