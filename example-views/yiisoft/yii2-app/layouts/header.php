@@ -1,5 +1,7 @@
 <?php
 use yii\helpers\Html;
+use yii\bootstrap\Nav;
+use yii\bootstrap\NavBar;
 /* @var $this \yii\web\View */
 /* @var $content string */
 ?>
@@ -102,18 +104,36 @@ use yii\helpers\Html;
 </li>
 
 <?php
+NavBar::begin([
+    //  'brandLabel' =>  Html::img('http://i395.photobucket.com/albums/pp34/leonardojulius/tarpu_1.png', ['width'=>'225.5', 'height' => "94.5"]),
+    // 'brandUrl' => Yii::$app->homeUrl,
+    //    ['label' => 'Home', 'url' => ['/site/index']],
 
+  //  'options' => [
+      //  'class' => 'my-navbar navbar-fixed-top',
+
+]);
 if (Yii::$app->user->isGuest) {
     $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
     $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
 } else {
     $menuItems[] = [
-        'label' => 'Logout ('. ' ' .Html::img('http://graph.facebook.com/'.Yii::$app->user->identity->profilepic.'/picture', ['class'=>'img-circle']) .' '. Yii::$app->user->identity->username . ')',
+       // 'label' => 'Logout ('. ' ' .Html::img('http://graph.facebook.com/'.Yii::$app->user->identity->profilepic.'/picture', ['class'=>'img-circle']) .' '. Yii::$app->user->identity->username . ')',
         'url' => ['/site/logout'],
         'linkOptions' => ['data-method' => 'post']
     ];
 }
 echo $menuItems;
+echo Nav::widget([
+    'options' => ['class' => 'navbar-nav navbar-right'],
+    'items' => $menuItems,
+    'encodeLabels' => false
+]);
+
+NavBar::end();
+
+
+
 ?>
 <li class="dropdown notifications-menu">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
