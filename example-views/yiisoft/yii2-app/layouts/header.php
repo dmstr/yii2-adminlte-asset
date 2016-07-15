@@ -8,7 +8,6 @@ use yii\bootstrap\NavBar;
 
 <header class="main-header">
 
-<?php // Html::a('<span class="logo-mini">APP</span><span class="logo-lg">' . Yii::$app->name . '</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
 
 <nav class="navbar navbar-static-top" role="navigation">
 
@@ -38,7 +37,7 @@ if (Yii::$app->user->isGuest) {
 }
 
 echo Nav::widget([
-    'options' => ['class' => 'navbar-nav navbar-right'],
+   // 'options' => ['class' => 'navbar-nav navbar-right'],
     'items' => $menuItems,
     'encodeLabels' => false
 ]);
