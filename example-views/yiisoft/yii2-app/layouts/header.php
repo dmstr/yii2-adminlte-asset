@@ -32,16 +32,8 @@ if (Yii::$app->user->isGuest) {
     $menuItems[] = [
         'label' => 'Settings',
         'items'=> [
-            ['<li class="dropdown user user-menu">
- <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-        <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
-        <span class="hidden-xs">Alexander Pierce</span>
-    </a>
-
-</li>
-'],
-
-
+            [''],
+            
         ],
 
         // 'url' => ['/site/logout'],
