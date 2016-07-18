@@ -9,13 +9,8 @@ use yii\web\AssetBundle;
  */
 class AdminLteAsset extends AssetBundle
 {
-    public $sourcePath = '@bower/admin-lte-rtl/dist';
-    public $css = [
-        'css/AdminLTE.min.css',
-        'css/skins/_all-skins.min.css',
-        'css/AdminLTE-rtl.min.css',
-        'css/skins/_all-skins-rtl.min.css',
-    ];
+    public $sourcePath = '@bower/adminlte/dist';
+    public $css = [];
     public $js = [
         'js/app.min.js'
     ];
@@ -23,6 +18,5 @@ class AdminLteAsset extends AssetBundle
         'rmrevin\yii\fontawesome\AssetBundle',
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapPluginAsset',
-        'airani\bootstrap\BootstrapRtlAsset',
     ];
 }
