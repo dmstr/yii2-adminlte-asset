@@ -9,7 +9,7 @@ use yii\web\AssetBundle;
  */
 class AdminLteRtlAsset extends AssetBundle
 {
-    public $sourcePath = '@bower/adminlte-rtl';
+    public $sourcePath = '@bower/adminlte_rtl';
 
     public $css = [
         'dist/css/AdminLTE-rtl.min.css',
