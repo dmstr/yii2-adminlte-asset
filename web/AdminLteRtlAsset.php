@@ -9,15 +9,15 @@ use yii\web\AssetBundle;
  */
 class AdminLteRtlAsset extends AssetBundle
 {
-    public $sourcePath = '@bower/adminlte_rtl';
+    public $sourcePath = '@bower/adminlte_rtl/dist';
 
     public $css = [
-        'dist/css/AdminLTE-rtl.min.css',
-        'dist/css/skins/_all-skins-rtl.min.css',
+        'css/AdminLTE-rtl.min.css',
+        'css/skins/_all-skins-rtl.min.css',
     ];
 
     public $depends = [
-        'airani\bootstrap\BootstrapRtlAsset',
         'airani\web\AdminLteAsset',
+        'airani\bootstrap\BootstrapRtlAsset',
     ];
 }

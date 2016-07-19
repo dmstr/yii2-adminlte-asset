@@ -10,13 +10,14 @@ use yii\web\AssetBundle;
 class AdminLteAsset extends AssetBundle
 {
     public $sourcePath = '@bower/adminlte/dist';
-    public $css = [];
+
     public $js = [
         'js/app.min.js'
     ];
+
     public $depends = [
-        'rmrevin\yii\fontawesome\AssetBundle',
         'yii\web\YiiAsset',
+        'rmrevin\yii\fontawesome\AssetBundle',
         'yii\bootstrap\BootstrapPluginAsset',
     ];
 }
