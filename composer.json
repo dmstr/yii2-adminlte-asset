@@ -1,8 +1,8 @@
 {
     "name": "dmstr/yii2-adminlte-asset",
-    "description": "Backend theme for Yii2 Framework",
+    "description": "AdminLTE backend theme asset bundle for Yii 2.0 Framework",
     "type": "yii2-extension",
-    "keywords": ["yii2","extension","adminlte"],
+    "keywords": ["yii2","extension","adminlte","admin","theme","backend","asset","css","less"],
     "license": "BSD-3-Clause",
     "authors": [
         {
