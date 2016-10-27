@@ -35,7 +35,7 @@ Quick Start
 
 Once the extension is installed, you can have a **preview** by reconfiguring the path mappings of the view component:
 
-For Yii 2 [Application Template](https://github.com/yiisoft/yii2-app-advanced) or [Basic Application Template](https://github.com/yiisoft/yii2-app-basic)
+For Yii 2 [Advanced Application Template](https://github.com/yiisoft/yii2-app-advanced) or [Basic Application Template](https://github.com/yiisoft/yii2-app-basic)
 
 ```php
 'components' => [
