@@ -76,6 +76,29 @@ Customization
 - Remove the custom `view` configuration from your application by deleting the path mappings, if you have made them before.
 - Edit your views adhering to html markup `vendor/almasaeed2010/adminlte/pages`
 
+### AdminLTE Plugins 
+
+By default css and js files of AdminLTE plugins not publish by assetManager. If you need plugins feature then you can create `AnPluginAsset` with suitable `sourcePath`. For example if you need [DataTables plugin](https://almsaeedstudio.com/themes/AdminLTE/pages/tables/data.html) then you should create class:
+
+```php
+class DataTablesAsset extends BaseAdminLteAsset
+{
+    public $sourcePath = '@vendor/almasaeed2010/adminlte/plugins/datatables';
+    public $css = [
+        'dataTables.bootstrap.css',
+    ];
+    public $js = [
+        'dataTables.bootstrap.min.js'
+    ];
+    
+    public $depends = [       
+        'yii\web\YiiAsset',
+        'yii\bootstrap\BootstrapAsset',
+        'yii\bootstrap\BootstrapPluginAsset',
+    ];
+}
+```
+
 ### Skins
 
 By default the extension uses blue skin for AdminLTE. You can change it in config file.
