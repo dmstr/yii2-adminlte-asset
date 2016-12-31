@@ -76,28 +76,35 @@ Customization
 - Remove the custom `view` configuration from your application by deleting the path mappings, if you have made them before.
 - Edit your views adhering to html markup `vendor/almasaeed2010/adminlte/pages`
 
-### AdminLTE Plugins 
+### AdminLTE Plugins
 
-By default css and js files of AdminLTE plugins not publish by assetManager. If you need plugins feature then you can create `AnPluginAsset` with suitable `sourcePath`. For example if you need [DataTables plugin](https://almsaeedstudio.com/themes/AdminLTE/pages/tables/data.html) then you should create class:
+Assets for [AdminLTE plugins](https://almsaeedstudio.com/themes/AdminLTE/documentation/index.html#plugins) are not included
+in our `AdminLteAsset` but you can find these files in your vendor directory under `vendor/almasaeed2010/adminlte/plugins`.
+So if you want to use any of them we recommend to create a custom bundle where you list the plugin files you need:
+
 
 ```php
-class DataTablesAsset extends BaseAdminLteAsset
+use yii\web\AssetBundle;
+class AdminLtePluginAsset extends AssetBundle
 {
-    public $sourcePath = '@vendor/almasaeed2010/adminlte/plugins/datatables';
-    public $css = [
-        'dataTables.bootstrap.css',
-    ];
+    public $sourcePath = '@vendor/almasaeed2010/adminlte/plugins';
     public $js = [
-        'dataTables.bootstrap.min.js'
+        'datatables/dataTables.bootstrap.min.js',
+        // more plugin Js here
     ];
-    
-    public $depends = [       
-        'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
-        'yii\bootstrap\BootstrapPluginAsset',
+    public $css = [
+        'datatables/dataTables.bootstrap.css',
+        // more plugin CSS here
+    ];
+    public $depends = [
+        'dmstr\web\AdminLteAsset',
     ];
 }
 ```
+
+As this asset depends on our `AdminLteAsset` it's the only asset you have to register, for example in
+your `main.php` layout file.
+
 
 ### Skins
 
