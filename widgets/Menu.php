@@ -16,13 +16,14 @@ class Menu extends \yii\widgets\Menu
     public $linkTemplate = '<a href="{url}">{icon} {label}</a>';
     public $submenuTemplate = "\n<ul class='treeview-menu' {show}>\n{items}\n</ul>\n";
     public $activateParents = true;
+    public $defaultIconHtml = '<i class="fa fa-circle-o"></i> ';
     /**
      * @inheritdoc
      */
     protected function renderItem($item)
     {
         if(isset($item['items'])) {
-            $labelTemplate = '<a href="{url}">{label} <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>';
+            $labelTemplate = '<a href="{url}">{icon} {label} <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>';
             $linkTemplate = '<a href="{url}">{icon} {label} <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>';
         }
         else {
@@ -39,7 +40,7 @@ class Menu extends \yii\widgets\Menu
             ] : [
                 '{url}' => Url::to($item['url']),
                 '{label}' => '<span>'.$item['label'].'</span>',
-                '{icon}' => null,
+                '{icon}' => $this->defaultIconHtml,
             ];
             return strtr($template, $replace);
         } else {
@@ -49,6 +50,7 @@ class Menu extends \yii\widgets\Menu
                 '{icon}' => '<i class="' . $item['icon'] . '"></i> '
             ] : [
                 '{label}' => '<span>'.$item['label'].'</span>',
+                '{icon}' => $this->defaultIconHtml
             ];
             return strtr($template, $replace);
         }
