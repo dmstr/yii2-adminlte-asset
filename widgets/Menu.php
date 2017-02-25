@@ -100,6 +100,9 @@ class Menu extends \yii\widgets\Menu
      */
     protected function normalizeItems($items, &$active)
     {
+        if (!is_array($items)) {
+            throw new \yii\base\InvalidConfigException("Menu items must be an array: ". print_r($items));
+        }
         foreach ($items as $i => $item) {
             if (isset($item['visible']) && !$item['visible']) {
                 unset($items[$i]);
