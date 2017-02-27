@@ -65,6 +65,10 @@ class Menu extends \yii\widgets\Menu
         $n = count($items);
         $lines = [];
         foreach ($items as $i => $item) {
+            if (!is_array($item)) {
+                $lines[] = $item;
+                continue;
+            }
             $options = array_merge($this->itemOptions, ArrayHelper::getValue($item, 'options', []));
             $tag = ArrayHelper::remove($options, 'tag', 'li');
             $class = [];
@@ -101,6 +105,9 @@ class Menu extends \yii\widgets\Menu
     protected function normalizeItems($items, &$active)
     {
         foreach ($items as $i => $item) {
+            if (!is_array($item)) {
+                continue;
+            }
             if (isset($item['visible']) && !$item['visible']) {
                 unset($items[$i]);
                 continue;
