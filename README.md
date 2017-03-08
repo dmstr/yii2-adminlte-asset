@@ -50,7 +50,7 @@ For Yii 2 [Advanced Application Template](https://github.com/yiisoft/yii2-app-ad
 ```
 
 
-For [Phundament 4](https://github.com/phundament/app)
+For [phd5](https://github.com/dmstr/phd5-app) application
 
 ```php
 'components' => [
