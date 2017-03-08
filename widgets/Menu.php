@@ -185,7 +185,7 @@ class Menu extends \yii\widgets\Menu
                 $route = ltrim(Yii::$app->controller->module->getUniqueId() . '/' . $route, '/');
             }
             $route = ltrim($route,'/');
-            if ($route != $this->route && $route != $this->noDefaultRoute && $route != $this->noDefaultAction) {
+            if ($route != $this->route && $route !== $this->noDefaultRoute && $route !== $this->noDefaultAction) {
                 return false;
             }
             unset($item['url']['#']);
