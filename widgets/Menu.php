@@ -17,6 +17,39 @@ class Menu extends \yii\widgets\Menu
     public $submenuTemplate = "\n<ul class='treeview-menu' {show}>\n{items}\n</ul>\n";
     public $activateParents = true;
     public $defaultIconHtml = '<i class="fa fa-circle-o"></i> ';
+    private $noDefaultAction;
+    private $noDefaultRoute;
+    /**
+     * Renders the menu.
+     */
+    public function run()
+    {
+        if ($this->route === null && Yii::$app->controller !== null) {
+            $this->route = Yii::$app->controller->getRoute();
+        }
+        if ($this->params === null) {
+            $this->params = Yii::$app->request->getQueryParams();
+        }
+        $posDefaultAction = strpos($this->route, Yii::$app->controller->defaultAction);
+        if ($posDefaultAction) {
+            $this->noDefaultAction = rtrim(substr($this->route, 0, $posDefaultAction), '/');
+        } else {
+            $this->noDefaultAction = false;
+        }
+        $posDefaultRoute = strpos($this->route, Yii::$app->controller->module->defaultRoute);
+        if ($posDefaultRoute) {
+            $this->noDefaultRoute = rtrim(substr($this->route, 0, $posDefaultRoute), '/');
+        } else {
+            $this->noDefaultRoute = false;
+        }
+        $items = $this->normalizeItems($this->items, $hasActiveChild);
+        if (!empty($items)) {
+            $options = $this->options;
+            $tag = ArrayHelper::remove($options, 'tag', 'ul');
+
+            echo Html::tag($tag, $this->renderItems($items), $options);
+        }
+    }
     /**
      * @inheritdoc
      */
@@ -149,17 +182,10 @@ class Menu extends \yii\widgets\Menu
         if (isset($item['url']) && is_array($item['url']) && isset($item['url'][0])) {
             $route = $item['url'][0];
             if ($route[0] !== '/' && Yii::$app->controller) {
-                $route = Yii::$app->controller->module->getUniqueId() . '/' . $route;
+                $route = ltrim(Yii::$app->controller->module->getUniqueId() . '/' . $route, '/');
             }
-            $arrayRoute = explode('/', ltrim($route, '/'));
-            $arrayThisRoute = explode('/', $this->route);
-            if ($arrayRoute[0] !== $arrayThisRoute[0]) {
-                return false;
-            }
-            if (isset($arrayRoute[1]) && $arrayRoute[1] !== $arrayThisRoute[1]) {
-                return false;
-            }
-            if (isset($arrayRoute[2]) && $arrayRoute[2] !== $arrayThisRoute[2]) {
+            $route = ltrim($route,'/');
+            if ($route != $this->route && $route != $this->noDefaultRoute && $route != $this->noDefaultAction) {
                 return false;
             }
             unset($item['url']['#']);
