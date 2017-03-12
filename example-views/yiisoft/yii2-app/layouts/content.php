@@ -11,12 +11,12 @@ use dmstr\widgets\Alert;
             <h1>
                 <?php
                 if ($this->title !== null) {
-                    echo \yii\helpers\Html::encode($this->title);
+                //    echo \yii\helpers\Html::encode($this->title);
                 } else {
                     echo \yii\helpers\Inflector::camel2words(
                         \yii\helpers\Inflector::id2camel($this->context->module->id)
                     );
-                    echo ($this->context->module->id !== \Yii::$app->id) ? '<small>Module</small>' : '';
+              //      echo ($this->context->module->id !== \Yii::$app->id) ? '<small>Module</small>' : '';
                 } ?>
             </h1>
         <?php } ?>
@@ -24,7 +24,7 @@ use dmstr\widgets\Alert;
         <?=
         Breadcrumbs::widget(
             [
-                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+         //       'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
             ]
         ) ?>
     </section>
@@ -37,9 +37,9 @@ use dmstr\widgets\Alert;
 
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
-        <b>Version</b> 2.0
+        <b>by julius leonardo</b>
     </div>
-    <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
+    <strong>Copyright &copy; 2016 <a href="#">Hanalines</a>.</strong> All rights
     reserved.
 </footer>
 
