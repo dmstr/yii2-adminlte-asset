@@ -17,6 +17,12 @@ class Menu extends \yii\widgets\Menu
     public $submenuTemplate = "\n<ul class='treeview-menu' {show}>\n{items}\n</ul>\n";
     public $activateParents = true;
     public $defaultIconHtml = '<i class="fa fa-circle-o"></i> ';
+  
+    /**
+     * @var string
+     */
+    public static $iconClassPrefix = 'fa fa-';
+
     private $noDefaultAction;
     private $noDefaultRoute;
     /**
@@ -50,6 +56,7 @@ class Menu extends \yii\widgets\Menu
             echo Html::tag($tag, $this->renderItems($items), $options);
         }
     }
+  
     /**
      * @inheritdoc
      */
@@ -69,7 +76,7 @@ class Menu extends \yii\widgets\Menu
             $replace = !empty($item['icon']) ? [
                 '{url}' => Url::to($item['url']),
                 '{label}' => '<span>'.$item['label'].'</span>',
-                '{icon}' => '<i class="' . $item['icon'] . '"></i> '
+                '{icon}' => '<i class="' . self::$iconClassPrefix . $item['icon'] . '"></i> '
             ] : [
                 '{url}' => Url::to($item['url']),
                 '{label}' => '<span>'.$item['label'].'</span>',
@@ -80,7 +87,7 @@ class Menu extends \yii\widgets\Menu
             $template = ArrayHelper::getValue($item, 'template', $labelTemplate);
             $replace = !empty($item['icon']) ? [
                 '{label}' => '<span>'.$item['label'].'</span>',
-                '{icon}' => '<i class="' . $item['icon'] . '"></i> '
+                '{icon}' => '<i class="' . self::$iconClassPrefix . $item['icon'] . '"></i> '
             ] : [
                 '{label}' => '<span>'.$item['label'].'</span>',
                 '{icon}' => $this->defaultIconHtml
