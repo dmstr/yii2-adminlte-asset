@@ -1,7 +1,7 @@
 <?php
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
-
+use nodge\eauth\Widget;
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \common\models\LoginForm */
@@ -21,14 +21,13 @@ $fieldOptions2 = [
 
 <div class="login-box">
     <div class="login-logo">
-        <a href="#"><b>Admin</b>LTE</a>
+        <a href="#"><b>HANALINE's</b>BOUQUET</a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
         <p class="login-box-msg">Sign in to start your session</p>
 
         <?php $form = ActiveForm::begin(['id' => 'login-form', 'enableClientValidation' => false]); ?>
-
         <?= $form
             ->field($model, 'username', $fieldOptions1)
             ->label(false)
@@ -51,19 +50,25 @@ $fieldOptions2 = [
         </div>
 
 
-        <?php ActiveForm::end(); ?>
-
         <div class="social-auth-links text-center">
             <p>- OR -</p>
-            <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in
+            <?php
+            if (Yii::$app->getSession()->hasFlash('error')) {
+                echo '<div class="alert alert-danger">'.Yii::$app->getSession()->getFlash('error').'</div>';
+            }
+            ?>
+            <?php echo Widget::widget(['action' => 'site/login']); ?>
+           <!-- <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in
                 using Facebook</a>
             <a href="#" class="btn btn-block btn-social btn-google-plus btn-flat"><i class="fa fa-google-plus"></i> Sign
-                in using Google+</a>
+                in using Google+</a>-->
         </div>
         <!-- /.social-auth-links -->
-
-        <a href="#">I forgot my password</a><br>
+        <?php ActiveForm::end(); ?>
+      <!--  <a href="#">I forgot my password</a><br>
         <a href="register.html" class="text-center">Register a new membership</a>
+
+        -->
 
     </div>
     <!-- /.login-box-body -->
