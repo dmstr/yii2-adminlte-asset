@@ -28,6 +28,7 @@
 
         <?= dmstr\widgets\Menu::widget(
             [
+                'showIcon' => true,
                 'options' => ['class' => 'sidebar-menu'],
                 'items' => [
                     ['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
