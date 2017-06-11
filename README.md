@@ -203,8 +203,7 @@ To add a label for a item:
         ],
 ```
 
-Gii CRUD-generator template
--------------------
+### Template for Gii CRUD generator
 
 Tell Gii about our template. The setting is made in the config file:
 
