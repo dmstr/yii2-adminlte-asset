@@ -23,11 +23,11 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-view box box-primary">
     <div class="box-header">
-        <?= "<?= " ?>Html::a(<?= $generator->generateString(preg_match('/^(ru)|(RU-ru)$/', Yii::$app->language) ? 'Редактировать' : 'Update') ?>, ['update', <?= $urlParams ?>], ['class' => 'btn btn-primary btn-flat']) ?>
-        <?= "<?= " ?>Html::a(<?= $generator->generateString(preg_match('/^(ru)|(RU-ru)$/', Yii::$app->language) ? 'Удалить' : 'Delete') ?>, ['delete', <?= $urlParams ?>], [
+        <?= "<?= " ?>Html::a(<?= $generator->generateString('Update') ?>, ['update', <?= $urlParams ?>], ['class' => 'btn btn-primary btn-flat']) ?>
+        <?= "<?= " ?>Html::a(<?= $generator->generateString('Delete') ?>, ['delete', <?= $urlParams ?>], [
             'class' => 'btn btn-danger btn-flat',
             'data' => [
-                'confirm' => <?= $generator->generateString(preg_match('/^(ru)|(RU-ru)$/', Yii::$app->language) ? 'Вы уверены?' : 'Are you sure you want to delete this item?') ?>,
+                'confirm' => <?= $generator->generateString('Are you sure you want to delete this item?') ?>,
                 'method' => 'post',
             ],
         ]) ?>
