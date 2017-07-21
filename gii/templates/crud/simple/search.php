@@ -30,7 +30,7 @@ use yii\data\ActiveDataProvider;
 use <?= ltrim($generator->modelClass, '\\') . (isset($modelAlias) ? " as $modelAlias" : "") ?>;
 
 /**
- * <?= $searchModelClass ?> represents the model behind the search form of `<?= $generator->modelClass ?>`.
+ * <?= $searchModelClass ?> represents the model behind the search form about `<?= $generator->modelClass ?>`.
  */
 class <?= $searchModelClass ?> extends <?= isset($modelAlias) ? $modelAlias : $modelClass ?>
 
@@ -68,7 +68,7 @@ class <?= $searchModelClass ?> extends <?= isset($modelAlias) ? $modelAlias : $m
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
-            'query' => $query,<?= (in_array('id', $searchAttributes)) ? "\n            'sort' => ['defaultOrder' => ['id' => SORT_DESC]]\n" : '' ?>
+            'query' => $query,
         ]);
 
         $this->load($params);
