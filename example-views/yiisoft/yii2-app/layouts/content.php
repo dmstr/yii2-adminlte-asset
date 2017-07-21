@@ -4,7 +4,7 @@ use dmstr\widgets\Alert;
 
 ?>
 <div class="content-wrapper">
-    <section class="content-header">
+    <section class="content-header" style="border-bottom: 1px solid #ddd; padding-bottom: 10px">
         <?php if (isset($this->blocks['content-header'])) { ?>
             <h1><?= $this->blocks['content-header'] ?></h1>
         <?php } else { ?>
