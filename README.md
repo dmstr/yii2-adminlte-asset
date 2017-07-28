@@ -181,8 +181,8 @@ About <small>static page</small>
 If you need to separate sections of the menu then just add the `li.header` item to `items`
 ```php
     'items' => [
-        ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii']],
-        ['label' => 'Debug', 'icon' => 'fa fa-dashboard', 'url' => ['/debug']],
+        ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
+        ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
         ['label' => 'MAIN NAVIGATION', 'options' => ['class' => 'header']], // here
         // ... a group items
         ['label' => '', 'options' => ['class' => 'header']],
@@ -195,13 +195,16 @@ To add a label for a item:
 
 ```php
 'items' => [
-        [
-            'label' => '<span>Mailbox</span><span class="pull-right-container"><small class="label pull-right bg-yellow">' . $mailCount . '</small></span>',
-            'icon' => 'fa fa fa-envelope-o',
-            'url' => ['/mailbox'],
-            'encode' => false,
-        ],
+    [
+        'label' => 'Mailbox',
+        'icon' => 'envelope-o',
+        'url' => ['/mailbox'],
+        'template'=>'<a href="{url}">{icon} {label}<span class="pull-right-container"><small class="label pull-right bg-yellow">123</small></span></a>'
+    ],
+]
 ```
+
+By default to icons will be added prefix of [Font Awesome](http://fontawesome.io/)
 
 ### Template for Gii CRUD generator
 
