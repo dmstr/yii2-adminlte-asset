@@ -77,33 +77,16 @@ class Menu extends \yii\widgets\Menu
             $linkTemplate = $this->linkTemplate;
         }
 
-        if (isset($item['url'])) {
-            $template = ArrayHelper::getValue($item, 'template', $linkTemplate);
-            $replace = !empty($item['icon'])
-                ? [
-                    '{url}' => Url::to($item['url']),
-                    '{label}' => $item['label'],
-                    '{icon}' => '<i class="' . self::$iconClassPrefix . $item['icon'] . '"></i> ',
-                ]
-                : [
-                    '{url}' => Url::to($item['url']),
-                    '{label}' => $item['label'],
-                    '{icon}' => $this->defaultIconHtml,
-                ];
-        } else {
-            $template = ArrayHelper::getValue($item, 'template', $labelTemplate);
-            $replace = !empty($item['icon'])
-                ? [
-                    '{label}' => $item['label'],
-                    '{icon}' => '<i class="' . self::$iconClassPrefix . $item['icon'] . '"></i> ',
-                ]
-                : [
-                    '{label}' => $item['label'],
-                    '{icon}' => $this->defaultIconHtml,
-                ];
-        }
+        $replacements = [
+            '{label}' => strtr($this->labelTemplate, ['{label}' => $item['label'],]),
+            '{icon}' => empty($item['icon']) ? $this->defaultIconHtml
+                : '<i class="' . self::$iconClassPrefix . $item['icon'] . '"></i> ',
+            '{url}' => isset($item['url']) ? Url::to($item['url']) : '',
+        ];
 
-        return strtr($template, $replace);
+        $template = ArrayHelper::getValue($item, 'template', isset($item['url']) ? $linkTemplate : $labelTemplate);
+
+        return strtr($template, $replacements);
     }
 
     /**
