@@ -151,6 +151,15 @@ Here is the list of available skins:
 "skin-green-light"
 ```
 
+#### Disabling skin file loading, when using bundled assets
+
+    Yii::$container->set(
+        AdminLteAsset::className(),
+        [
+            'skin' => false,
+        ]
+    );
+
 If you want to use native DOM of headers AdminLTE
 
 ```html
