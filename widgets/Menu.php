@@ -121,10 +121,10 @@ class Menu extends \yii\widgets\Menu
             $menu = $this->renderItem($item);
             if (!empty($item['items'])) {
                 if ( array_key_exists('class', $options) ) {
-					$options['class'] = $options['class'] . ' treeview';
-				} else {
-					$options['class'] = 'treeview';
-				}
+                    $options['class'] = $options['class'] . ' treeview';
+                } else {
+                    $options['class'] = 'treeview';
+                }
                 $menu .= strtr($this->submenuTemplate, [
                     '{show}' => $item['active'] ? "style='display: block'" : '',
                     '{items}' => $this->renderItems($item['items']),
