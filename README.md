@@ -39,6 +39,12 @@ FAQ
 - For issues with `DmitryBaranovskiy/eve.git`, please see [#118](https://github.com/dmstr/yii2-adminlte-asset/issues/118), [#119](https://github.com/dmstr/yii2-adminlte-asset/issues/119), [#123](https://github.com/dmstr/yii2-adminlte-asset/issues/123), [#131](https://github.com/dmstr/yii2-adminlte-asset/issues/131) and [#133](https://github.com/dmstr/yii2-adminlte-asset/issues/133) - this has nothing to do with `yii2-adminlte-asset`, update `composer` and `fxpio/composer-asset-plugin`.
 - For other [issues](https://github.com/dmstr/yii2-adminlte-asset/issues?utf8=%E2%9C%93&q=is%3Aissue), please search GitHub first.
 
+### Compatibility matrix
+
+| yii2-adminlte-asset | AdminLTE |
+|---|---|
+| 2.4 | 2.0 - 2.3 |
+| 2.5 | 2.4 |
 
 Quick Start
 -----------
