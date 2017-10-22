@@ -35,7 +35,7 @@
                     ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
-                        'label' => 'Same tools',
+                        'label' => 'Some tools',
                         'icon' => 'share',
                         'url' => '#',
                         'items' => [
