@@ -36,8 +36,13 @@ composer require dmstr/yii2-adminlte-asset "^1"
 FAQ
 ---
 
+### Upgrading
+
+When upgrading please see the [AdminLTE upgrade guide](https://adminlte.io/docs/2.4/upgrade-guide) for adjustments you need to make in your views.
+
+### Composer installation
+
 - For issues with `DmitryBaranovskiy/eve.git`, please see [#113](https://github.com/dmstr/yii2-adminlte-asset/issues/133#issuecomment-337179853)
-- For other [issues](https://github.com/dmstr/yii2-adminlte-asset/issues?utf8=%E2%9C%93&q=is%3Aissue), please search GitHub first.
 
 ### Compatibility matrix
 
@@ -46,7 +51,8 @@ FAQ
 | 2.4 | 2.0 - 2.3 |
 | 2.5 | 2.4 |
 
-When upgrading please also see the [AdminLTE upgrade guide](https://adminlte.io/docs/2.4/upgrade-guide) for adjustments you need to make in your views.
+> For other [issues](https://github.com/dmstr/yii2-adminlte-asset/issues?utf8=%E2%9C%93&q=is%3Aissue), please search GitHub first.
+
 
 Quick Start
 -----------
