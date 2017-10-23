@@ -46,6 +46,8 @@ FAQ
 | 2.4 | 2.0 - 2.3 |
 | 2.5 | 2.4 |
 
+When upgrading please also see the [AdminLTE upgrade guide](https://adminlte.io/docs/2.4/upgrade-guide) for adjustments you need to make in your views.
+
 Quick Start
 -----------
 
