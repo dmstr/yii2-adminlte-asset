@@ -111,6 +111,9 @@ class Menu extends \yii\widgets\Menu
             if ($i === $n - 1 && $this->lastItemCssClass !== null) {
                 $class[] = $this->lastItemCssClass;
             }
+            if(isset($item['items'])) {
+                $class[] = 'treeview';
+            }
             if (!empty($class)) {
                 if (empty($options['class'])) {
                     $options['class'] = implode(' ', $class);
