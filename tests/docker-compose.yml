@@ -1,99 +1,15 @@
-# Phundament 4 - Potemkin Testing Stack
-# =====================================
-
-# Note: Wait until `appcli` container has completed its startup.
-
-# Spawn a new project locally
-#
-#   docker-compose up -d
-#   docker-compose run appcli ../yii
-
-# Application services
-# --------------------
-
-# container to run one-off commands - a dockerized shell
-appcli:
-  command: 'sh /app/src/run.sh'
-  # should be replaced with: image: <project_name>_appsrc
-  image: phundament/app:4.0.0-rc1-dev
-  links:
-    - 'mariadb:DB'
-    - 'appnginx:WEB'
-    - 'seleniumhub:HUB'
-  volumes:
-    - ../:/app/vendor/dmstr/yii2-adminlte-asset
-    #- ./_config/local.php:/app/src/config/local.php
-  volumes_from:
-    - appsrc
-  environment:
-    DB_ENV_MYSQL_DATABASE: test-adminlte-1
-    APP_MIGRATION_LOOKUP: '@app/migrations'
-
-appsrc:
-  image: phundament/app:4.0.0-rc1-dev
-  volumes:
-    #- ../tests/_config/local.php:/app/src/config/local.php
-    - '/app'
-  command: 'tail -f /dev/null'
-
-# The php-fpm server for interpreting php code
-appfpm:
-  environment:
-    DB_ENV_MYSQL_DATABASE: test-adminlte-1
-  image: phundament/php:5.6-fpm-4.0.0-rc1-dev
-  # host-volume for local development
-  volumes:
-    - ../:/app/vendor/dmstr/yii2-adminlte-asset
-    - ../example-views/yiisoft/yii2-app/layouts:/app/src/modules/backend/views/layouts
-    #- ../tests/_config/local.php:/app/src/config/local.php
-  volumes_from:
-    - appsrc
-  links:
-    - 'mariadb:DB'
-
-# The nginx server for serving static files directly
-appnginx:
-  image: schmunk42/nginx:1.7
-  links:
-    - 'appfpm:PHPFPM'
-  # host-volume for local development
-  volumes:
-    - ../:/app/vendor/schmunk42/yii2-giiant
-  volumes_from:
-    - appsrc
-  ports:
-    - '80'
-  environment:
-    VIRTUAL_HOST: '~^test\.giiant\.'
-
-# Data Services
-# -------------
-
-mariadb:
-  image: tutum/mariadb:10.1
-  ports:
-    - '3306'
-  environment:
-    MARIADB_PASS: secretadmin
-
-# Testing Services
-# ----------------
-
-seleniumchrome:
-    image: 'selenium/node-chrome-debug:2.46.0'
-    links:
-        - 'appnginx:WEB'
-        - 'seleniumhub:HUB'
+version: '2'
+services:
+  php:
+    image: dmstr/yii2-app:0.5.1
+    working_dir: /repo/tests/_app
+    volumes:
+      - ../:/repo
+      - ./_app/vendor:/app/vendor
+      - ~/.composer-docker/cache:/root/.composer/cache
+    environment:
+      - PHP_USER_ID=82
+      - GITHUB_API_TOKEN=${GITHUB_API_TOKEN}
+      - APP_CONFIG_FILE=/repo/tests/_app/config/local.php
     ports:
-        - '5900'
-seleniumfirefox:
-    image: 'selenium/node-firefox-debug:2.46.0'
-    links:
-        - 'appnginx:WEB'
-        - 'seleniumhub:HUB'
-    ports:
-        - '5900'
-seleniumhub:
-    image: 'selenium/hub:2.46.0'
-    ports:
-        - '4444'
+      - 20580:80

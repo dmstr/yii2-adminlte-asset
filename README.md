@@ -255,6 +255,23 @@ if (YII_ENV_DEV) {
 }
 ```
 
+Testing
+-------
+
+Go to the tests folder and start the testing stack
+
+    cd tests
+    docker-compose up -d
+    
+Install `yii2-adminlte-asset` in the testing application
+
+    docker-compose exec php composer install
+    
+Open testing URLs in your browser
+
+    http://docker.local:20580/test
+    http://docker.local:20580/test/login    
+
 
 Further Information
 -------------------
