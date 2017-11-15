@@ -21,14 +21,13 @@
     </div>
     <!-- ./col -->
 
-    <?php if (Yii::$app->user->identity->isAdmin): ?>
 
         <div class="col-md-3 col-xs-6">
             <!-- small box -->
             <div class="small-box bg-aqua">
                 <div class="inner">
                     <h3>
-                        <?= \dektrium\user\models\User::find()->count() ?>
+                        n/a
                     </h3>
 
                     <p>
@@ -89,7 +88,6 @@
             </div>
         </div>
         <!-- ./col -->
-    <?php endif; ?>
 
 </div>
 
@@ -101,15 +99,7 @@
                 <h3 class="box-title">Languages</h3>
             </div>
             <div class="box-body">
-                <?php
-                foreach (\Yii::$app->urlManager->languages AS $name) {
-                    echo yii\helpers\Html::a(
-                        $name,
-                        ['', \Yii::$app->urlManager->languageParam=>$name],
-                        ['class' => 'btn btn-default btn-flat '.(Yii::$app->language == $name?'active':'')]
-                    );
-                }
-                ?>
+                Test
             </div>
             <!-- /.box-body -->
             <div class="box-footer">
@@ -123,7 +113,6 @@
 </div>
 
 
-<?php if (Yii::$app->user->identity->isAdmin): ?>
 
     <div class="row">
         <div class="col-sm-6">
@@ -176,4 +165,4 @@
         </div>
     </div>
 
-<?php endif; ?>
+

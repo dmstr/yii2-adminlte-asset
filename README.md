@@ -81,7 +81,7 @@ For [phd5](https://github.com/dmstr/phd5-app) application
     'view' => [
         'theme' => [
             'pathMap' => [
-                '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/example-views/phundament/app'
+                '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/example-views/testing/app'
             ],
         ],
     ],

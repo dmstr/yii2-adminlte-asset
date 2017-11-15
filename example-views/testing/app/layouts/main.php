@@ -46,7 +46,6 @@ dmstr\web\AdminLteAsset::register($this);
 
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
-                    <?php if (!\Yii::$app->user->isGuest): ?>
                         <!-- Messages: style can be found in dropdown.less-->
                         <li class="dropdown messages-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -70,18 +69,14 @@ dmstr\web\AdminLteAsset::register($this);
                         <li class="dropdown tasks-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-flag"></i>
-                                <span class="label label-default"><?= count(Yii::$app->urlManager->languages) ?></span>
+                                <span class="label label-default">n/a</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="header">Languages</li>
                                 <li>
                                     <!-- inner menu: contains the actual data -->
                                     <ul class="menu">
-                                        <?php foreach(Yii::$app->urlManager->languages as $language): ?>
-                                        <li>
-                                            <?= Html::a($language,['',Yii::$app->urlManager->languageParam=>$language]) ?>
-                                        </li>
-                                        <?php endforeach; ?>
+                                        languages
                                     </ul>
                                 </li>
                             </ul>
@@ -90,25 +85,23 @@ dmstr\web\AdminLteAsset::register($this);
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="glyphicon glyphicon-user"></i>
-                                <span><?= \Yii::$app->user->identity->username ?> <i class="caret"></i></span>
+                                <span>Username <i class="caret"></i></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header bg-light-blue">
                                     <?php echo \cebe\gravatar\Gravatar::widget(
                                         [
-                                            'email'   => (\Yii::$app->user->identity->profile->gravatar_email === null)
-                                                        ? \Yii::$app->user->identity->email 
-                                                        : \Yii::$app->user->identity->profile->gravatar_email,
+                                            'email'   => 'username@example.com',
                                             'options' => [
-                                                'alt' => \Yii::$app->user->identity->username
+                                                'alt' => 'username'
                                             ],
                                             'size'    => 128
                                         ]
                                     ); ?>
                                     <p>
-                                        <?= \Yii::$app->user->identity->username ?>
-                                        <small><?= \Yii::$app->user->identity->email ?></small>
+                                        username
+                                        <small>username@example.com</small>
                                     </p>
                                 </li>
                                 <!-- Menu Footer-->
@@ -124,7 +117,6 @@ dmstr\web\AdminLteAsset::register($this);
                                 </li>
                             </ul>
                         </li>
-                    <?php endif; ?>
                 </ul>
             </div>
         </nav>
