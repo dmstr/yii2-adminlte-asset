@@ -20,6 +20,26 @@ class TestController extends Controller
         return $this->render('@repo/example-views/testing/app/default/index');
     }
 
+    public function actionSub1()
+    {
+        return $this->render('@repo/example-views/testing/app/default/index');
+    }
+
+    public function actionSub2()
+    {
+        return $this->render('@repo/example-views/testing/app/default/index');
+    }
+
+    public function actionSub3()
+    {
+        return $this->render('@repo/example-views/testing/app/default/index');
+    }
+
+    public function actionAuto()
+    {
+        return $this->render('@repo/example-views/testing/app/default/index');
+    }
+
     public function actionLogin()
     {
         return $this->render('@repo/example-views/testing/app/security/login');

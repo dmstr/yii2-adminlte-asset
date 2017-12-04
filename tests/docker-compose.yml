@@ -4,12 +4,14 @@ services:
     image: dmstr/yii2-app:0.5.1
     working_dir: /repo/tests/_app
     volumes:
-      - ../:/repo
-      - ./_app/vendor:/app/vendor
-      - ~/.composer-docker/cache:/root/.composer/cache
+      - ../:/repo:cached
+      - ./_app/vendor:/app/vendor:delegated
+      - ~/.composer-docker/cache:/root/.composer/cache:delegated
     environment:
       - PHP_USER_ID=82
       - GITHUB_API_TOKEN=${GITHUB_API_TOKEN}
       - APP_CONFIG_FILE=/repo/tests/_app/config/local.php
+      - YII_ENV=dev
+      - YII_DEBUG=1
     ports:
       - 20580:80

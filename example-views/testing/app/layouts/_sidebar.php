@@ -28,7 +28,8 @@
     <div class="input-group">
         <input type="text" name="q" class="form-control" placeholder="Search..."/>
         <span class="input-group-btn">
-            <button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+            <button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i
+                        class="fa fa-search"></i></button>
         </span>
     </div>
 </form>
@@ -41,54 +42,58 @@
 $menuItems = [];
 
 $favouriteMenuItems[] = ['label' => 'MAIN NAVIGATION', 'options' => ['class' => 'header']];
+
+
 $developerMenuItems = [];
-
 $developerMenuItems[] = [
-    'url' => '#',
+    'url' => ['/test/sub1'],
     'icon' => 'cog',
-    'label' => 'Test 1',
-    'items' => $developerMenuItems,
-    'options' => ['class' => 'treeview'],
-    'visible' => true,
+    'label' => 'Sub 1',
+];
+$developerMenuItems[] = [
+    'icon' => 'cog',
+    'label' => 'No Link',
+];
+$developerMenuItems[] = [
+    'icon' => 'cog',
+    'label' => 'Not visible',
+    'visible' => false,
+];
+$developerMenuItems[] = [
+    'url' => ['/test/sub2'],
+    'icon' => 'cog',
+    'label' => 'Sub 2',
+];
+$developerMenuItems[] = [
+    'url' => ['/test/sub3'],
+    'icon' => 'cog',
+    'label' => 'Sub 3',
 ];
 
-$developerMenuItems[] = [
-    'url' => '#',
-    'icon' => 'cog',
-    'label' => 'Test 2',
-    'items' => $developerMenuItems,
-    'options' => ['class' => 'treeview'],
-    'visible' => true,
-];
 
-$developerMenuItems[] = [
-    'url' => '#',
+$menuItems[] = [
+    'url' => ['/test'],
     'icon' => 'cog',
-    'label' => 'Test 3',
-    'items' => $developerMenuItems,
-    'options' => ['class' => 'treeview'],
-    'visible' => true,
+    'label' => 'Test',
 ];
 
 $menuItems[] = [
-    'url' => '#',
+    #'url' => '#',
     'icon' => 'cog',
-    'label' => 'Test 1',
-    'options' => ['class' => 'treeview'],
-    'visible' => true,
+    'label' => 'Test with items',
+    'items' => $developerMenuItems,
 ];
 
-$menuItems[] = [
-    'url' => '#',
-    'icon' => 'cog',
-    'label' => 'Test 2',
-    'items' => $developerMenuItems,
-    'options' => ['class' => 'treeview'],
-    'visible' => true,
-];
+for ($i = 0; $i < 25; $i++) {
+    $menuItems[] = [
+        'url' => ['/test/auto', 'id' => $i],
+        'icon' => 'cog',
+        'label' => 'Auto '.$i,
+    ];
+}
 
 echo dmstr\widgets\Menu::widget([
-    'options' => ['class' => 'sidebar-menu'],
+    #'options' => ['class' => 'sidebar-menu', 'data-widget' => 'tree'],
     'items' => \yii\helpers\ArrayHelper::merge($favouriteMenuItems, $menuItems),
 ]);
 ?>
