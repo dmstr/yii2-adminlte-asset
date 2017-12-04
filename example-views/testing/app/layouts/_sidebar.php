@@ -46,7 +46,7 @@ $favouriteMenuItems[] = ['label' => 'MAIN NAVIGATION', 'options' => ['class' => 
 
 $developerMenuItems = [];
 $developerMenuItems[] = [
-    'url' => ['/test/sub1'],
+    'url' => ['/sub/action/one'],
     'icon' => 'cog',
     'label' => 'Sub 1',
 ];
@@ -60,14 +60,24 @@ $developerMenuItems[] = [
     'visible' => false,
 ];
 $developerMenuItems[] = [
-    'url' => ['/test/sub2'],
+    'url' => ['/sub/action/two'],
     'icon' => 'cog',
     'label' => 'Sub 2',
 ];
 $developerMenuItems[] = [
-    'url' => ['/test/sub3'],
+    'url' => ['/sub/action/three'],
     'icon' => 'cog',
     'label' => 'Sub 3',
+];
+$developerMenuItems[] = [
+    'url' => ['/sub/action/param', 'id' => 'a'],
+    'icon' => 'cog',
+    'label' => 'Param A',
+];
+$developerMenuItems[] = [
+    'url' => ['/sub/action/param', 'id' => 'b'],
+    'icon' => 'cog',
+    'label' => 'Param B',
 ];
 
 
@@ -93,7 +103,7 @@ for ($i = 0; $i < 25; $i++) {
 }
 
 echo dmstr\widgets\Menu::widget([
-    #'options' => ['class' => 'sidebar-menu', 'data-widget' => 'tree'],
+    'options' => ['class' => 'sidebar-menu', 'data-widget' => 'tree'],
     'items' => \yii\helpers\ArrayHelper::merge($favouriteMenuItems, $menuItems),
 ]);
 ?>

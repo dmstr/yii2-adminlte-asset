@@ -10,7 +10,12 @@ return [
         '@dmstr/widgets' => '/repo/widgets',
         '@dmstr/helpers' => '/repo/helpers',
     ],
-    'controllerMap' => [
-        'test' => 'tests\app\controllers\TestController',
-    ],
+    'controllerNamespace' => 'tests\app\controllers',
+    'components' => [
+        'urlManager' => [
+            'rules' => [
+                'param/<id>' => 'sub/action/param'
+            ]
+        ]
+    ]
 ];
