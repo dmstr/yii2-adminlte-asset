@@ -22,6 +22,7 @@ class Menu extends \yii\widgets\Menu
     public $submenuTemplate = "\n<ul class='treeview-menu' {show}>\n{items}\n</ul>\n";
     public $activateParents = true;
     public $defaultIconHtml = '<i class="fa fa-circle-o"></i> ';
+    public $options = ['class' => 'sidebar-menu', 'data-widget' => 'tree'];
 
     /**
      * @var string is prefix that will be added to $item['icon'] if it exist.
