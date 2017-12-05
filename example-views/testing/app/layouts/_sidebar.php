@@ -60,9 +60,15 @@ $developerMenuItems[] = [
     'visible' => false,
 ];
 $developerMenuItems[] = [
-    'url' => ['/sub/action/two'],
     'icon' => 'cog',
-    'label' => 'Sub 2',
+    'label' => 'Folder',
+    'items' => [
+        [
+            'url' => ['/sub/action/two'],
+            'icon' => 'cog',
+            'label' => 'SubSub 2',
+        ],
+    ],
 ];
 $developerMenuItems[] = [
     'url' => ['/sub/action/three'],
