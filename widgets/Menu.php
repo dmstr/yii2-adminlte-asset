@@ -73,11 +73,27 @@ class Menu extends \yii\widgets\Menu
     protected function renderItem($item)
     {
         if (isset($item['items'])) {
-            $labelRightTemplate = '<span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> <span class="{labelCountClass} pull-right">{labelCount}</span> </span>';
+
+            if (!isset($item['labelCount']))
+            {
+                $labelRightTemplate = '<span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span>';
+            }
+            else
+            {
+                $labelRightTemplate = '<span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> <span class="{labelCountClass} pull-right">{labelCount}</span> </span>';
+            }
             $labelTemplate = '<a href="{url}">{icon} {label} {labelCount} </a>';
             $linkTemplate = '<a href="{url}">{icon} {label} {labelCount} </a>';
         } else {
-            $labelRightTemplate = '<span class="pull-right-container"> <span class="{labelCountClass} pull-right">{labelCount}</span> </span>';
+
+            if (!isset($item['labelCount']))
+            {
+                $labelRightTemplate = '';
+            }
+            else
+            {
+                $labelRightTemplate = '<span class="pull-right-container"> <span class="{labelCountClass} pull-right">{labelCount}</span> </span>'; 
+            }
             $labelTemplate = $this->labelTemplate;
             $linkTemplate = $this->linkTemplate;
         }
@@ -86,7 +102,7 @@ class Menu extends \yii\widgets\Menu
             '{label}' => strtr($this->labelTemplate, ['{label}' => $item['label'],]),
             '{icon}' => empty($item['icon']) ? $this->defaultIconHtml
                 : '<i class="' . self::$iconClassPrefix . $item['icon'] . '"></i> ',
-            '{labelCount}' => empty($item['labelCount']) ? ''
+            '{labelCount}' => empty($item['labelCount']) ? $labelRightTemplate
                 : strtr($labelRightTemplate, ['{labelCountClass}' => $item['labelCountClass'],'{labelCount}' => $item['labelCount'],]),
             '{url}' => isset($item['url']) ? Url::to($item['url']) : 'javascript:void(0);',
         ];
