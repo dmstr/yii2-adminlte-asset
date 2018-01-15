@@ -36,6 +36,8 @@
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
                         'label' => 'Some tools',
+                        'labelCount' => 2,
+                        'labelCountClass' => 'label label-primary',
                         'icon' => 'share',
                         'url' => '#',
                         'items' => [
