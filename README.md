@@ -52,7 +52,7 @@ When upgrading please see the [AdminLTE upgrade guide](https://adminlte.io/docs/
 
 ### Composer installation
 
-- For issues with `DmitryBaranovskiy/eve.git`, please see [#113](https://github.com/dmstr/yii2-adminlte-asset/issues/133#issuecomment-337179853).
+- For issues with `DmitryBaranovskiy/eve.git`, please see [#128](https://github.com/dmstr/yii2-adminlte-asset/issues/128#issuecomment-361895922) and [#113](https://github.com/dmstr/yii2-adminlte-asset/issues/133#issuecomment-337179853).
 
 ### Compatibility matrix
 
