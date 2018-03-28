@@ -9,27 +9,6 @@ $favourites = ($favourites) ?: [];
 ?>
 
 <div class="row">
-
-    <?php foreach ($favourites as $i => $controller): ?>
-
-        <div class="col-xs-6 col-sm-4 col-lg-3">
-            <?=
-            insolita\wgadminlte\SmallBox::widget(
-                [
-                    'head'        => $controller['head'],
-                    'type'        => $controller['color'],
-                    'text'        => $controller['label'],
-                    'footer'      => 'Manage',
-                    'footer_link' => $controller['route'],
-                    'icon'        => $controller['icon']
-                ]
-            );
-            ?>
-        </div>
-    <?php endforeach; ?>
-</div>
-
-<div class="row">
     <div class="col-sm-12">
         <div class="panel panel-default">
             <div class="panel-body">
