@@ -13,12 +13,14 @@ class Menu extends \yii\widgets\Menu
     /**
      * @inheritdoc
      */
-    public $linkTemplate = '<a href="{url}">{icon} {label}</a>';
+    public $linkTemplate = '<a href="{url}">{icon} {label} {labelCount}</a>';
     /**
      * @inheritdoc
      * Styles all labels of items on sidebar by AdminLTE
      */
     public $labelTemplate = '<span>{label}</span>';
+    public $labelRightTemplate ;
+    public $labelCount = '{labelCount}';
     public $submenuTemplate = "\n<ul class='treeview-menu' {show}>\n{items}\n</ul>\n";
     public $activateParents = true;
     public $defaultIconHtml = '<i class="fa fa-circle-o"></i> ';
@@ -71,9 +73,27 @@ class Menu extends \yii\widgets\Menu
     protected function renderItem($item)
     {
         if (isset($item['items'])) {
-            $labelTemplate = '<a href="{url}">{icon} {label} <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>';
-            $linkTemplate = '<a href="{url}">{icon} {label} <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>';
+
+            if (!isset($item['labelCount']))
+            {
+                $labelRightTemplate = '<span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span>';
+            }
+            else
+            {
+                $labelRightTemplate = '<span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> <span class="{labelCountClass} pull-right">{labelCount}</span> </span>';
+            }
+            $labelTemplate = '<a href="{url}">{icon} {label} {labelCount} </a>';
+            $linkTemplate = '<a href="{url}">{icon} {label} {labelCount} </a>';
         } else {
+
+            if (!isset($item['labelCount']))
+            {
+                $labelRightTemplate = '';
+            }
+            else
+            {
+                $labelRightTemplate = '<span class="pull-right-container"> <span class="{labelCountClass} pull-right">{labelCount}</span> </span>'; 
+            }
             $labelTemplate = $this->labelTemplate;
             $linkTemplate = $this->linkTemplate;
         }
@@ -82,6 +102,8 @@ class Menu extends \yii\widgets\Menu
             '{label}' => strtr($this->labelTemplate, ['{label}' => $item['label'],]),
             '{icon}' => empty($item['icon']) ? $this->defaultIconHtml
                 : '<i class="' . self::$iconClassPrefix . $item['icon'] . '"></i> ',
+            '{labelCount}' => empty($item['labelCount']) ? $labelRightTemplate
+                : strtr($labelRightTemplate, ['{labelCountClass}' => $item['labelCountClass'],'{labelCount}' => $item['labelCount'],]),
             '{url}' => isset($item['url']) ? Url::to($item['url']) : 'javascript:void(0);',
         ];
 
