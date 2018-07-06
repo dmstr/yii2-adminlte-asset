@@ -81,7 +81,7 @@ class Menu extends \yii\widgets\Menu
         $replacements = [
             '{label}' => strtr($this->labelTemplate, ['{label}' => $item['label'],]),
             '{icon}' => empty($item['icon']) ? $this->defaultIconHtml
-                : '<i class="' . self::$iconClassPrefix . $item['icon'] . '"></i> ',
+                : '<i class="' . static::$iconClassPrefix . $item['icon'] . '"></i> ',
             '{url}' => isset($item['url']) ? Url::to($item['url']) : 'javascript:void(0);',
         ];
 
