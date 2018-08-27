@@ -17,18 +17,26 @@
     "require": {
         "yiisoft/yii2": "2.*",
         "yiisoft/yii2-bootstrap": "~2.0.0",
-        "cebe/yii2-gravatar": "1.*",
-        "almasaeed2010/adminlte": "^2.4.0",
-        "rmrevin/yii2-fontawesome": "~3.1"
+        "almasaeed2010/adminlte": "^2.4.0"
+    },
+    "suggest": {
+        "cebe/yii2-gravatar": "Display user icons",
+        "rmrevin/yii2-fontawesome": "Font icons"
     },
     "autoload": {
         "psr-4": {
             "dmstr\\": ""
         }
     },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
     "extra": {
         "branch-alias": {
-            "dev-master": "2.0.x-dev"
+            "dev-master": "3.x-dev"
         }
     }
 }
