@@ -56,10 +56,11 @@ When upgrading please see the [AdminLTE upgrade guide](https://adminlte.io/docs/
 
 ### Compatibility matrix
 
-| yii2-adminlte-asset | AdminLTE |
-|---|---|
-| 2.4 | 2.0 - 2.3 |
-| 2.5 | 2.4 |
+| yii2-adminlte-asset | AdminLTE | Font Awesome
+|---|---|---|
+| 2.4 | 2.0 - 2.3 | required
+| 2.5 | 2.4 | required
+| 3.0 | 2.4 | -
 
 > For other [issues](https://github.com/dmstr/yii2-adminlte-asset/issues?utf8=%E2%9C%93&q=is%3Aissue), please search GitHub first.
 
