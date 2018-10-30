@@ -66,10 +66,13 @@ class AdminLteAsset extends BaseAdminLteAsset
 	        $layoutExtraAssetsOptions = self::getLayoutExtraAssetsOptions();
             if (array_key_exists($layout, $layoutExtraAssetsOptions)) {
 	            if (isset($layoutExtraAssetsOptions[$layout]['js'])) {
-		            array_merge($this->js, $layoutExtraAssetsOptions[$layout]['js']);
+		            $this->js = array_merge($this->js, $layoutExtraAssetsOptions[$layout]['js']);
 	            }
 	            if (isset($layoutExtraAssetsOptions[$layout]['css'])) {
-		            array_merge($this->css, $layoutExtraAssetsOptions[$layout]['css']);
+		            $this->css = array_merge($this->css, $layoutExtraAssetsOptions[$layout]['css']);
+	            }
+	            if (isset($layoutExtraAssetsOptions[$layout]['depends'])) {
+		            $this->depends = array_merge($this->depends, $layoutExtraAssetsOptions[$layout]['depends']);
 	            }
             }
         }
@@ -86,8 +89,8 @@ class AdminLteAsset extends BaseAdminLteAsset
 	{
 		return [
 			AdminLteHelper::LAYOUT_OPTION_FIXED => [
-				'js' => [
-					'../bower_components/jquery-slimscroll/jquery.slimscroll.min.js'
+				'depends' => [
+					AdminLteFixedLayoutAsset::class
 				]
 			],
 		];
