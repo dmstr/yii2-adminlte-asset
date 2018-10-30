@@ -181,39 +181,35 @@ Here is the list of available skins:
 "skin-green-light"
 ```
 
-#### Disabling skin file loading, when using bundled assets
+### Layout
 
-    Yii::$container->set(
-        AdminLteAsset::className(),
-        [
-            'skin' => false,
-        ]
-    );
-
-If you want to use native DOM of headers AdminLTE
-
-```html
-<h1>
-    About <small>static page</small>
-</h1>
-```
-
-then you can follow the code:
+By default the extension uses default layout for AdminLTE. You can change it in config file.
 
 ```php
-/* @var $this yii\web\View */
-
-$this->params['breadcrumbs'][] = 'About';
-
-$this->beginBlock('content-header'); ?>
-About <small>static page</small>
-<?php $this->endBlock(); ?>
-
-<div class="site-about">
-    <p> This is the About page. You may modify the following file to customize its content: </p>
-    <code><?= __FILE__ ?></code>
-</div>
+'components' => [
+    'assetManager' => [
+        'bundles' => [
+            'dmstr\web\AdminLteAsset' => [
+                'layout' => dmstr\helpers\AdminLteHelper::LAYOUT_OPTION_FIXED,
+            ],
+        ],
+    ],
+],
 ```
+
+**Note:** Best way to set layout option is to use options constants from `AdminLteHelper`.
+
+And then just add class specific for layout to body. You can use `AdminLteHelper::layoutHtmlClass()` if you want to get always correct html class and don't want to alter every view file when you change layout option. 
+```html
+<body class="<?= \dmstr\helpers\AdminLteHelper::layoutHtmlClass() ?>">
+```
+
+#### Template Examples
+
+* [Fixed](https://adminlte.io/themes/AdminLTE/pages/layout/fixed.html)
+* [Collapsed Sidebar](https://adminlte.io/themes/AdminLTE/pages/layout/collapsed-sidebar.html)
+* [Boxed Layout](https://adminlte.io/themes/AdminLTE/pages/layout/boxed.html)
+* [Top Navigation](https://adminlte.io/themes/AdminLTE/pages/layout/top-nav.html)
 
 ### Left sidebar menu - Widget Menu
 
