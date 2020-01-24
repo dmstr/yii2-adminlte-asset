@@ -1,7 +1,7 @@
 version: '2'
 services:
   php:
-    image: dmstr/yii2-app:0.5.1
+    image: dmstr/yii2-app:0.6.2
     working_dir: /repo/tests/_app
     volumes:
       - ../:/repo:cached

@@ -5,15 +5,7 @@
 <!-- Sidebar user panel -->
 <div class="user-panel">
     <div class="pull-left image">
-        <?php echo \cebe\gravatar\Gravatar::widget(
-            [
-                'email' => 'username@example.com',
-                'options' => [
-                    'alt' => 'username',
-                ],
-                'size' => 64,
-            ]
-        ); ?>
+        <!-- gravatar image -->
     </div>
     <div class="pull-left info">
         <p>username</p>
@@ -108,7 +100,8 @@ for ($i = 0; $i < 25; $i++) {
     ];
 }
 
-echo dmstr\widgets\Menu::widget([
+// TODO: display menu
+/*echo dmstr\widgets\Menu::widget([
     'items' => \yii\helpers\ArrayHelper::merge($favouriteMenuItems, $menuItems),
-]);
+]);*/
 ?>

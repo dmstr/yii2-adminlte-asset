@@ -30,5 +30,8 @@
             "pattern-skip-version": "(-build|-patch)",
             "optimize-with-installed-packages": true
         }
+    },
+    "require-dev": {
+        "roave/backward-compatibility-check": "^2.0"
     }
 }

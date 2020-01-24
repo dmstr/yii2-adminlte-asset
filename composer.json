@@ -16,8 +16,8 @@
     ],
     "require": {
         "yiisoft/yii2": "2.*",
-        "yiisoft/yii2-bootstrap": "~2.0.0",
-        "almasaeed2010/adminlte": "^2.4.0"
+        "yiisoft/yii2-bootstrap4": "~2.0.8",
+        "almasaeed2010/adminlte": "^3.0.2"
     },
     "suggest": {
         "cebe/yii2-gravatar": "Display user icons",
@@ -38,5 +38,8 @@
         "branch-alias": {
             "dev-master": "3.x-dev"
         }
+    },
+    "require-dev": {
+        "roave/backward-compatibility-check": "^2.0"
     }
 }

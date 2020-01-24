@@ -12,7 +12,7 @@ class AdminLteAsset extends BaseAdminLteAsset
 {
     public $sourcePath = '@vendor/almasaeed2010/adminlte/dist';
     public $css = [
-        'css/AdminLTE.min.css',
+        'css/adminlte.min.css',
     ];
     public $js = [
         'js/adminlte.min.js'

@@ -90,15 +90,7 @@ dmstr\web\AdminLteAsset::register($this);
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header bg-light-blue">
-                                    <?php echo \cebe\gravatar\Gravatar::widget(
-                                        [
-                                            'email'   => 'username@example.com',
-                                            'options' => [
-                                                'alt' => 'username'
-                                            ],
-                                            'size'    => 128
-                                        ]
-                                    ); ?>
+                                    <!-- gravatar image -->
                                     <p>
                                         username
                                         <small>username@example.com</small>
@@ -146,7 +138,7 @@ dmstr\web\AdminLteAsset::register($this);
         <!-- Main content -->
 
         <section class="content">
-            <?= Alert::widget() ?>
+            <?php #echo Alert::widget() ?>
             <?= $content ?>
         </section>
         <!-- /.content -->
