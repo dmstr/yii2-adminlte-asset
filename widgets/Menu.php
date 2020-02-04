@@ -11,24 +11,39 @@ use yii\helpers\Html;
 class Menu extends \yii\widgets\Menu
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
-    public $linkTemplate = '<a href="{url}">{icon} {label}</a>';
+    public $linkTemplate = '<a class="nav-link {active}" href="{url}">{icon} {label}</a>';
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      * Styles all labels of items on sidebar by AdminLTE
      */
-    public $labelTemplate = '<span>{label}</span>';
-    public $submenuTemplate = "\n<ul class='treeview-menu' {show}>\n{items}\n</ul>\n";
+    public $labelTemplate = '<p>{label}</p>';
+    /**
+     * {@inheritdoc}
+     */
+    public $submenuTemplate = "\n<ul class='nav nav-treeview'>\n{items}\n</ul>\n";
+    /**
+     * {@inheritdoc}
+     */
     public $activateParents = true;
-    public $defaultIconHtml = '<i class="fa fa-circle-o"></i> ';
-    public $options = ['class' => 'sidebar-menu', 'data-widget' => 'tree'];
+    public $defaultIconHtml = '<i class="far fa-circle nav-icon"></i> ';
+    /**
+     * {@inheritdoc}
+     */
+    public $options = ['class' => 'nav nav-pills nav-sidebar flex-column', 'data-widget' => 'treeview'];
 
     /**
-     * @var string is prefix that will be added to $item['icon'] if it exist.
-     * By default uses for Font Awesome (http://fontawesome.io/)
+     * @var string is type that will be added to $item['icon'] if it exist.
+     * Font Awesome 5 added different icon types intead of everything starting with "fa fa-"
+     * Possible types are fab (brand), fas (solid), far (regular), fal (light), fad (duotone). 
+     * Some of them are only available for pro version of FA so check the https://fontawesome.com website
      */
-    public static $iconClassPrefix = 'fa fa-';
+    public static $iconClassType = 'fas';
+    /**
+     * @var string
+     */
+    public static $iconClassPrefix = 'fa-';
 
     private $noDefaultAction;
     private $noDefaultRoute;
@@ -66,13 +81,13 @@ class Menu extends \yii\widgets\Menu
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function renderItem($item)
     {
         if (isset($item['items'])) {
-            $labelTemplate = '<a href="{url}">{icon} {label} <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>';
-            $linkTemplate = '<a href="{url}">{icon} {label} <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>';
+            $labelTemplate = '<a class="nav-link ' . ($item['active'] ? 'active' : '') . '" href="{url}">{icon} {label} <i class="right fas fa-angle-left"></i></a>';
+            $linkTemplate = '<a class="nav-link ' . ($item['active'] ? 'active' : '') . '" href="{url}">{icon} {label} <i class="right fas fa-angle-left"></i></a>';
         } else {
             $labelTemplate = $this->labelTemplate;
             $linkTemplate = $this->linkTemplate;
@@ -81,8 +96,9 @@ class Menu extends \yii\widgets\Menu
         $replacements = [
             '{label}' => strtr($this->labelTemplate, ['{label}' => $item['label'],]),
             '{icon}' => empty($item['icon']) ? $this->defaultIconHtml
-                : '<i class="' . static::$iconClassPrefix . $item['icon'] . '"></i> ',
+                : '<i class="nav-icon ' . (isset($item['iconType']) ? $item['iconType'] : static::$iconClassType) . ' ' . static::$iconClassPrefix . $item['icon'] . '"></i> ',
             '{url}' => isset($item['url']) ? Url::to($item['url']) : 'javascript:void(0);',
+            '{active}' => $item['active'] ? $this->activeCssClass : ''
         ];
 
         $template = ArrayHelper::getValue($item, 'template', isset($item['url']) ? $linkTemplate : $labelTemplate);
@@ -102,10 +118,7 @@ class Menu extends \yii\widgets\Menu
         foreach ($items as $i => $item) {
             $options = array_merge($this->itemOptions, ArrayHelper::getValue($item, 'options', []));
             $tag = ArrayHelper::remove($options, 'tag', 'li');
-            $class = [];
-            if ($item['active']) {
-                $class[] = $this->activeCssClass;
-            }
+            $class = ['nav-item'];
             if ($i === 0 && $this->firstItemCssClass !== null) {
                 $class[] = $this->firstItemCssClass;
             }
@@ -122,7 +135,6 @@ class Menu extends \yii\widgets\Menu
             $menu = $this->renderItem($item);
             if (!empty($item['items'])) {
                 $menu .= strtr($this->submenuTemplate, [
-                    '{show}' => $item['active'] ? "style='display: block'" : '',
                     '{items}' => $this->renderItems($item['items']),
                 ]);
 				if (isset($options['class'])) {
@@ -130,6 +142,9 @@ class Menu extends \yii\widgets\Menu
 				} else {
 					$options['class'] = 'treeview';
 				}
+                if($item['active']) {
+                    $options['class'] .= ' menu-open';
+                }
             }
             $lines[] = Html::tag($tag, $menu, $options);
         }
@@ -137,7 +152,7 @@ class Menu extends \yii\widgets\Menu
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function normalizeItems($items, &$active)
     {
