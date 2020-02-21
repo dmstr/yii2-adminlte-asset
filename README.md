@@ -48,7 +48,7 @@ For details see [#140](https://github.com/dmstr/yii2-adminlte-asset/issues/140).
 
 ### Upgrading
 
-When upgrading please see the [AdminLTE upgrade guide](https://adminlte.io/docs/2.4/upgrade-guide) for adjustments you need to make in your views.
+When upgrading please see the [AdminLTE upgrade guide](https://adminlte.io/docs/3.0/upgrade-guide.html) for adjustments you need to make in your views.
 
 ### Composer installation
 
@@ -113,7 +113,7 @@ Customization
 
 ### AdminLTE Plugins
 
-Assets for [AdminLTE plugins](https://almsaeedstudio.com/themes/AdminLTE/documentation/index.html#plugins) are not included
+Assets for [AdminLTE plugins](https://adminlte.io/docs/3.0/dependencies.html#plugins) are not included
 in our `AdminLteAsset` but you can find these files in your vendor directory under `vendor/almasaeed2010/adminlte/plugins`.
 So if you want to use any of them we recommend to create a custom bundle where you list the plugin files you need:
 
@@ -123,16 +123,16 @@ use yii\web\AssetBundle;
 class AdminLtePluginAsset extends AssetBundle
 {
     public $sourcePath = '@vendor/almasaeed2010/adminlte/plugins';
-    public $js = [
-        'datatables/dataTables.bootstrap.min.js',
-        // more plugin Js here
-    ];
     public $css = [
-        'datatables/dataTables.bootstrap.css',
+        'chart.js/Chart.min.css',
         // more plugin CSS here
     ];
+    public $js = [
+        'chart.js/Chart.bundle.min.js'
+        // more plugin Js here
+    ];
     public $depends = [
-        'dmstr\web\AdminLteAsset',
+        'dmstr\adminlte\web\AdminLteAsset',
     ];
 }
 ```
@@ -141,54 +141,7 @@ As this asset depends on our `AdminLteAsset` it's the only asset you have to reg
 your `main.php` layout file.
 
 
-### Skins
-
-By default the extension uses blue skin for AdminLTE. You can change it in config file.
-
-```php
-'components' => [
-    'assetManager' => [
-        'bundles' => [
-            'dmstr\web\AdminLteAsset' => [
-                'skin' => 'skin-black',
-            ],
-        ],
-    ],
-],
-```
-
-And then just replace class of body `skin-blue`. You can use `AdminLteHelper::skinClass()` if you don't want to alter every view file when you change skin color. 
-```html
-<body class="<?= \dmstr\helpers\AdminLteHelper::skinClass() ?>">
-```
-
-**Note:** Use `AdminLteHelper::skinClass()` only if you override the skin through configuration. Otherwise you will not get the correct css class of body.
-
-Here is the list of available skins:
-
-```
-"skin-blue",
-"skin-black",
-"skin-red",
-"skin-yellow",
-"skin-purple",
-"skin-green",
-"skin-blue-light",
-"skin-black-light",
-"skin-red-light",
-"skin-yellow-light",
-"skin-purple-light",
-"skin-green-light"
-```
-
-#### Disabling skin file loading, when using bundled assets
-
-    Yii::$container->set(
-        AdminLteAsset::className(),
-        [
-            'skin' => false,
-        ]
-    );
+### Custom content header
 
 If you want to use native DOM of headers AdminLTE
 
@@ -243,7 +196,7 @@ To add a label for a item:
 ]
 ```
 
-By default to icons will be added prefix of [Font Awesome](http://fontawesome.io/)
+By default to icons will be added prefix of [Font Awesome](https://fontawesome.com/)
 
 ### Template for Gii CRUD generator
 
@@ -288,5 +241,5 @@ Further Information
 
 For AdminLTE documentation, please read https://almsaeedstudio.com/themes/AdminLTE/documentation/index.html
 
-> Namespacing rules follow the Yii 2.0 framework structure, eg. `dmstr\web` for the Asset Bundle.
+> Namespacing rules follow the Yii 2.0 framework structure, eg. `dmstr\adminlte\web` for the Asset Bundle.
  

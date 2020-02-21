@@ -5,7 +5,7 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace dmstr\widgets;
+namespace dmstr\adminlte\widgets;
 
 use yii\bootstrap4\Alert as BootstrapAlert;
 use yii\bootstrap4\Widget;

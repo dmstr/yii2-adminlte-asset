@@ -1,5 +1,6 @@
 <?php
-namespace dmstr\widgets;
+namespace dmstr\adminlte\widgets;
+
 use Yii;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Url;

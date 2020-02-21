@@ -1,5 +1,5 @@
 <?php
-namespace dmstr\web;
+namespace dmstr\adminlte\web;
 
 use yii\web\AssetBundle as BaseAdminLteAsset;
 
