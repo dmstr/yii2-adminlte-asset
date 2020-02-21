@@ -175,11 +175,11 @@ If you need to separate sections of the menu then just add the `li.header` item 
     'items' => [
         ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
         ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
-        ['label' => 'MAIN NAVIGATION', 'options' => ['class' => 'header']], // here
+        ['label' => 'MAIN NAVIGATION', 'header' => true], // here
         // ... a group items
-        ['label' => '', 'options' => ['class' => 'header']],
+        ['label' => '', 'header' => true],
         // ... a group items
-        ['label' => '', 'options' => ['class' => 'header']],
+        ['label' => '', 'header' => true],
         // ... a group items
 ```
 

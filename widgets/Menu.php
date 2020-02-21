@@ -86,6 +86,10 @@ class Menu extends \yii\widgets\Menu
      */
     protected function renderItem($item)
     {
+        if($item['header']) {
+            return $item['label'];
+        }
+
         if (isset($item['items'])) {
             $labelTemplate = '<a class="nav-link ' . ($item['active'] ? 'active' : '') . '" href="{url}">{icon} {label} <i class="right fas fa-angle-left"></i></a>';
             $linkTemplate = '<a class="nav-link ' . ($item['active'] ? 'active' : '') . '" href="{url}">{icon} {label} <i class="right fas fa-angle-left"></i></a>';
@@ -95,7 +99,7 @@ class Menu extends \yii\widgets\Menu
         }
 
         $replacements = [
-            '{label}' => strtr($this->labelTemplate, ['{label}' => $item['label'],]),
+            '{label}' => strtr($this->labelTemplate, ['{label}' => $item['label']]),
             '{icon}' => empty($item['icon']) ? $this->defaultIconHtml
                 : '<i class="nav-icon ' . (isset($item['iconType']) ? $item['iconType'] : static::$iconClassType) . ' ' . static::$iconClassPrefix . $item['icon'] . '"></i> ',
             '{url}' => isset($item['url']) ? Url::to($item['url']) : 'javascript:void(0);',
@@ -119,7 +123,7 @@ class Menu extends \yii\widgets\Menu
         foreach ($items as $i => $item) {
             $options = array_merge($this->itemOptions, ArrayHelper::getValue($item, 'options', []));
             $tag = ArrayHelper::remove($options, 'tag', 'li');
-            $class = ['nav-item'];
+            $class = $item['header'] ? ['nav-header'] : ['nav-item'];
             if ($i === 0 && $this->firstItemCssClass !== null) {
                 $class[] = $this->firstItemCssClass;
             }
@@ -168,6 +172,7 @@ class Menu extends \yii\widgets\Menu
             $encodeLabel = isset($item['encode']) ? $item['encode'] : $this->encodeLabels;
             $items[$i]['label'] = $encodeLabel ? Html::encode($item['label']) : $item['label'];
             $items[$i]['icon'] = isset($item['icon']) ? $item['icon'] : '';
+            $items[$i]['header'] = ArrayHelper::getValue($item, 'header', false);
             $hasActiveChild = false;
             if (isset($item['items'])) {
                 $items[$i]['items'] = $this->normalizeItems($item['items'], $hasActiveChild);
