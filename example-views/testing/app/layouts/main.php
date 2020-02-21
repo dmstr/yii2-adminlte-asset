@@ -1,156 +1,209 @@
 <?php
+
 use dmstr\widgets\Alert;
 use yii\helpers\Html;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
+
 $this->title = $this->title . ' [Backend]';
-dmstr\web\AdminLteAsset::register($this);
+dmstr\adminlte\web\AdminLteAsset::register($this);
+dmstr\adminlte\web\FontAwesomeAsset::register($this);
 ?>
 
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html>
+<html lang="<?= Yii::$app->language ?>">
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="<?= Yii::$app->charset ?>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
-    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    <!-- Ionicons -->
-    <link href="//code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" rel="stylesheet" type="text/css"/>
-    <!-- Theme style -->
     <?php $this->head() ?>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
 </head>
 
-<body class="hold-transition skin-black sidebar-mini">
-<?php $this->beginBody() ?>
+<body class="sidebar-mini">
+    <?php $this->beginBody() ?>
 
-<div class="wrapper">
+    <div class="wrapper">
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="/" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="#" class="nav-link">Contact</a>
+                </li>
+            </ul>
 
-    <header class="main-header">
-        <!-- Logo -->
-        <a href="<?= \Yii::$app->homeUrl ?>" class="logo"><?= getenv('APP_TITLE') ?></a>
-        <!-- Header Navbar: style can be found in header.less -->
-        <nav class="navbar navbar-static-top" role="navigation">
-            <!-- Sidebar toggle button-->
-            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-                <span class="sr-only">Toggle navigation</span>
-            </a>
+            <!-- SEARCH FORM -->
+            <form class="form-inline ml-3">
+                <div class="input-group input-group-sm">
+                    <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                    <div class="input-group-append">
+                        <button class="btn btn-navbar" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
 
-            <div class="navbar-custom-menu">
-                <ul class="nav navbar-nav">
-                        <!-- Messages: style can be found in dropdown.less-->
-                        <li class="dropdown messages-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-envelope-o"></i>
-                                <span class="label label-success">1</span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="header">You have 1 notification(s)</li>
-                                <li>
-                                    <!-- inner menu: contains the actual data -->
-                                    <ul class="menu">
-                                        <li>
-                                            <a href="#">
-                                                <i class="ion ion-ios7-people info"></i> Welcome to Phundament 4!
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <!-- Messages Dropdown Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
+                        <i class="far fa-comments"></i>
+                        <span class="badge badge-danger navbar-badge">1</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <a href="#" class="dropdown-item">
+                            <!-- Message Start -->
+                            <div class="media">
+                                <?= \cebe\gravatar\Gravatar::widget(
+                                    [
+                                        'email' => 'username@example.com',
+                                        'options' => [
+                                            'alt' => 'User Avatar',
+                                            'class' => 'img-size-50 img-circle mr-3'
+                                        ],
+                                        'size' => 128
+                                    ]
+                                ); ?>
+                                <div class="media-body">
+                                    <h3 class="dropdown-item-title">
+                                        Brad Diesel
+                                        <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                                    </h3>
+                                    <p class="text-sm">Call me whenever you can...</p>
+                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                                </div>
+                            </div>
+                            <!-- Message End -->
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+                    </div>
+                </li>
+                <!-- Notifications Dropdown Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <i class="far fa-bell"></i>
+                        <span class="badge badge-warning navbar-badge">15</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <span class="dropdown-header">15 Notifications</span>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-envelope mr-2"></i> 4 new messages
+                            <span class="float-right text-muted text-sm">3 mins</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-users mr-2"></i> 8 friend requests
+                            <span class="float-right text-muted text-sm">12 hours</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-file mr-2"></i> 3 new reports
+                            <span class="float-right text-muted text-sm">2 days</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown user-menu">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <?= \cebe\gravatar\Gravatar::widget(
+                            [
+                                'email' => 'username@example.com',
+                                'options' => [
+                                    'alt' => 'User Image',
+                                    'class' => 'user-image img-circle elevation-2'
+                                ],
+                                'size' => 128
+                            ]
+                        ); ?>
+                        <span class="d-none d-md-inline">username</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <!-- User image -->
+                        <li class="user-header bg-primary">
+                            <?= \cebe\gravatar\Gravatar::widget(
+                                [
+                                    'email' => 'username@example.com',
+                                    'options' => [
+                                        'alt' => 'User Image',
+                                        'class' => 'user-image img-circle elevation-2'
+                                    ],
+                                    'size' => 128
+                                ]
+                            ); ?>
+
+                            <p>
+                                username
+                                <small>username@example.com</small>
+                            </p>
                         </li>
-                        <li class="dropdown tasks-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-flag"></i>
-                                <span class="label label-default">n/a</span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="header">Languages</li>
-                                <li>
-                                    <!-- inner menu: contains the actual data -->
-                                    <ul class="menu">
-                                        languages
-                                    </ul>
-                                </li>
-                            </ul>
+                        <!-- Menu Footer-->
+                        <li class="user-footer">
+                            <?= Html::a('Profile', ['/user/settings/profile'], [
+                                'class' => 'btn btn-default btn-flat'
+                            ]); ?>
+                            <?= Html::a('Sign out', ['/user/security/logout'], [
+                                'class' => 'btn btn-default btn-flat float-right',
+                                'data-method' => 'post'
+                            ]); ?>
                         </li>
-                        <!-- User Account: style can be found in dropdown.less -->
-                        <li class="dropdown user user-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="glyphicon glyphicon-user"></i>
-                                <span>Username <i class="caret"></i></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <!-- User image -->
-                                <li class="user-header bg-light-blue">
-                                    <!-- gravatar image -->
-                                    <p>
-                                        username
-                                        <small>username@example.com</small>
-                                    </p>
-                                </li>
-                                <!-- Menu Footer-->
-                                <li class="user-footer">
-                                    <div class="pull-left">
-                                        <a href="<?= \yii\helpers\Url::to(['/user/settings/profile']) ?>"
-                                           class="btn btn-default btn-flat">Profile</a>
-                                    </div>
-                                    <div class="pull-right">
-                                        <a href="<?= \yii\helpers\Url::to(['/user/security/logout']) ?>"
-                                           class="btn btn-default btn-flat" data-method="post">Sign out</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-                </ul>
-            </div>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"><i class="fas fa-th-large"></i></a>
+                </li>
+            </ul>
         </nav>
-    </header>
-    <!-- Left side column. contains the logo and sidebar -->
-    <aside class="main-sidebar">
-        <!-- sidebar: style can be found in sidebar.less -->
-        <section class="sidebar">
-            <?= $this->render('_sidebar') ?>
-        </section>
-        <!-- /.sidebar -->
-    </aside>
 
-    <!-- Right side column. Contains the navbar and content of the page -->
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <h1>
-                <small><?= $this->title ?></small>
-            </h1>
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li class="active">Dashboard</li>
-            </ol>
-        </section>
+        <?= $this->render('_sidebar') ?>
 
-        <!-- Main content -->
+        <div class="content-wrapper">
+            <!-- Main content -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0 text-dark"><?= $this->title; ?></h1>
+                        </div><!-- /.col -->
 
-        <section class="content">
-            <?php #echo Alert::widget() ?>
-            <?= $content ?>
-        </section>
-        <!-- /.content -->
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active">Dashboard</li>
+                            </ol>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+
+            <section class="content">
+                <?php // Alert::widget(); ?>
+                <?= $content; ?>
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        <footer class="main-footer">
+            Powered by <strong><a href="http://phundament.com">Phundament 4</a></strong>
+        </footer>
     </div>
-    <!-- /.content-wrapper -->
-    <footer class="main-footer">
-        Powered by <strong><a href="http://phundament.com">Phundament 4</a></strong>
-    </footer>
-</div>
-<!-- ./wrapper -->
+    <!-- ./wrapper -->
 
-<?php $this->endBody() ?>
+    <?php $this->endBody() ?>
 </body>
+
 </html>
 <?php $this->endPage() ?>

@@ -27,6 +27,7 @@ class TestController extends Controller
 
     public function actionLogin()
     {
+        $this->layout = '@repo/example-views/testing/app/layouts/login';
         return $this->render('@repo/example-views/testing/app/security/login');
     }
 }

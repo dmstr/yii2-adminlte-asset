@@ -32,6 +32,7 @@
         }
     },
     "require-dev": {
-        "roave/backward-compatibility-check": "^2.0"
+        "roave/backward-compatibility-check": "^2.0",
+        "cebe/yii2-gravatar": "^1.1"
     }
 }
