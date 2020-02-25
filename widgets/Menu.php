@@ -28,7 +28,7 @@ class Menu extends \yii\widgets\Menu
      * {@inheritdoc}
      */
     public $activateParents = true;
-    public $defaultIconHtml = '<i class="far fa-circle nav-icon"></i> ';
+    public $defaultIconHtml = '<i class="fas fa-circle nav-icon"></i> ';
     /**
      * {@inheritdoc}
      */
