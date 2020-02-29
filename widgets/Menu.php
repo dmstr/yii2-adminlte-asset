@@ -19,7 +19,7 @@ class Menu extends \yii\widgets\Menu
      * {@inheritdoc}
      * Styles all labels of items on sidebar by AdminLTE
      */
-    public $labelTemplate = '<p>{label}</p>';
+    public $labelTemplate = '<p>{label} {badge} {submenu}</p>';
     /**
      * {@inheritdoc}
      */
@@ -39,6 +39,7 @@ class Menu extends \yii\widgets\Menu
      * Font Awesome 5 added different icon types intead of everything starting with "fa fa-"
      * Possible types are fab (brand), fas (solid), far (regular), fal (light), fad (duotone). 
      * Some of them are only available for pro version of FA so check the https://fontawesome.com website
+     * @since 3.0
      */
     public static $iconClassType = 'fas';
     /**
@@ -90,20 +91,26 @@ class Menu extends \yii\widgets\Menu
             return $item['label'];
         }
 
+        $submenu = '';
+
         if (isset($item['items'])) {
-            $labelTemplate = '<a class="nav-link ' . ($item['active'] ? 'active' : '') . '" href="{url}">{icon} {label} <i class="right fas fa-angle-left"></i></a>';
-            $linkTemplate = '<a class="nav-link ' . ($item['active'] ? 'active' : '') . '" href="{url}">{icon} {label} <i class="right fas fa-angle-left"></i></a>';
+            $submenu = '<i class="right fas fa-angle-left"></i>';
+            $labelTemplate = '<a class="nav-link ' . ($item['active'] ? 'active' : '') . '" href="{url}">{icon} {label}</a>';
+            $linkTemplate = '<a class="nav-link ' . ($item['active'] ? 'active' : '') . '" href="{url}">{icon} {label}</a>';
         } else {
             $labelTemplate = $this->labelTemplate;
             $linkTemplate = $this->linkTemplate;
         }
 
         $replacements = [
-            '{label}' => strtr($this->labelTemplate, ['{label}' => $item['label']]),
+            '{label}' => strtr($this->labelTemplate, ['{label}' => $item['label'], '{badge}' => $item['badge'], '{submenu}' => $submenu]),
             '{icon}' => empty($item['icon']) ? $this->defaultIconHtml
                 : '<i class="nav-icon ' . (isset($item['iconType']) ? $item['iconType'] : static::$iconClassType) . ' ' . static::$iconClassPrefix . $item['icon'] . '"></i> ',
             '{url}' => isset($item['url']) ? Url::to($item['url']) : 'javascript:void(0);',
-            '{active}' => $item['active'] ? $this->activeCssClass : ''
+            '{active}' => $item['active'] ? $this->activeCssClass : '',
+            // If item doesn't have url, make sure these placeholders get removed from output
+            '{badge}' => '',
+            '{submenu}' => ''
         ];
 
         $template = ArrayHelper::getValue($item, 'template', isset($item['url']) ? $linkTemplate : $labelTemplate);
@@ -173,6 +180,7 @@ class Menu extends \yii\widgets\Menu
             $items[$i]['label'] = $encodeLabel ? Html::encode($item['label']) : $item['label'];
             $items[$i]['icon'] = isset($item['icon']) ? $item['icon'] : '';
             $items[$i]['header'] = ArrayHelper::getValue($item, 'header', false);
+            $items[$i]['badge'] = isset($item['badge']) ? $item['badge'] : '';
             $hasActiveChild = false;
             if (isset($item['items'])) {
                 $items[$i]['items'] = $this->normalizeItems($item['items'], $hasActiveChild);

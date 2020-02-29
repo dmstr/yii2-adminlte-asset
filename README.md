@@ -154,7 +154,7 @@ If you want to use native DOM of headers AdminLTE
 then you can follow the code:
 
 ```php
-/* @var $this yii\web\View */
+/* @var yii\web\View $this */
 
 $this->params['breadcrumbs'][] = 'About';
 
@@ -170,11 +170,11 @@ About <small>static page</small>
 
 ### Left sidebar menu - Widget Menu
 
-If you need to separate sections of the menu then just add the `li.header` item to `items`
+If you need to separate sections of the menu then just add the `header` option to item in `items`
 ```php
     'items' => [
-        ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
-        ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
+        ['label' => 'Gii', 'iconType' => 'far' 'icon' => 'file-code', 'url' => ['/gii']],
+        ['label' => 'Debug', 'icon' => 'dashboard-alt', 'url' => ['/debug']],
         ['label' => 'MAIN NAVIGATION', 'header' => true], // here
         // ... a group items
         ['label' => '', 'header' => true],
@@ -183,15 +183,16 @@ If you need to separate sections of the menu then just add the `li.header` item 
         // ... a group items
 ```
 
-To add a label for a item:
+To add a badge for a item:
 
 ```php
 'items' => [
     [
         'label' => 'Mailbox',
-        'icon' => 'envelope-o',
+        'iconType' => 'far',
+        'icon' => 'envelope',
         'url' => ['/mailbox'],
-        'template'=>'<a href="{url}">{icon} {label}<span class="pull-right-container"><small class="label pull-right bg-yellow">123</small></span></a>'
+        'badge' => '<span class="badge badge-info right">123</span>'
     ],
 ]
 ```
@@ -203,7 +204,7 @@ By default to icons will be added prefix of [Font Awesome](https://fontawesome.c
 Tell Gii about our template. The setting is made in the config file:
 
 ```php
-if (YII_ENV_DEV) {    
+if (YII_ENV_DEV) {
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
         'generators' => [ // HERE
