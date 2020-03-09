@@ -5,10 +5,10 @@ return [
     'aliases' => [
         'repo' => '/repo',
         'tests/app' => '@repo/tests/_app',
-        'dmstr' => '/repo',
-        '@dmstr/web' => '/repo/web',
-        '@dmstr/widgets' => '/repo/widgets',
-        '@dmstr/helpers' => '/repo/helpers',
+        'dmstr/adminlte' => '@repo',
+        '@dmstr/adminlte/web' => '@dmstr/adminlte/web',
+        '@dmstr/adminlte/widgets' => '@dmstr/adminlte/widgets',
+        '@dmstr/adminlte/helpers' => '@dmstr/adminlte/helpers',
     ],
     'controllerNamespace' => 'tests\app\controllers',
     'components' => [

@@ -1,6 +1,11 @@
 CHANGELOG
 ---------
 
+## Unreleased (3.0)
+ * updated example views, widgets and assets to AdminLTE 3
+ * changed namespace to `dmstr/adminlte`
+ * added `iconClassType` to `Menu` widget to support different types of FontAwesome 5 icons
+
 ## 2.6.0
  * added default options for menu (CSS classes)
  * updated test environment

@@ -25,7 +25,7 @@
     },
     "autoload": {
         "psr-4": {
-            "dmstr\\": ""
+            "dmstr\\adminlte\\": ""
         }
     },
     "repositories": [
