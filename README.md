@@ -132,7 +132,7 @@ class AdminLtePluginAsset extends AssetBundle
         // more plugin Js here
     ];
     public $depends = [
-        'dmstr\adminlte\web\AdminLteAsset',
+        'dmstr\web\AdminLteAsset',
     ];
 }
 ```
