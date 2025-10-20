@@ -20,8 +20,8 @@ class AdminLteAsset extends BaseAdminLteAsset
     public $depends = [
         'rmrevin\yii\fontawesome\AssetBundle',
         'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
-        'yii\bootstrap\BootstrapPluginAsset',
+        'yii\bootstrap5\BootstrapAsset',
+        'yii\bootstrap5\BootstrapPluginAsset',
     ];
 
     /**

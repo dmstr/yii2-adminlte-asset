@@ -1,9 +1,9 @@
 <?php
 use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
+use yii\bootstrap5\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $form yii\bootstrap\ActiveForm */
+/* @var $form yii\bootstrap5\ActiveForm */
 /* @var $model \common\models\LoginForm */
 
 $this->title = 'Sign In';

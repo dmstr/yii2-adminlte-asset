@@ -7,8 +7,8 @@
 
 namespace dmstr\widgets;
 
-use yii\bootstrap\Alert as BootstrapAlert;
-use yii\bootstrap\Widget;
+use yii\bootstrap5\Alert as BootstrapAlert;
+use yii\bootstrap5\Widget;
 
 /**
  * Alert widget renders a message from session flash for AdminLTE alerts. All flash messages are displayed
@@ -69,7 +69,7 @@ class Alert extends Widget
      * @var boolean whether to removed flash messages during AJAX requests
      */
     public $isAjaxRemoveFlash = true;
-    
+
     /**
      * Initializes the widget.
      * This method will register the bootstrap asset bundle. If you override this method,
